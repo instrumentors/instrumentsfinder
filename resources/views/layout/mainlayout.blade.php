@@ -8,6 +8,11 @@
     <meta name="robots" content="noindex">
 
     <meta name="googlebot" content="noindex">
+
+    <meta name="yandex-verification" content="a0367cdacd50107b" />
+   
+    <link rel="canonical" href="http://site.com/canonical-link.html"/>
+
     <!--Remove these tages when site goes live -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,12 +28,14 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 
-    <title>InstrumentFi</title>
+
+
+    <title>InstrumentFinder</title>
   </head>
   <body>
     <div class="container">
     @include('layout.partials.nav')
-
+    
     @yield("content")
   </div>
 

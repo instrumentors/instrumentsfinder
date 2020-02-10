@@ -5,32 +5,55 @@
 
 <!--protected $fillable=['order_id','name','email','enquiry_desc','reseller_price','bulk_price','country','country_code','country_flag','country_emoji','city','lat','lon'];-->
 
+<div class="container">
+  <div class="row">
 @if(isset($leads))
-<table class="table">
+<div class="col-md-10 col-sm-6">
+<div class="table-responsive">
+<h3>Leads </h3>
+
+<table class="table table-sm small">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">#</th>
+      
       <th scope="col">Order ID </th>
+      <th scope="col">Date </th>
       <th scope="col">Email</th>
-      <th scope="col">Enquiry Desc</th>
       <th scope="col">Shipping to</th>
-      <th scope="col">Lead from :Country</th>
-      <th scope="col">Lead from : city</th>
+      
+      
     </tr>
   </thead>
   <tbody class="thead-light">
   	@foreach($leads as $lead)
+    
+    <?php
+
+    
+    $lead_date = date('d-M',strtotime($lead->created_at));
+
+    ?>
+
     <tr>
-      <th scope="row">1</th>
-      <td>{{$lead->order_id}} <a href="/lead/{{$lead->order_id}}">View order</a></td>
+      
+      <td><a href="/lead/{{$lead->order_id}}">{{$lead->order_id}} </a></td>
+      <td>{{$lead_date}}</td>
       <td>{{$lead->email}}</td>
-      <td>{{$lead->enquiry_desc}}</td>
       <td>{{$lead->country_shipping}}</td>
-      <td>{{$lead->country}} | {{$lead->country_emoji}}</td>
-      <td>{{$lead->city}}</td>
+      
+      
     </tr>
     @endforeach
+    </tbody>
+   </table> 
+ </div>
+</div>
+</div>
+{{$leads->links()}}
 @endif 
 
+
+
+</div>
 
 @endsection

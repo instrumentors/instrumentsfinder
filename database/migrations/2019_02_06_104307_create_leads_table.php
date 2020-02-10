@@ -31,6 +31,8 @@ class CreateLeadsTable extends Migration
             $table->string('city')->default("N");
             $table->string('lat')->default("N");
             $table->string('lon')->default("N");
+            $table->float('leads_total_price')->default(0);
+            $table->string('status')->default("NEW");
 
 
         });

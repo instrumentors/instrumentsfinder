@@ -1,8 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
+     <meta charset=UTF-8>
 
     <!--Remove these tages when site goes live -->
     <meta name="robots" content="noindex">
@@ -15,7 +16,12 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
      
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+      <!-- Main Quill library -->
+
+
+
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
@@ -24,12 +30,16 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 
     <title>InstrumentFinder</title>
+
+  
+
   </head>
   <body>
-    <div class="container">
     @include('layout.partials.admin_nav')
-    @yield("content")
-  </div>
+    <div class="container">
+    
+      @yield("content")
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -20,6 +20,9 @@ class CreateLeadOptionsTable extends Migration
             $table->string('product_id')->default("0000");
             $table->string('option_id')->default("0000");
             $table->string('variant_id')->default("0000");
+            $table->float('variant_price')->default(0);
+            $table->float('variant_cost')->default(0);
+
         });
     }
 

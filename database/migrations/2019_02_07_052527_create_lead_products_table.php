@@ -20,6 +20,8 @@ class CreateLeadProductsTable extends Migration
             $table->string('product_id')->default("0000");
             $table->string('source_product_id')->default("0000");
             $table->integer('quantity')->default(1);
+            $table->float('product_base_price')->default(0);
+            $table->float('product_discount')->default(0);
             
         });
     }

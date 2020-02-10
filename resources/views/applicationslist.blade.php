@@ -4,25 +4,8 @@
 @section('content')
 
 
-<div class="breadcrumbs-section plr-120 mb-20">
-            <div class="breadcrumbs overlay-bg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="breadcrumbs-inner">
-                                <h1 class="breadcrumbs-title">Applications</h1>
-                                <ul class="breadcrumb-list">
-                                    <li><a href="/">Home</a></li>
-                                    
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-<div id="page-content" class="page-wrapper">
+           
 
 @if(isset($applications))
             <!-- SHOP SECTION START -->
@@ -127,12 +110,12 @@
                          <!--left side bar-->
                         <div class="col-md-3 col-md-pull-9 col-xs-12">
                             <!-- widget-search -->
-                            <aside class="widget-search mb-30">
+                            <!--<aside class="widget-search mb-30">
                                 <form action="#">
                                     <input type="text" placeholder="Search here...">
                                     <button type="submit"><i class="zmdi zmdi-search"></i></button>
                                 </form>
-                            </aside>
+                            </aside>-->
                             
                             <!-- operating-system -->
                             @if(isset($applications))

@@ -181,9 +181,9 @@ hr.mtb-40 {
   border-top: 0px;
 }
 label {
-  color: #999;
+  color: #666;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
 }
 *::-moz-selection {
   background: #4fc1f0;

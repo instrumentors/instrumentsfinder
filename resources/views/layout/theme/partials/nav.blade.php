@@ -40,7 +40,7 @@
             <div id="sticky-header" class="header-middle-area plr-185">
                 <div class="container-fluid">
                     <div class="full-width-mega-dropdown">
-                        <div class="row">
+                        <div class="row" style="margin-bottom: 0px;">
                             <!-- logo -->
                             <div class="col-md-2 col-sm-6 col-xs-12">
                                 <div class="logo">
@@ -57,42 +57,60 @@
                                         <li><a href="/categories">Categories</a></li>
                                         <li><a href="/brands">Brands</a></li>
                                         <li><a href="/applications">Applications</a></li>
-                                        <li>
+                                        <!--<li>
                                             <a href="http://demo.devitems.com/subas-preview/subas/about.html">About us</a>
                                         </li>
                                         <li>
                                             <a href="http://demo.devitems.com/subas-preview/subas/contact.html">Contact</a>
-                                        </li>
+                                        </li>-->
                                     </ul>
                                 </nav>
+                                
                             </div>
                             <!-- header-search & total-cart -->
                             <div class="col-md-2 col-sm-6 col-xs-12">
                                 <div class="search-top-cart  f-right">
-                                    <!-- header-search -->
-                                    <div class="header-search f-left">
-                                        <div class="header-search-inner">
-                                           <button class="search-toggle">
-                                            <i class="zmdi zmdi-search"></i>
-                                           </button>
-                                            <form action="elements-tab.html#">
-                                                <div class="top-search-box">
-                                                    <input type="text" placeholder="Search here your product...">
-                                                    <button type="submit">
-                                                        <i class="zmdi zmdi-search"></i>
-                                                    </button>
-                                                </div>
-                                            </form> 
+                                   
+                                    <!-- total-cart -->
+                                    <div class="total-cart f-left">
+                                        <div class="total-cart-in">
+                                            <div class="cart-toggler">
+                                                <a href="#">
+                                                    <span class="cart-quantity"></span><br>
+                                                    <span class="cart-icon">
+                                                        <i class="zmdi zmdi-shopping-cart-plus"></i>
+                                                    </span>
+                                                </a>                            
+                                            </div>
+                                            
                                         </div>
                                     </div>
-                                    <!-- total-cart -->
-                                    
                                 </div>
                             </div>
+                        </div><!--enf of row-->
+
+
+                       <div class="row" style="padding:8px;background-color: #222;height:60px;margin-bottom:20px;">
+
+
+                        <div class="col">
+                                <div class="form-group" style="padding-left:50px; padding-right:50px;">
+    
+    <input class="typeahead" type="text" id="search_text" placeholder="search for a product, category or brand" style="background:#444444;color:#eee;">
+    <span class="fa fa-search form-control-feedback"></span>
+        </div>
                         </div>
+                        </div>
+                                    
+                                   
+                                
+
                     </div>
                 </div>
+                   
+
             </div>
+ 
         </header>
         <!-- END HEADER AREA -->
 
@@ -116,31 +134,65 @@
             </div>
         </div>
         <!-- END MOBILE MENU AREA -->
+<?php
 
+    $page="";
+    $pageheader="";
+    $linksarray=array("Home"=>"/");
+    if(count($url_array)==1)
+        $page="home";
+    else
+    if(count($url_array)==2)    
+    {
+        $pageheader=$url_array[1];
+        $linksarray=array("Home"=>"/");
+    }
+    else
+    if(count($url_array)==3)    
+    {
+        $pageheader=str_replace("-"," ",$url_array[2]);
+        $pageheader=str_replace("%20"," ",$pageheader);
+
+        if($url_array[1]=="category")
+            $linksarray=array("Home"=>"/","Categories"=>"/categories");
+        if($url_array[1]=="brand")
+            $linksarray=array("Home"=>"/","Brands"=>"/brands");
+        if($url_array[1]=="application")
+            $linksarray=array("Home"=>"/","Applications"=>"/applications");
+
+    }
+    else
+    if(count($url_array)==4)    
+    {
+        $page="productdetail";
+    }
+
+?>
         <!-- BREADCRUMBS SETCTION START -->
-        <!--<div class="breadcrumbs-section plr-200 mb-80">
+        @if($page!="home" && $page!="productdetail")
+        <div class="breadcrumbs-section plr-200 mb-20">
             <div class="breadcrumbs overlay-bg">
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="breadcrumbs-inner">
-                                <h1 class="breadcrumbs-title">Tab</h1>
+                                <h1 class="breadcrumbs-title">{{$pageheader}}</h1>
                                 <ul class="breadcrumb-list">
-                                    <li><a href="http://demo.devitems.com/subas-preview/subas/index.html">Home</a></li>
-                                    <li>Tab</li>
+                                    @foreach($linksarray as $key=>$value)
+                                    <li><a href="{{$value}}">{{$key}}</a></li>
+                                    
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>-->
+        </div>
+        @endif
         <!-- BREADCRUMBS SETCTION END --> 
 
-        <!-- Start page content -->
-        <section id="page-content" class="page-wrapper">
-            
-            <div class="mb-80">
+        
 
-            <div class="container">
+      
 

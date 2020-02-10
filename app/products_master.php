@@ -11,7 +11,7 @@ class products_master extends Model
 	protected $table = 'products_master';
     //
     protected $fillable=[
-	'productname',
+	'name',
 	'brand',
 	'prod_id',
 	'source_prod_id',
@@ -25,6 +25,7 @@ class products_master extends Model
 	'listprice',
 	'startingprice',
 	'img',
+	'thumbnail',
 	'short_desc',
 	'long_desc',
 	'features',
@@ -42,9 +43,40 @@ class products_master extends Model
          return $array->toArray();
 	}
 
+
+	public function getAllProducts()
+	{
+		$array = $this->get();
+
+		return $array->toArray();	
+	}
+
+
+	public function getProductsForSitemap($index)
+	{
+		$array = $this->where('id','>',0)->paginate(500,['*'],'page',$index);
+		
+		return $array->toArray()["data"];	
+	}
+
+
+	public function getRandomProducts()
+	{
+		return $this->inRandomOrder()->take(6)->get();
+		
+
+	}
+
+
+	public function getRandomBrands()
+	{
+		$array = $this->select("brand")->selectraw("count('name') as total")->groupBy("brand")->inRandomOrder()->take(12)->get();
+         return $array->toArray();
+	}
+
 	public function getSearchResults($query)
 	{
-		return $this->where('productname','LIKE','%'.$query.'%')->get();
+		return $this->where('name','LIKE','%'.$query.'%')->get();
 	}
 
 	public function getProductsByCat($cat)
@@ -61,20 +93,56 @@ class products_master extends Model
 		$catmaster = new category_master;
 		$pids=$catmaster->getProdIdbyCatSlug($cat_slug);
 
-		return $this->wherein('prod_id',$pids)->get();
+		return $this->wherein('prod_id',$pids)->paginate(30);
 	}
 
-	public function getProductsByBrandName($brandname)
+	public function getBrandsByCatSlug($cat_slug)
 	{
-		return $this->where("brand",$brandname)->get();
+		$catmaster = new category_master;
+		$pids=$catmaster->getProdIdbyCatSlug($cat_slug);
+
+		return $this->select("brand")->wherein('prod_id',$pids)->distinct()->get();
 	}
+
+	public function getProductsByBrandName($brandname,$category_slug=null)
+	{
+		if($category_slug!=null)
+		{
+			$catmaster = new category_master;
+			$pids=$catmaster->getProdIdbyCatSlug($category_slug);
+
+			return $this->where("brand",$brandname)->wherein('prod_id',$pids)->paginate(12);
+		}
+		else	
+			return $this->where("brand",$brandname)->paginate(30);
+	}
+
+	public function getCatIDsByBrand($brandname)
+	{
+		$cids=$this->select('cat1','cat2','cat3')->where("brand",$brandname)->get()->toArray();
+		$catmaster = new category_master;
+
+		return $catmaster->select('name','slug')->wherein('cat_id',$cids)->distinct()->get();
+	}
+
 
 	public function getProductsByAppSlug($app_slug)
 	{
 		$appmaster = new applications_master;
 		$pids=$appmaster->getProdIdbyAppSlug($app_slug);
 
-		return $this->wherein('prod_id',$pids)->get();
+		return $this->wherein('prod_id',$pids)->paginate(30);
+	}
+
+	public function getCatIDsByAppSlug($app_slug)
+	{
+		$appmaster = new applications_master;	
+		$pids=$appmaster->getProdIdbyAppSlug($app_slug);
+
+		$cids=$this->select('cat1','cat2','cat3')->wherein('prod_id',$pids)->get()->toArray();
+		$catmaster = new category_master;
+
+		return $catmaster->select('name','slug')->wherein('cat_id',$cids)->distinct()->get();
 	}
 
 	public function getProductByID($prodID)

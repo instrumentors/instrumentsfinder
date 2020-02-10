@@ -3,44 +3,6 @@
 
 @section('content')
 
-
-<?php
-$cat_name="";
-
-//print_r($productlistings);
-?>
-
-@if(isset($categoriesblock))
-<?php
-  $cat_name=$categoriesblock[0]["name"];
-?>  
-@endif
-
-@if(isset($brandsblock))
-<?php
-  $cat_name=$brandsblock[0]["name"];
-?>  
-@endif
-
-
-<div class="breadcrumbs-section plr-120 mb-20">
-    <div class="breadcrumbs overlay-bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="breadcrumbs-inner">
-                        <h1 class="breadcrumbs-title">{{$cat_name}}</h1>
-                        <ul class="breadcrumb-list">
-                            <li><a href="/">Home</a></li>
-                            <li>{{$cat_name}}</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div id="page-content" class="page-wrapper">
 
             <!-- SHOP SECTION START -->
@@ -84,18 +46,17 @@ $cat_name="";
   ?>
                                             <!-- product-item start -->
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <div class="product-item">
-                                                    <div class="product-img">
+                                                <div class="product-item" ">
+                                                    
+                                                    <div class="product-info" style="background:#ffffff;border:1px dotted;padding:15px;">
                                                         <a href="single-product.html">
-                                                            <img src="img/product/7.jpg" alt="">
+                                                            <img src="{{$productlisting->thumbnail}} " alt="" style='margin:auto;height: auto;;width: auto; max-width: 64px;height: 64;'>
                                                         </a>
-                                                    </div>
-                                                    <div class="product-info">
                                                         <h6 class="product-title">
                                                              <a href="/product/{{$productlisting->prod_id}}/{{$prodslug}}">{{$productlisting->name}} </a>
                                                         </h6>
                                                         
-                                                        <h3 class="pro-price">{{$productlisting->brand}}</h3>
+                                                        <h6 class="pro-price">{{$productlisting->brand}}</h6>
                                                        
                                                     </div>
                                                 </div>
@@ -121,25 +82,25 @@ $cat_name="";
 
   ?>
 
-                                            <div class="col-md-12">
-                                                <div class="shop-list product-item" style="height:200px;">
+                                            <div class="col-md-11" style="border: dotted 1px;background-color: #fefefe;margin-left:10px;margin-bottom:20px;padding:10px;">
+
+                                                <div class="col-1">
                                                     <div class="product-img" style="margin:auto;">
                                                         <a href="/product/{{$productlisting->prod_id}}/{{$prodslug}}">
-                                                            <img src="{{$productlisting->img}}" alt="" style='height: auto;;width: auto; max-width: 200px;height: 200px;'>
+                                                            <img src="{{$productlisting->thumbnail}}" alt="" style='margin:auto;height: auto;;width: auto; max-width: 64px;height: 64;'>
                                                         </a>
                                                     </div>
-                                                    <div class="product-info">
-                                                        <div class="clearfix">
+                                                </div>
+                                                <div class="col-8">
+                                                    <div class="clearfix">
                                                             <h6 class="product-title f-left">
                                                                <a href="/product/{{$productlisting->prod_id}}/{{$prodslug}}">{{$productlisting->name}} </a>
                                                             </h6>
                                                             
                                                         </div>
-                                                        <h6 class="brand-name mb-30">{{$productlisting->brand}}</h6>
+                                                    <h6 class="brand-name" style="margin-left:5px;">{{$productlisting->brand}} <i>[as reseller]</i></h6>
                                                         
-                                                        <p>{{$productlisting->short_desc}}</p>
-                                                        
-                                                    </div>
+                                                        <p style="color:#333;">{{$productlisting->short_desc}}</p>
                                                 </div>
                                             </div>
                                             @endforeach
@@ -159,7 +120,7 @@ $cat_name="";
                         <!--left side bar-->
                         <div class="col-md-3 col-md-pull-9 col-xs-12">
                             <!-- widget-search -->
-                            <aside class="widget-search mb-30">
+                            <!--<aside class="widget-search mb-30">
                                 <form action="#">
                                     <input type="text" placeholder="Search here...">
                                     <button type="submit"><i class="zmdi zmdi-search"></i></button>

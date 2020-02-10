@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class category_master extends Model
 {
-    protected $fillable =['prod_id','name'];
+    protected $fillable =['cat_id','prod_id','name'];
 
 
     public function getDistinctCategoryNames()
@@ -57,6 +57,16 @@ class category_master extends Model
     public function getCategoryByProuctID($catid)
     {
         return $this->where("cat_id",$catid)->first();
+    }
+
+    public function getCategoryBySlug($slug)
+    {
+        $res = $this->where("slug",$slug)->first();
+
+        if($res!=null)
+            return $res->toArray();
+        else
+            abort("404");
     }
 
 }

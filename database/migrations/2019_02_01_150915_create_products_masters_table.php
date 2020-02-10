@@ -31,6 +31,9 @@ class CreateProductsMastersTable extends Migration
             $table->string('cat5')->default('')->nullable();
             $table->float('listprice')->default(0)->nullable();
             $table->float('startingprice')->default(0)->nullable();
+            $table->string('thumbnail')->default('')->nullable();
+            $table->string('thumb_img_new_path')->default('')->nullable();
+            $table->string('img_new_path')->default('')->nullable();
             $table->string('img')->default('')->nullable();
             $table->text('short_desc')->nullable();
             $table->longtext('long_desc')->nullable();

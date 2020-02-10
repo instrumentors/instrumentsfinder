@@ -8,7 +8,7 @@ use Egulias\EmailValidator\Exception\ConsecutiveDot;
 use Egulias\EmailValidator\Exception\CRLFAtTheEnd;
 use Egulias\EmailValidator\Exception\CRLFX2;
 use Egulias\EmailValidator\Exception\CRNoLF;
-use Egulias\EmailValidator\Exception\ExpectedQPair;
+use Egulias\EmailValidator\Exception\ExpectingQPair;
 use Egulias\EmailValidator\Exception\ExpectingATEXT;
 use Egulias\EmailValidator\Exception\ExpectingCTEXT;
 use Egulias\EmailValidator\Exception\UnclosedComment;
@@ -50,7 +50,7 @@ abstract class Parser
     {
         if (!($this->lexer->token['type'] === EmailLexer::INVALID
             || $this->lexer->token['type'] === EmailLexer::C_DEL)) {
-            throw new ExpectedQPair();
+            throw new ExpectingQPair();
         }
 
         $this->warnings[QuotedPart::CODE] =
@@ -143,15 +143,14 @@ abstract class Parser
     protected function escaped()
     {
         $previous = $this->lexer->getPrevious();
-
-        if ($previous['type'] === EmailLexer::S_BACKSLASH
-            &&
-            $this->lexer->token['type'] !== EmailLexer::GENERIC
-        ) {
+        /*
+        if ($previous['type'] === EmailLexer::S_BACKSLASH && $this->lexer->token['type'] !== EmailLexer::GENERIC) {
             return true;
         }
 
         return false;
+        */
+        return true;
     }
 
     protected function warnEscaping()

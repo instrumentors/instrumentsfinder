@@ -4,24 +4,6 @@
 @section('content')
 
 
-<div class="breadcrumbs-section plr-120 mb-20">
-            <div class="breadcrumbs overlay-bg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="breadcrumbs-inner">
-                                <h1 class="breadcrumbs-title">Categories</h1>
-                                <ul class="breadcrumb-list">
-                                    <li><a href="/">Home</a></li>
-                                    
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
 <div id="page-content" class="page-wrapper">
 
 @if(isset($categories))
@@ -35,10 +17,10 @@
                                 <div class="shop-option box-shadow mb-30 clearfix">
                                     <!-- Nav tabs -->
                                     <ul class="shop-tab f-left" role="tablist">
-                                        <li>
+                                        <li class="active">
                                             <a href="shop-list.html#grid-view" data-toggle="tab"><i class="zmdi zmdi-view-module"></i></a>
                                         </li>
-                                        <li class="active">
+                                        <li >
                                             <a href="shop-list.html#list-view" data-toggle="tab"><i class="zmdi zmdi-view-list-alt"></i></a>
                                         </li>
                                     </ul>
@@ -61,7 +43,7 @@
                                 <!-- Tab Content start -->
                                 <div class="tab-content">
                                     <!-- grid-view -->
-                                    <div role="tabpanel" class="tab-pane" id="grid-view">
+                                    <div role="tabpanel" class="tab-pane active" id="grid-view">
                                         <div class="row">
                                         	@foreach($categories as $category) 
                                             <!-- product-item start -->
@@ -88,7 +70,7 @@
                                         </div>
                                     </div>
                                     <!-- list-view -->
-                                    <div role="tabpanel" class="tab-pane active" id="list-view">
+                                    <div role="tabpanel" class="tab-pane " id="list-view">
                                         <div class="row">
 @foreach($categories as $category)                                        	
                                             <!-- product-item start -->
@@ -132,12 +114,12 @@
                         <!--left side bar-->
                         <div class="col-md-3 col-md-pull-9 col-xs-12">
                             <!-- widget-search -->
-                            <aside class="widget-search mb-30">
+                            <!--<aside class="widget-search mb-30">
                                 <form action="#">
                                     <input type="text" placeholder="Search here...">
                                     <button type="submit"><i class="zmdi zmdi-search"></i></button>
                                 </form>
-                            </aside>
+                            </aside>-->
                             
                             <!-- operating-system -->
                             @if(isset($applications))
@@ -145,7 +127,7 @@
                                 <h6 class="widget-title border-left mb-20">Applications</h6>
                                 <form action="action_page.php">
                                 	@foreach($applications as $application)
-                                    <label><input type="checkbox" name="operating-1" value="phone-1">{{$application['name']}}  [{{$application['total']}}]</label><br>
+                                    <label>{{$application['name']}}  [{{$application['total']}}]</label><br>
                                     @endforeach
                                     
                                 </form>

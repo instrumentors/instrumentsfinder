@@ -16,7 +16,7 @@ class products_options extends Model
     {
     	$optionsvariants=new options_variants;
 
-    	$options= $this->where("prod_id",$prod_id)->get()->toArray();
+    	$options= $this->where("prod_id",$prod_id)->orderby("option_id","asc")->get()->toArray();
 
     	$options_final=[];
 
