@@ -25,13 +25,13 @@ class DataManager
         {
             $pageHeader ="Applications";
             $pageDesc = "We offer a range of products that are used in a wide array of industrial applications.";
-        }   
+        }
         else
         if($pagetemplate=="brands")
         {
             $pageHeader ="Brands";
             $pageDesc = "We are resellers of the most popular brands across a range of Industrial products";
-        }   
+        }
         return array("pageHeader"=>$pageHeader,"pageDesc"=>$pageDesc);
     }//end of function getHeader_Desc
 
@@ -45,7 +45,7 @@ class DataManager
                 $yandex='';
 
     switch($subdomain)
-        {   
+        {
             case "ae":
                 $country = "UAE";
                 $cities = array("Dubai","Abu Dhabi","Sharjah","Ras Al Khaimah","Fujairah","Ajman","Umm Al Quwain");
@@ -151,73 +151,81 @@ class DataManager
                 $ga='UA-138665419-13';
                 $yandex='693c561bc6c96535';
             break;
-            
-            case "eg"://Egypt
+
+			case "eg"://Egypt
                 $country = "Egypt";
                 $cities = array("Cairo","Alexandria","Giza","Port Said","Suez");
                 $currency="USD";
-                $ga='';
-                $yandex='';
+                $ga='UA-138665419-15';
+				$yandex='';
             break;
 
-            case "tr"://Turkey
+			case "tr"://Turkey
                 $country = "Turkey";
                 $cities = array("Istanbul","Ankara","Izmir","Bursa","Adana","Gaziantep","Konya","Cankaya","Antalya");
                 $currency="USD";
-                $ga='';
-                $yandex='f3b38b24a5ed550b';
+                $ga='UA-138665419-16';
+				$yandex='f3b38b24a5ed550b';
             break;
-            
-            case "jo"://Jordan
+
+			case "jo"://Jordan
                 $country = "Jordan";
                 $cities = array("Amman","Zarqa","Irbid","Russeifa");
                 $currency="USD";
-                $ga='';
-                $yandex='';
+                $ga='UA-138665419-17';
+				$yandex='';
             break;
-            
-            case "lb"://Lebanon
+
+			case "lb"://Lebanon
                 $country = "Lebanon";
                 $cities = array("Beirut","Ra's Bayrut","Tripoli","Sidon");
                 $currency="USD";
-                $ga='';
-                $yandex='';
+                $ga='UA-138665419-18';
+				$yandex='';
             break;
-            
 
-            case "om"://Oman
+
+			case "om"://Oman
                 $country = "Oman";
                 $cities = array("Muscat","Seeb","Salalah","Bawshar","Sohar","As Suwayq","Ibri");
                 $currency="USD";
-                $ga='';
-                $yandex='';
+                $ga='UA-138665419-19';
+				$yandex='';
             break;
-            
-            case "kw"://Kuwait
+
+			case "kw"://Kuwait
                 $country = "Kuwait";
                 $cities = array("Al Ahmadi","Hawalli","As Salimiyah","Sabah as Salim","Al Farwaniyah","Al Fahahil","Kuwait City");
                 $currency="USD";
-                $ga='';
-                $yandex='';
+                $ga='UA-138665419-20';
+				$yandex='';
             break;
-            
-            case "qa"://Qatar
+
+			case "qa"://Qatar
                 $country = "Qatar";
                 $cities = array("Doha","Ar Rayyan","Umm Salal Muhammad","Al Wakrah","Al Khawr","Ash Shihaniyah","Dukhan","Musay`id");
                 $currency="USD";
-                $ga='';
-                $yandex='';
+                $ga='UA-138665419-21';
+				$yandex='';
             break;
-            
-            case "bh"://Bahrain
+
+			case "bh"://Bahrain
                 $country = "Bahrain";
                 $cities = array("Manama","Al Muharraq","Ar Rifa'","Dar Kulayb","Madinat Hamad","Madinat `Isa","Sitrah");
+                $currency="USD";
+                $ga='UA-138665419-22';
+				$yandex='';
+            break;
+
+            case "iq"://Iraq
+                $country = "Iraq";
+                $cities = array("Baghdad","Basra","Mosul","Erbil","Abu Ghraib","Sulaymaniyah","Kirkuk","Najaf","Karbala","Nasiriyah","Amara","Ad Dīwānīyah");
                 $currency="USD";
                 $ga='';
                 $yandex='';
             break;
-            
-            
+
+
             default:
                 $country = "";
                 $cities = array("USA","Middle East","Asia Pacific");
@@ -227,26 +235,36 @@ class DataManager
 
 
         return array("country"=>$country,"cities"=>$cities,"currency"=>$currency,"ga"=>$ga,"yandex"=>$yandex);
-       }//end of function 
+       }//end of function
 
 
        public function getHeader()
        {
-            $header="Hello,<br> 
+            $header="Hello,<br>
     With reference to the email below, please note down the price and other necessary details here as under:";
 
         return $header;
        }
 
+       public function getHeader_moreinfo()
+       {
+            $header_moreinfo="Hello Sir,<br>
+    With reference to the email below, please advice your company details in order to furnish Quote accordingly. <br> <br> If you need any futher clarifications, please advice.<br> <br> Best Regards, <br>InstrumentsFinder.com<br>
+    P.O. Box 122431 | Dubai | United Arab Emirates<br>Email : enquiry@instrumentsfinder.com<br><br>";
+
+        return $header_moreinfo;
+       }
+
+
        public function getEmailFooter($currency_chosen,$deliveryleadtime,$exworks)
 
        {
 
-        
-        
+
+
 
             $footer= '<span style="background:#00ff00">NOTE: Above quoted price includes courier charges upto door till '.$exworks.' local custom duties and taxes covered.</span><p class="MsoNormal"><span style="color:black">If you need any further clarification, please advice.<u></u><u></u></span></p>
-<p class="MsoNormal"><b><span style="color:black">TERMS &amp; CONDITIONS</span></b><span style="color:black"><u></u><u></u></span></p> 
+<p class="MsoNormal"><b><span style="color:black">TERMS &amp; CONDITIONS</span></b><span style="color:black"><u></u><u></u></span></p>
 <ul style="margin:0; margin-left: 25px; padding:0; font-family: Arial, sans-serif; color:#495055; font-size:16px; line-height:22px;" align="left" type="disc">
 
 <li><u>A. Payment Terms</u><br>
