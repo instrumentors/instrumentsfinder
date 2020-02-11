@@ -26,9 +26,9 @@ $lead_price=0;
                         ID : {{$lead_data["lead"]["order_id"]}}
                         </div>
                         <div class="col-xs-4 col-md-4">
-                        lead date : {{$time_disp->format('d-M-Y [H:i:s]')}}  
+                        lead date : {{$time_disp->format('d-M-Y [H:i:s]')}}
                         </div>
-                        <div class="col-xs-4 col-md-4"> 
+                        <div class="col-xs-4 col-md-4">
                         lead created from : {{$lead_data["lead"]["country_emoji"]}} | {{$lead_data["lead"]["city"]}},{{$lead_data["lead"]["country"]}}s
                         </div>
                     </div>
@@ -36,13 +36,13 @@ $lead_price=0;
                         <div class="col-xs-4 col-md-4">
                             Shipping to : {{$lead_data["lead"]["country_shipping"]}}
                         </div>
-                        <div class="col-xs-4 col-md-4"> 
+                        <div class="col-xs-4 col-md-4">
                             Reseller: {{$lead_data["lead"]["reseller_price"]}}
                             Bulk: {{$lead_data["lead"]["bulk_price"]}}
-                        </div>  
-                        <div class="col-xs-4 col-md-4"> 
+                        </div>
+                        <div class="col-xs-4 col-md-4">
                             <a href="" class="btn btn-outline-info btn-sm pull-right">Email : {{$lead_data["lead"]["email"]}}</a>
-                        </div>  
+                        </div>
                     </div>
                 </div>
             </div>
@@ -52,21 +52,21 @@ $lead_price=0;
                 </p>
                 <a href="/sendemail/{{$lead_data["lead"]["order_id"]}}"><input type="button" value="Send Quotation Email"></a>
 
-                <a href="#"><input type="button" value="Request company Info Email"></a>
-            </div>   
+                <!-- <a href="#"><input type="button" value="Request company Info Email"></a> -->
+            </div>
             @php
                     $prodcode="";
-            @endphp 
-            
+            @endphp
+
             @foreach($lead_data["products"] as $product)
                 <?php
                     $partnumber = "";
 
                     if(isset($product["partnumber"]))
-                         $partnumber =  $product["partnumber"];  
+                         $partnumber =  $product["partnumber"];
                 ?>
                 <pre>
-               
+
             </pre>
 
                 <?php $product_price=0;
@@ -80,13 +80,13 @@ $lead_price=0;
                 <div class="table-responsive">
                 <table class="table small">
                 @php $prodcode.=$product["codevalue"] @endphp
-                
+
                     <thead class="thead-dark">
                     <tr>
-                    
+
                     <th scope="col">NAME</th>
-                    
-                    
+
+
                     <th scope="col">DISCOUNT</th>
                     <th scope="col">UNIT LIST PRICE</th>
 
@@ -97,13 +97,13 @@ $lead_price=0;
                     </thead>
 
 
-                    
+
                     <tbody>
                     <tr>
-                      
-                      
+
+
                       <th>{{$product['name']}} x (QTY) {{$product["quantity"]}}</th>
-                        
+
                         <th>{{$product["product_discount"]}}%</th>
                       <th>$ {{$product["product_base_price"]}}</th>
                       <th>$ {{$product["product_base_price"]*(1-$product["product_discount"]/100)}}</th>
@@ -119,9 +119,9 @@ $lead_price=0;
 
 
                     </tr>
-            
-                    
-                
+
+
+
                     @if(isset($product["options"]) && is_array($product["options"]) && count($product["options"])>0)
                     @foreach($product["options"] as $option)
                     @php $prodcode.=$option[0]["code_value"] @endphp
@@ -136,32 +136,32 @@ $lead_price=0;
 
                         </td>
 
-                        
-                        
+
+
                         @if(isset($option["variant"]))
-                            
-                            
+
+
                             <th>{{$product["product_discount"]}}%</th>
                             <td>$ {{$option["variant"][0]["variant_price"]}}</td>
                             <th>$ {{($option["variant"][0]["variant_price"]*(1-$product["product_discount"]/100))}}</th>
                             <td>$ {{($option["variant"][0]["variant_price"]*$product["quantity"])}}
 
-                            <?php    
+                            <?php
 
                             $product_price+=($option["variant"][0]["variant_price"]*$product["quantity"]);
-                           
+
                             ?>
-                                
+
 
                             </td>
                             <td>$ {{($option["variant"][0]["variant_price"]*$product["quantity"])*(1-$product["product_discount"]/100)}}
 
-                            <?php    
+                            <?php
 
-                            
+
                             $product_discount_price+= ($option["variant"][0]["variant_price"]*$product["quantity"])*(1-$product["product_discount"]/100);
                             ?>
-                                
+
 
                             </td>
                         @endif
@@ -175,22 +175,22 @@ $lead_price=0;
 
                             <a href="https://www.instrumart.com/products/configure/{{$product['source_prod_id']}}" target="_new">Configure product</a>
                         </td>
-                        
+
                         <td colspan="3">Part number : {{$partnumber}}</td>
-                        
+
                         <td>${{$product_price}}</td>
-                        <td>${{$product_discount_price}}</td>   
+                        <td>${{$product_discount_price}}</td>
                     </tr>
-                    </tbody>   
+                    </tbody>
 
 
                     </table>
                     </div>
 
-            @endforeach    
-            
-            
-</div>    
+            @endforeach
+
+
+</div>
 
 @endif
 

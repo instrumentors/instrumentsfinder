@@ -26,7 +26,7 @@ h1
 
 .bgcolor
 {
-	background-color:#fdc900; 
+	background-color:#fdc900;
 }
 
 
@@ -93,13 +93,13 @@ h1
 
 .catblockmaster a
 {
-	background-color:#fdc900; 	
+	background-color:#fdc900;
 	text-decoration:none;
 	color:#000000;
 }
 
 .catblockmaster :hover {
-  background-color:#fdc900; 
+  background-color:#fdc900;
 
 }
 
@@ -108,7 +108,7 @@ h1
 	border-left: 1px solid;
 	width:150px;
 	text-align:center;
-	
+
 }
 
 @media only screen and (max-width: 600px) {
@@ -148,7 +148,7 @@ h1
 	padding-right:10px;
 	padding-top:10px;
 	padding-bottom:10px;
-	
+
 	font-size:12px;
 	font-weight:600;
 }
@@ -196,13 +196,13 @@ h1
 	border-bottom: dotted 1px #fdc900;
 	margin-bottom:8px;
 	width:100%;
-	
+
 }
 
 .brand
 {
-	
-	color:#Adc900;	
+
+	color:#Adc900;
 	font-weight: 300;
 	font-size:13px;
 }
@@ -222,7 +222,7 @@ h1
 	display: block;
 	margin:auto;
 	height: auto;
-	width: auto; 
+	width: auto;
 	max-width: 64px;
 	height: 64;
 
@@ -237,21 +237,24 @@ h1
 
 input::placeholder { color: #777; font-size: 0.9em; letter-spacing:0.5px;  padding-left:10px;margin:4px; height:50px;}
 
-.typeahead, .twitter-typeahead, .tt-menu 
+.typeahead, .twitter-typeahead, .tt-menu
 {
-	margin-right:20px;	
+	margin-right:20px;
 	border:0px;
-  width:100%;  
+  width:100%;
   background-color: #EEEEEE;
   color:#333;
   display: block !important;
 
-  
-    
+
+
 }
 
 
-
+input.largecheckbox {
+    width : 40px;
+    height : 40px;
+    }
 
 
 
@@ -280,7 +283,7 @@ input::placeholder { color: #777; font-size: 0.9em; letter-spacing:0.5px;  paddi
 @media only screen and (max-width: 800px) {
 
 .input-group .fa-search{
-  
+
   padding-top:20px;
   margin-left:20px;
 }
@@ -289,9 +292,9 @@ input::placeholder { color: #777; font-size: 0.9em; letter-spacing:0.5px;  paddi
 
 @media only screen and (max-width: 600px) {
 
-	
+
 .input-group .fa-search{
-  
+
   padding-top:20px;
   margin-left:2px;
 }
@@ -318,7 +321,7 @@ input::placeholder { color: #777; font-size: 0.9em; letter-spacing:0.5px;  paddi
 
 .btn-brand:hover
 {
-	
+
 	background-color: #fdc900;
 	border:0px;
 	color:#0569AD;
@@ -327,7 +330,7 @@ input::placeholder { color: #777; font-size: 0.9em; letter-spacing:0.5px;  paddi
 }
 .btn-brand:click
 {
-	
+
 	background-color: #fdc900;
 	border:0px;
 	color:#0569AD;
@@ -397,12 +400,12 @@ input::placeholder { color: #777; font-size: 0.9em; letter-spacing:0.5px;  paddi
 {
 	padding: 10px;
 	border-bottom:1px solid;
-	
+
 	margin:auto;
 	vertical-align: middle;
 }
 .checkout_table th
-{	
+{
 	border-right:1px solid;
 	padding: 20px;
 	background-color: #0569AD;
@@ -423,7 +426,7 @@ input::placeholder { color: #777; font-size: 0.9em; letter-spacing:0.5px;  paddi
 {
 	text-decoration: none;
 	color:#444;
-	
+
 }
 
 .cart_variant
