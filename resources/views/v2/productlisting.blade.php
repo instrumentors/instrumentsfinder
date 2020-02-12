@@ -81,6 +81,29 @@ if($pagetemplate=="applications")
 		<div class="col-md-3 col-sm-6 d-none d-md-block">
 			@if($type=="categories")
 				
+			<!-- modify for sub-categories -->
+			<!-- Sub Categories -->
+
+
+			@if(isset($subcat_list))      
+				<div class="leftbar" style="margin:5px;padding:5px;border-bottom: 1px solid #eee;background-color:#f8f8f8;">
+					<h5 style="margin-left:10px;font-size:13px;color:#fdc900;font-weight:800;text-transform: uppercase;letter-spacing: 1px;">CATEGORIES</h5>
+
+
+					@foreach($subcat_list as $subcat_data)
+
+					<div class="leftblock">
+							@if($pagetemplate=="categories")
+								<a href="/category/{{$subcat_data->slug}}">{{$subcat_data->name}}</a>
+							@else
+							<a href="/brand/{{$data->create_slug($brand_data->brand)}}">{{$brand_data->brand}}</a>
+							@endif
+					</div>		
+					@endforeach
+				</div>
+				@endif
+
+
 				@if(isset($brands_list))
 				<div class="leftbar" style="margin:5px;padding:5px;border-bottom: 1px solid #eee;background-color:#f8f8f8;">
 					<h5 style="margin-left:10px;font-size:13px;color:#fdc900;font-weight:800;text-transform: uppercase;letter-spacing: 1px;">BRANDS</h5>
