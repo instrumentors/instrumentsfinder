@@ -755,11 +755,11 @@ public function siteMapGenerate(Request $request,$id,$index=0)
     		$type="categories";
     		$catnamearray=$categorymaster->getCategoryBySlug($category_slug);
     		$brands_list=$productmaster->getBrandsByCatSlug($category_slug);
-
+			$subcat_list = $categorymaster->getSubCatbyCatSlug($category_slug);
     			
     		$header=$catnamearray["name"];
     			
-    		return view('v2.productlisting',compact('productlistings','brands_list','type','header'));
-    }//enf of funtion	
+    		return view('v2.productlisting',compact('productlistings','brands_list','subcat_list','type','header'));
+    }//end of funtion	
     
 }

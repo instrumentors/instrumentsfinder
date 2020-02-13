@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class category_master extends Model
 {
-    protected $fillable =['cat_id','prod_id','name'];
+    protected $fillable =['cat_id','prod_id','name','cat_parent'];
 
 
     public function getDistinctCategoryNames()
@@ -20,10 +20,23 @@ class category_master extends Model
          return $array->toArray();
     }
 
+
     public function getProdIdbyCat($cat)
     {
     	return $this->select('prod_id')->where('name',$cat)->get()->toArray();
     }
+
+    public function getSubCatbyCatSlug($cat_slug)
+    {
+    //	return $this->select("name")->where('cat_parent',$cat_slug)->distinct()->get();
+
+    $subcatmaster = new category_master;
+    $subpids=$subcatmaster->getProdIdbyCatSlug($cat_slug);
+
+    return $this->select("name","slug")->wherein('prod_id',$subpids)->distinct()->get();
+
+    }
+
 
     
 

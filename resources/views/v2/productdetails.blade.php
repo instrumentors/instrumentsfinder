@@ -158,13 +158,13 @@
 			  <ul class="nav nav-tabs" id="myTab" role="tablist">
 			  	@if($productData->long_desc!="")
 			  <li class="nav-item">
-			    <a class="nav-link tabheader" id="features-tab" data-toggle="tab" href="#features" role="tab" aria-controls="features" aria-selected="false">Description</a>
+			    <a class="nav-link active tabheader" id="features-tab" data-toggle="tab" href="#features" role="tab" aria-controls="features" aria-selected="false">Description</a>
 			  </li>
 			  	@endif
 
 			  	@if(isset($docs) && $docs!=null && is_array($docs))
 			  <li class="nav-item">
-			    <a class="nav-link active tabheader" id="documents-tab" data-toggle="tab" href="#documents" role="tab" aria-controls="documents" aria-selected="true">Documents</a>
+			    <a class="nav-link  tabheader" id="documents-tab" data-toggle="tab" href="#documents" role="tab" aria-controls="documents" aria-selected="false">Documents</a>
 			  </li>
 			  @endif
 			  <li class="nav-item">
@@ -175,13 +175,13 @@
 			</ul>
 			<div class="tab-content" id="myTabContent">
 			  @if($productData->long_desc!="")
-			  <div class="tab-pane fade" id="features" role="tabpanel" aria-labelledby="home-tab" style="padding:30px;background-color:#fafafa;"><!--{!!$productData->long_desc!!}-->
+			  <div class="tab-pane fade show active" id="features" role="tabpanel" aria-labelledby="home-tab" style="padding:30px;background-color:#fafafa;"><!--{!!$productData->long_desc!!}-->
 			  	
 			  	<h3>Why buy {{$brand}} {{$category_array[0]["name"]}} in {{$country}} from us? </h3>
 			  	<h4>
 			  		Especially the {{$productData->name}} in {{$country}}- {{implode(", ",$cities)}}
 			  	</h4>
-			  	<ul style="font-size:16px;line-height: 20px;">
+			  	<ul>
 			  	
 
 			  	<li class="list-group-item1"> Preferred Vendor &amp; and premium reseller for the world?s best and most reputed brands including {{$brand}} for <strong>{{$category_array[0]["name"]}}</strong> in {{$country}} </li>
@@ -199,7 +199,7 @@
 			  @endif
 
 			  @if(isset($docs) && $docs!=null && is_array($docs))
-			  <div class="tab-pane fade show active" id="documents" role="tabpanel" 
+			  <div class="tab-pane fade " id="documents" role="tabpanel" 
 			  aria-labelledby="profile-tab" style="padding:30px;background-color:#fafafa;">
 					@foreach($docs as $doc)
 
