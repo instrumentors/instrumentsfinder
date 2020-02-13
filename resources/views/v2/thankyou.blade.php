@@ -3,15 +3,29 @@
 @section('content')
 
 <div class="container">
-	<div style="display:block;height:300px;vertical-align: middle;text-align: center;">
-	<h2>Thank you</h2>
+	<div style="display:block;height:600px;vertical-align: middle;text-align: center;">
+
 	<hr/>
+    <br>
+    <h2>Thank you!</h2>
+    <br>
+    <hr/>
+
+        For all <b>Ex-stock items</b>, you should be receiving our Best Priced Quotation in a few minutes.
+        <br>
+        For others we will get back with the best reseller price via email within <b>12 - 24 </b>hours.
 	<br>
-	
-		For all <b>Ex-stock items</b>, we will get back with the best reseller price via email <b>very shortly</b>.
-	<br>
-		For others we will revet back within <b>12 - 24 </b>hours.
-	<br>
+
+    <br>
+    <br>
+
+    <br>
+    <br>
+
+    <br>
+
+    <h2> Feel free to explore more products / categories using the Search bar </h2>
+
 
 	</div>
 </div>
@@ -19,7 +33,7 @@
 
 
 <script type="text/javascript">
-	
+
 	localStorage.clear();
-	
+
 </script>
