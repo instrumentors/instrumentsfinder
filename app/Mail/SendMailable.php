@@ -45,7 +45,6 @@ class SendMailable extends Mailable
         ->subject("Lead : ".$rfqID." ,from : ".$leadfrom." ship to : ".$shipping)
         ->view('email.emailtemplate');
 
-
        
         
     }
