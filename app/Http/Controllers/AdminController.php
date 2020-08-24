@@ -48,12 +48,15 @@ class AdminController extends Controller
    	}	
 
 
-    public function sendmailresponse($to,$msg,$leadid)
+    public function sendmailresponse($to,$msg,$leadid,$cc=false)
     {
 
       $leadmodel = new leads;
       $lead_data=$leadmodel->getLead($leadid);
 
+      if($cc)
+      Mail::to($to)->cc("enquiry@agisafety.com")->send(new SendMailResponse($to,$msg,$lead_data)); 
+      else
        Mail::to($to)->send(new SendMailResponse($to,$msg,$lead_data)); 
  
         if (Mail::failures()) {
@@ -66,8 +69,6 @@ class AdminController extends Controller
          }
       
     }
-
-
 
 
     public function sendEmailReponse(Request $request,$leadid)
@@ -86,7 +87,8 @@ class AdminController extends Controller
       if($textarea_email!="" && $to_email!="")
       {
 
-        $resp = $this->sendmailresponse($to_email,$textarea_email,$leadid);
+        $resp = $this->sendmailresponse($to_email,$textarea_email,$leadid,true);
+       
 
       }  
         return view("admin.sendEmailResponse",compact("resp"));
