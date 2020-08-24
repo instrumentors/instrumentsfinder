@@ -45,7 +45,7 @@ class SendMailResponse extends Mailable
 
 
 
-        return $this->from("enquiry@instrumentsfinder.com", "InstrumentFinder Team")
+        return $this->from("enquiry@agisafety.com", "InstrumentFinder Team")
         ->subject("InstrumentsFinder RFQ  - ".$rfqID)
         ->view('email.emailresponsetemplate')->with('emailMsg', $this->emailMsg);;
 
