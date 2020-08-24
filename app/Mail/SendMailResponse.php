@@ -49,8 +49,5 @@ class SendMailResponse extends Mailable
         ->subject("InstrumentsFinder RFQ  - ".$rfqID)
         ->view('email.emailresponsetemplate')->with('emailMsg', $this->emailMsg);;
 
-
-        
-
     }
 }
