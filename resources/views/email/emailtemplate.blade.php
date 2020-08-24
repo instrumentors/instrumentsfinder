@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>	
@@ -78,7 +75,7 @@ enquiry desc : {{$lead_data["lead"]["enquiry_desc"]}}
                 	</table>
 
                 	<p style="background:#ccc;color:#000;">
-                        	Product code : {{$prodcode}} <a href="{{$product['url']}}" target="_new">view</a>
+                        	Product code : {{$prodcode}} <!--<a href="{{$product['url']}}" target="_new">view</a>-->
                         </p>	
 
 
