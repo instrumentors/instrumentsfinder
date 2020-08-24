@@ -41,7 +41,7 @@ class SendMailable extends Mailable
 
 
 
-        return $this->from("Enquiry@instrumentsfinder.com", "InstrumentFinder Teams")
+        return $this->from("Enquiry@agisafety.com", "InstrumentFinder Teams")
         ->subject("Lead : ".$rfqID." ,from : ".$leadfrom." ship to : ".$shipping)
         ->view('email.emailtemplate');
 
