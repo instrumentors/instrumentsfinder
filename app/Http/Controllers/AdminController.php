@@ -65,7 +65,8 @@ class AdminController extends Controller
           
           $leadmodel = new leads;
           $leadmodel->where("order_id",$leadid)->update(['status' => "EMAIL_RESPONSE_SENT"]);
-           return response()->json('Your email was sent');
+           //return response()->json('Your email was sent');
+            return '';
          }
       
     }
