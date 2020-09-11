@@ -331,7 +331,8 @@ $prodindex++;
 <textarea id="textarea_email" name="textarea_email" class="editor">
 
 @if($askmoreinfo!="0")
-    <br><b>Original Request for Quotation : </b><br>
+
+<br><b>Original Request for Quotation : </b><br>
     
 <h2 style="margin:0; mso-line-height-rule:exactly;">Lead details</h2><br>
 <p style="margin:0;">Shipping to : {{$lead_data["lead"]["country_shipping"]}}</p>
@@ -358,6 +359,28 @@ $prodindex=0;
         Quantity : {{$product["quantity"]}}</i></span>
 <br>
 
+
+@if($descr!="0")
+ {!!$product["product_description"]!!}
+ @endif
+
+@if(isset($product["options"]) && is_array($product["options"]) && count($product["options"])>0)
+    @foreach($product["options"] as $option)
+
+        <span style="margin-left:10px;background-color: #ebfbb9;"><small> ⁍ {{$option[0]["options_desc"]}}
+
+            @if(isset($option["variant"]))
+
+                <i>:{{$option["variant"][0]["variant_desc"]}}</i>
+
+            @endif
+            </small></span>
+            <br>
+
+
+
+    @endforeach
+@endforeach
 {{$data->getHeader_moreinfo()}}
  
 @endif
