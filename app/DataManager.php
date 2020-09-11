@@ -241,7 +241,7 @@ class DataManager
        public function getHeader()
        {
             $header="Hello,<br>
-    With reference to the email below, please note down the price and other necessary details here as under:";
+    With reference to the email below, please note down the price and other necessary details here as under:<br><b>Please check quoted product specification for suitability/ accuracy. If you need help with product selection please send us the input RFQ so we can help identify the right product fit</b><br>";
 
         return $header;
        }
@@ -250,7 +250,7 @@ class DataManager
        {
             $header_moreinfo="Hello Sir,<br>
     With reference to the email below, please advice your company details in order to furnish Quote accordingly. <br> <br> If you need any futher clarifications, please advice.<br> <br> Best Regards, <br>InstrumentsFinder.com<br>
-    P.O. Box 122431 | Dubai | United Arab Emirates<br>Email : enquiry@instrumentsfinder.com<br><br>";
+    P.O. Box 122431 | Dubai | United Arab Emirates<br>Email : enquiry@agisafety.com<br><br>";
 
         return $header_moreinfo;
        }
@@ -297,7 +297,7 @@ Price are only valid for the mentioned quantities in above offer</span>
 Best regards,<br>
 <a href="www.instrumentsfinder.com">InstrumentsFinder.com</a><br>
 P.O. Box 122431 | Dubai | United Arab Emirates<br><br>
-<a href="mailto:enquiry@instrumentsfinder.com">enquiry@instrumentsfinder.com</a><br>
+<a href="mailto:enquiry@agisafety.com">enquiry@agisafety.com</a><br>
 https://instrumentsfinder.com<br>
 <img src="https://instrumentsfinder.com/assets/email_signature.png"><br>
 InstrumentsFinder.com :: Committed To Safety For Life!
