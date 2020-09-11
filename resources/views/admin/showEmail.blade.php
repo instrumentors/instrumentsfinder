@@ -346,7 +346,7 @@ $prodindex++;
 enquiry desc : {{$lead_data["lead"]["enquiry_desc"]}}
 </p>
 <hr>
-
+<br><br>
 <?php
 $prodindex=0;
 ?>
@@ -380,10 +380,21 @@ $prodindex=0;
 
 
     @endforeach
+@endif
+
+<?php
+
+?>
+<b>Price: {{$currency_chosen}}  {{$price_var[$prodindex]}} EA</span></b>
+
+     <?php $prodindex++; ?>
+<hr>
 @endforeach
+
 {{$data->getHeader_moreinfo()}}
  
 @endif
+
 
 @if($askmoreinfo=="0")
 
