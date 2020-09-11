@@ -331,7 +331,35 @@ $prodindex++;
 <textarea id="textarea_email" name="textarea_email" class="editor">
 
 @if($askmoreinfo!="0")
-    {{$data->getHeader_moreinfo()}}
+    <br><b>Original Request for Quotation : </b><br>
+    
+<h2 style="margin:0; mso-line-height-rule:exactly;">Lead details</h2><br>
+<p style="margin:0;">Shipping to : {{$lead_data["lead"]["country_shipping"]}}</p>
+<p style="margin:0;">lead created from : {{$lead_data["lead"]["country_emoji"]}} b,{{$lead_data["lead"]["country"]}}</p>
+<p style="margin:0;">ID : {{$lead_data["lead"]["order_id"]}}</p>
+<p style="margin:0;">lead date : {{$time_disp->format('d-M-Y [H:i:s]')}} </p>
+
+<p style="margin:0;">Email : <a href="mailto:{{$lead_data["lead"]["email"]}}">{{$lead_data["lead"]["email"]}}</a></a></p>
+
+<p style="margin:0;background: #ccc;">
+enquiry desc : {{$lead_data["lead"]["enquiry_desc"]}}
+</p>
+<hr>
+
+<?php
+$prodindex=0;
+?>
+<hr>
+@foreach($lead_data["products"] as $product)
+<br>
+<span style="background-color: #ffe37c;"><b>Product : {{$product["name"]}}</b></span><br>
+
+<span class="small" style="background-color: #ebfbb9;"><i>
+        Quantity : {{$product["quantity"]}}</i></span>
+<br>
+
+{{$data->getHeader_moreinfo()}}
+ 
 @endif
 
 @if($askmoreinfo=="0")

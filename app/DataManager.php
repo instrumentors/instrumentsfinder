@@ -248,8 +248,8 @@ class DataManager
 
        public function getHeader_moreinfo()
        {
-            $header_moreinfo="Hello Sir,<br>
-    With reference to the email below, please advice your company details in order to furnish Quote accordingly. <br> <br> If you need any futher clarifications, please advice.<br> <br> Best Regards, <br>InstrumentsFinder.com<br>
+            $header_moreinfo="Dear Sir,<br>
+    With reference to the RFQ request for product as mentioned above, please advice your company details in order to furnish Quote accordingly. <br> <br><b>Please check quoted product specification for suitability/ accuracy. If you need help with product selection please send us the input RFQ so we can help identify the right product fit</b><br><br> If you need any futher clarifications, please advice.<br> <br> Best Regards, <br>InstrumentsFinder.com<br>
     P.O. Box 122431 | Dubai | United Arab Emirates<br>Email : enquiry@agisafety.com<br><br>";
 
         return $header_moreinfo;
