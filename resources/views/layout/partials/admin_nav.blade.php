@@ -54,7 +54,7 @@
         <a class="nav-link" href="/admin">New</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Email Sent</a>
+        <a class="nav-link" href="/admin/sent">Email Sent</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Ready for invoice</a>

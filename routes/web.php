@@ -57,6 +57,8 @@ Route::post("/submitlead",'MainController@submitLead');
 
 
 Route::get("/admin",'AdminController@index')->middleware('auth');;
+Route::get("/admin/sent",'AdminController@sent')->middleware('auth');
+
 Route::get("/lead/{leadid}",'AdminController@displayLead')->middleware('auth');;
 Route::get("/sendemail/{leadid}",'AdminController@displayLeadEmail')->middleware('auth');;
 Route::Post("/sendemailresponse/{leadid}",'AdminController@sendEmailReponse')->middleware('auth');;

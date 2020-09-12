@@ -51,6 +51,36 @@ class AdminController extends Controller
     return view("admin.index",compact('leads','countries','countrysel'));
     
 
+     } 	
+     
+     public function sent(Request $request)
+    {
+    	$leads_model = new leads;
+      
+      
+      $countries=$leads_model->select("country_shipping")->where('status','EMAIL_SENT')->distinct()->get();
+
+      $countrysel="default";
+
+      if($request->input("country")!=null)
+      {
+        $country = $request->input("country");
+        $leads=$leads_model->where('country_shipping',$country)->where('status','EMAIL_SENT')->orderBy('created_at', 'desc')->paginate(25);
+        $countrysel=$country;
+        //$sql=($leads_model->where('country',$country)->where('status','EMAIL_SENT')->orWhere('status','NEW')->orderBy('created_at', 'desc'));
+        //return $sql->toSql();
+      }
+      else
+      {
+        $leads=$leads_model->where('status','EMAIL_SENT')->orWhere('status','EMAIL_SENT')->orderBy('created_at', 'desc')->paginate(25);
+      }  
+      
+    
+   
+
+    return view("admin.index",compact('leads','countries','countrysel'));
+    
+
    	} 	
 
    	public function displayLead($leadid)

@@ -3,6 +3,19 @@
 
 @section('content')
 
+
+<?php
+$url_array = resolve('url_array');
+
+$is_sent=false;
+$form_sent_path="";
+if(isset($url_array[2]) && $url_array[2]=="sent")
+{
+  $is_sent=true;
+  $form_sent_path="/sent";
+}
+  
+?>
 <!--protected $fillable=['order_id','name','email','enquiry_desc','reseller_price','bulk_price','country','country_code','country_flag','country_emoji','city','lat','lon'];-->
 
 <div class="container">
@@ -10,15 +23,12 @@
 @if(isset($leads))
 <div class="col-md-10 col-sm-6">
 <div class="table-responsive">
-<h3>Leads </h3>
+<h3>Leads : {{$form_sent_path}}</h3>
 
 
 {{-- {{ dd(get_defined_vars()['__data']) }} --}}
-
-@php
-    print($countrysel);
-@endphp
-<form action="/admin">
+<b>Total new leads  {{$leads->total()}}</b>
+<form action="/admin{{$form_sent_path}}">
   <Label >Select Shipping country</Label>
   <select name="country">
     <option value="" >All countries</option>
