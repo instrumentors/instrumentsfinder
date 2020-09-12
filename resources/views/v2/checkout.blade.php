@@ -101,9 +101,13 @@ class="g-recaptcha btn btn-brand"
 data-sitekey="6LeYtMwUAAAAAI-r0duEMYKNLZ2XB-jlAV8JFfDD"
 data-callback="onSubmit"> --}}
 
-<input type="submit" class="g-recaptcha btn btn-brand"
+{{-- Removed captvcha as it was overrdiign submit condition check --}}
+{{-- <input type="submit" class="g-recaptcha btn btn-brand"
 data-sitekey="6LeYtMwUAAAAAI-r0duEMYKNLZ2XB-jlAV8JFfDD"
-data-callback="onSubmit">
+data-callback="onSubmit"> --}}
+
+<input type="submit" class="g-recaptcha btn btn-brand">
+
 
 {{-- Check Price Now
 </button> --}}
