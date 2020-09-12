@@ -18,6 +18,7 @@ class CreateLeadsTable extends Migration
             $table->timestamps();
             $table->string('order_id')->default("0000");
             $table->string('name')->nullable();
+            $table->string('domain')->default("Global");
             $table->string('email')->nullable();
             $table->text('enquiry_desc')->nullable();
             $table->string('reseller_price')->default("N");

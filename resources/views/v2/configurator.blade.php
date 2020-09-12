@@ -60,10 +60,19 @@
                   	@endif	
 				</div>
 				<hr/>
+			
 				<div class="col-md-5 col-sm-6">
-						<div style="border:dotted #fdc900 1px;padding:5px;">
-						<div style="margin-top:10px;display:block;text-align:center;text-transform: uppercase;width:70%;dotted;font-size:13px;color:#4ECDEE;letter-spacing: 0.5px;">Your configured product<hr/></div>
+					
 						
+					<div style="border:dotted #fdc900 1px;padding:5px;">
+						<div style="margin-top:10px;display:block;text-align:center;text-transform: uppercase;width:70%;dotted;font-size:13px;color:#4ECDEE;letter-spacing: 0.5px;">Reach out to us for support<hr/></div>
+						<button type="button" class="btn_cartload btn btn-brand">REACH OUT FOR SUPPORT</button>
+					</div>
+					<hr>
+					 <div style="text-align:center;font-weight:800;font-style:bold;">OR </div><hr>
+						<div style="border:dotted #fdc900 1px;padding:5px;">
+							
+						<div style="margin-top:10px;display:block;text-align:center;text-transform: uppercase;width:70%;dotted;font-size:13px;color:#4ECDEE;letter-spacing: 0.5px;">Configure your production options<hr/></div>
 						<div class="configcartdiv"></div>
 						
 						<div style="background-color: #f3f3f3;padding:8px;">
@@ -74,6 +83,9 @@
 						<button type="button" class="btn_cartload btn btn-brand">REQUEST FOR PRICE</button>
 
 						</div>
+
+						
+						
 						
 						
 

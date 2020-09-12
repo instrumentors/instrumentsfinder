@@ -331,6 +331,8 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 	public function submitLead(Request $request)
 	{
 
+		$subdomain = resolve('subdomain');
+	//	return $subdomain;
 
 		$lead_model = new leads;
 		$lead_prod_model = new lead_products;
@@ -458,9 +460,11 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 		$name='';
 
 		
-		$lead_data_to_add = ["order_id"=>$order_id,"name"=>$name,"email"=>$email,"enquiry_desc"=>$inquiry_description,"reseller_price"=>$resellerpricing,"bulk_price"=>$bulkpricing,"country_shipping"=>$shipping_country,"country"=>$country,"country_code"=>$countrycode,"country_flag"=>$countryflag,"country_emoji"=>$countryemoji,"city"=>$city,"lat"=>$lat,"lon"=>$lon];
+		$lead_data_to_add = ["order_id"=>$order_id,"domain"=>$subdomain,"name"=>$name,"email"=>$email,"enquiry_desc"=>$inquiry_description,"reseller_price"=>$resellerpricing,"bulk_price"=>$bulkpricing,"country_shipping"=>$shipping_country,"country"=>$country,"country_code"=>$countrycode,"country_flag"=>$countryflag,"country_emoji"=>$countryemoji,"city"=>$city,"lat"=>$lat,"lon"=>$lon];
 
-		//print_r($lead_data_to_add);
+		
+
+		
 
 		$products_data_to_add=array();
 		$data=array();

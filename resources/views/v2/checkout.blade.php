@@ -79,7 +79,7 @@ $currency = $data_values["currency"];
                     <textarea type="desc" class="form-control" id="inquiryDescription" name="inquiryDescription" rows="4"></textarea>
                     
                     </div>
-
+                    
 					<!--
                     <div class="form-check form-check-inline small">
                     <input type="checkbox" class="form-check-input" id="resllerbox" name="resellerpricing">

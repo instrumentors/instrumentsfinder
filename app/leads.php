@@ -9,7 +9,7 @@ use App\lead_options;
 
 class leads extends Model
 {
-    protected $fillable=['order_id','name','email','enquiry_desc','reseller_price','bulk_price','country_shipping','country','country_code','country_flag','country_emoji','city','lat','lon','status','product_availability'];
+    protected $fillable=['order_id','name','domain','email','enquiry_desc','reseller_price','bulk_price','country_shipping','country','country_code','country_flag','country_emoji','city','lat','lon','status','product_availability'];
 
     public function getLead($order_id)
     {

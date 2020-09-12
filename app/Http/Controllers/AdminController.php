@@ -26,15 +26,30 @@ class AdminController extends Controller
     public function index(Request $request)
     {
     	$leads_model = new leads;
+      
+      
+      $countries=$leads_model->select("country_shipping")->where('status','NEW')->distinct()->get();
+
+      $countrysel="default";
+
+      if($request->input("country")!=null)
+      {
+        $country = $request->input("country");
+        $leads=$leads_model->where('country_shipping',$country)->where('status','NEW')->orderBy('created_at', 'desc')->paginate(25);
+        $countrysel=$country;
+        //$sql=($leads_model->where('country',$country)->where('status','EMAIL_SENT')->orWhere('status','NEW')->orderBy('created_at', 'desc'));
+        //return $sql->toSql();
+      }
+      else
+      {
+        $leads=$leads_model->where('status','EMAIL_SENT')->orWhere('status','NEW')->orderBy('created_at', 'desc')->paginate(25);
+      }  
+      
+    
    
 
-    	$leads=$leads_model->where('status','EMAIL_SENT')->orWhere('status','NEW')->orderBy('created_at', 'desc')->paginate(25);
-
-      echo($request->ip());
-
+    return view("admin.index",compact('leads','countries','countrysel'));
     
-
-		return view("admin.index",compact('leads'));
 
    	} 	
 
