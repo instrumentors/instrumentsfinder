@@ -21,6 +21,7 @@
 <form action="/admin">
   <Label >Select Shipping country</Label>
   <select name="country">
+    <option value="" >All countries</option>
     @foreach($countries as $country)
     <?php
         $selected="";
