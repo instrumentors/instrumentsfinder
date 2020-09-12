@@ -23,7 +23,7 @@ if(isset($url_array[2]) && $url_array[2]=="sent")
 @if(isset($leads))
 <div class="col-md-10 col-sm-6">
 <div class="table-responsive">
-<h3>Leads : {{$form_sent_path}}</h3>
+<h3>Leads: {{$form_sent_path}}</h3>
 
 
 {{-- {{ dd(get_defined_vars()['__data']) }} --}}
