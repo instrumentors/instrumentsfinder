@@ -1,0 +1,3 @@
+User-agent: * 
+Disallow: /productsets/*
+Disallow: /configurator/*
