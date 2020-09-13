@@ -20,6 +20,8 @@ $placeholder_total_price=0;
 $product_price=0;
 $descr =0;
 $askmoreinfo =0;
+$lateresponse =0;
+
 
 $hiddenvar="";
 
