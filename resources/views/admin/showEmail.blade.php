@@ -160,6 +160,7 @@ $leadtime_array=array(
 
         </div>
      </div>
+     <hr>
      <div class="row">
         <div class="col" >
             <?php

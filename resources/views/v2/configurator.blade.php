@@ -65,8 +65,9 @@
 
 
 					<div style="border:dotted #fdc900 1px;padding:5px;">
-						<div style="margin-top:10px;display:block;text-align:center;text-transform: uppercase;width:90%;dotted;font-size:13px;color:#4ECDEE;letter-spacing: 0.5px;">Reach out to us for support<hr/><p> If you need help with Product Options Selection, Please send us the input RFQ so we can help identify the right product fit</p></div>
-						<button type="button" class="btn_cartload btn btn-brand">REACH OUT FOR SUPPORT</button>
+						<div style="margin-top:10px;display:block;text-align:center;text-transform: uppercase;width:90%;dotted;font-size:13px;color:#4ECDEE;letter-spacing: 0.5px;">Reach out to us for support<hr/></div>
+                        <div style="margin-top:10px;display:block;text-align:center;width:90%;dotted;font-size:13px;color:#4ECDEE;letter-spacing: 0.5px;"><p> <b>If you need help with Product Options Selection, Please send us the input RFQ so we can help identify the right product fit</p></b></div>
+                        <button type="button" class="btn_cartload btn btn-brand">REACH OUT FOR SUPPORT</button>
 					</div>
 					<hr>
 					 <div style="text-align:center;font-weight:800;font-style:bold;">OR </div><hr>
