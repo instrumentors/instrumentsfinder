@@ -249,12 +249,37 @@ class DataManager
        public function getHeader_moreinfo()
        {
             $header_moreinfo="Dear Sir,<br>
-    With reference to the RFQ request for product as mentioned above, please advice your company details in order to furnish Quote accordingly. <br> <br><b>Please check quoted product specification for suitability/ accuracy. If you need help with product selection please send us the input RFQ so we can help identify the right product fit</b><br><br> If you need any futher clarifications, please advice.<br> <br> Best Regards, <br>InstrumentsFinder.com<br>
-    P.O. Box 122431 | Dubai | United Arab Emirates<br>Email : enquiry@agisafety.com<br><br>";
+    With reference to the RFQ request for product as mentioned below, please advice your company details in order to furnish Quote accordingly.<br><b>Please also confirm product specification for suitability/ accuracy. If you need help with product selection please send us the input RFQ so we can help identify the right product fit</b><br><br> If you need any futher clarifications, please advice.<br> ";
 
         return $header_moreinfo;
        }
 
+       public function getHeader_lateresponse()
+       {
+            $header_lateresponse="Dear Sir,<br>
+    With reference to the RFQ request for product as mentioned below, firstly really sorry for the late response, we had some issues with our lead management Systems & this enquiry was missed responding.<br> <b> Just wanted to understand if this enquiry is still active so that we can help with right product fit / price & availability detils as needed <br> </b> <b>Please also check  product specification for suitability/ accuracy. If you need help with product selection please send us the input RFQ so we can help identify the right product fit</b><br><br> If you need any futher clarifications, please advice.<br>";
+
+        return $header_lateresponse;
+       }
+
+
+       public function getFooter_moreinfo()
+       {
+            $footer_moreinfo='<span style="background:#00ff00"></span><p class="MsoNormal"><span style="color:black">If you need any further clarification, please advice.<u></u><u></u></span></p>
+            <p class="MsoNormal"><b><span style="color:black"></span></b><span style="color:black"><u></u><u></u></span></p>
+            <small>
+            Best regards,<br>
+            <a href="www.instrumentsfinder.com">InstrumentsFinder.com</a><br>
+            P.O. Box 122431 | Dubai | United Arab Emirates<br><br>
+            <a href="mailto:enquiry@agisafety.com">enquiry@agisafety.com</a><br>
+            https://instrumentsfinder.com<br>
+            <img src="https://instrumentsfinder.com/assets/email_signature.png"><br>
+            InstrumentsFinder.com :: Committed To Safety For Life!
+            Leading suppliers For Oilfield Safety And Fire Protection Equipment, Safety & Personal Protection Equipment (PPE), Process Instrumentation, Electrical And Mechanical Machinery Spare Parts, Laboratory Measurement Tools, Surgical / Medical Emergency Products for Oil & Gas Industry in Middle East, Caspian & Africa
+            </small>';
+
+        return $footer_moreinfo;
+       }
 
        public function getEmailFooter($currency_chosen,$deliveryleadtime,$exworks)
 

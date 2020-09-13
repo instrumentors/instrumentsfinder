@@ -57,8 +57,11 @@ if(isset(app('request')->descr))
     $descr=app('request')->descr;
 
 
-    if(isset(app('request')->askmoreinfo))
-    $askmoreinfo=app('request')->askmoreinfo;
+if(isset(app('request')->askmoreinfo))
+$askmoreinfo=app('request')->askmoreinfo;
+
+if(isset(app('request')->lateresponse))
+$lateresponse=app('request')->lateresponse;
 
 
 
@@ -155,7 +158,18 @@ $leadtime_array=array(
 
         </div>
      </div>
+     <div class="row">
+        <div class="col" >
+            <?php
+            $checked_lateresponse="checked";
+                if($lateresponse=="0")
+                    $checked_lateresponse="";
+            ?>
+            <h3 style="background-color:Yellow;">Send Late Response ? <input type="checkbox" class="largecheckbox" name="lateresponse" {{$checked_lateresponse}}><br></h3>
 
+
+        </div>
+     </div>
 
      <div class="row">
     <div class="col-3">
@@ -330,7 +344,14 @@ $prodindex++;
 
 <textarea id="textarea_email" name="textarea_email" class="editor">
 
+
 @if($askmoreinfo!="0")
+    @if($lateresponse!="0")
+    {{$data->getHeader_lateresponse()}}
+    @else
+    {{$data->getHeader_moreinfo()}}
+    @endif
+
     <br><b>Original Request for Quotation : </b><br>
     <p style="margin:0;">Shipping to : {{$lead_data["lead"]["country_shipping"]}}</p>
     <p style="margin:0;">ID : {{$lead_data["lead"]["order_id"]}}</p>
@@ -372,7 +393,8 @@ $prodindex=0;
 
 @endforeach
 <hr>
-{{$data->getHeader_moreinfo()}}
+
+{{$data->getFooter_moreinfo()}}
 
 @endif
 
@@ -381,7 +403,7 @@ $prodindex=0;
 
 {{$data->getHeader()}}
 
-<br><br>
+
 <?php
 $prodindex=0;
 ?>
@@ -395,9 +417,6 @@ $prodindex=0;
 <br>
 
 
-@if($descr!="0")
- {!!$product["product_description"]!!}
- @endif
 
 @if(isset($product["options"]) && is_array($product["options"]) && count($product["options"])>0)
     @foreach($product["options"] as $option)
@@ -420,10 +439,16 @@ $prodindex=0;
 <?php
 
 ?>
-<b>Price: {{$currency_chosen}}  {{$price_var[$prodindex]}} EA</span></b>
+<b>Price: <span style="margin-left:10px;background-color: #ebfbb9;">{{$currency_chosen}}  {{$price_var[$prodindex]}} EA</span></b>
 
      <?php $prodindex++; ?>
 <hr>
+
+
+@if($descr!="0")
+<span style="background-color: #ffe37c;"><b>Product description: </b></span><br>
+{!!$product["product_description"]!!}
+ @endif
 @endforeach
 
 
