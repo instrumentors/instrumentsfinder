@@ -35,7 +35,7 @@ $currency = $data_values["currency"];
 		<div class="col-md-5 col-sm-6">
 			<div style="margin:10px;display:block;padding:30px;border:dotted 1px;">
 			<h5>Submit your details</h5>
-			<form action="/submitlead" method="post" id="leadform" role="form" >
+			<form action="/submitlead" method="post" id="leadform" role="form" onsubmit="return submitUserForm();">
                       @csrf
 
                       <div id="cartdetails_form" style="display:none"></div>
@@ -105,9 +105,16 @@ data-callback="onSubmit"> --}}
 {{-- <input type="submit" class="g-recaptcha btn btn-brand"
 data-sitekey="6LeYtMwUAAAAAI-r0duEMYKNLZ2XB-jlAV8JFfDD"
 data-callback="onSubmit"> --}}
+{{-- <div class="g-recaptcha" data-sitekey="6LeYtMwUAAAAAI-r0duEMYKNLZ2XB-jlAV8JFfDD" data-callback="onSubmit" data-expired-callback="onSubmit"></div>
+<input class="form-control d-none" data-recaptcha="true" required data-error="Please complete the Captcha">
+<div class="help-block with-errors"></div>
 
-<input type="submit" class="g-recaptcha btn btn-brand">
+<input type="submit" class="g-recaptcha btn btn-brand" > --}}
 
+
+<div class="g-recaptcha" data-sitekey="6LeYtMwUAAAAAI-r0duEMYKNLZ2XB-jlAV8JFfDD" data-callback="verifyCaptcha"></div>
+    <div id="g-recaptcha-error"></div>
+    <input type="submit" name="submit" value="Submit" />
 
 {{-- Check Price Now
 </button> --}}
@@ -119,3 +126,20 @@ data-callback="onSubmit"> --}}
 </div>
 </div>
 @endsection
+
+<script>
+     function submitUserForm() {
+
+         
+          var response = grecaptcha.getResponse();
+         if(response.length == 0) {
+             document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">This field is required.</span>';
+             return false;
+         }
+         return true;
+     }
+      
+     function verifyCaptcha() {
+         document.getElementById('g-recaptcha-error').innerHTML = '';
+     }
+     </script>
