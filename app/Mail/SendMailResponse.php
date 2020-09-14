@@ -47,8 +47,16 @@ class SendMailResponse extends Mailable
         //$Product_in_Lead = $this->lead_data["products"]["name"].$Product_in_Lead.", ";
         //endforeach
 
+        $product_in_Lead='';
+
+        foreach($this->lead_data["products"] as $product)
+        {
+            //$Product_in_Lead = $this->lead_data["products"]["name"].$Product_in_Lead.", ";
+            $product_in_Lead .= $product["name"].", ";
+        }
+
         return $this->from("enquiry@agisafety.com", "InstrumentFinder Team")
-        ->subject("InstrumentsFinder RFQ-".$rfqID." Ship to: ".$shipping." From : ".$leadfrom)
+        ->subject("InstrumentsFinder.com RFQ-".$rfqID." Ship to : ".$shipping." Product : ".$product_in_Lead)
         ->view('email.emailresponsetemplate')->with('emailMsg', $this->emailMsg);;
 
     }

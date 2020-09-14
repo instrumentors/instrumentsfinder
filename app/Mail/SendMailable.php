@@ -32,7 +32,7 @@ class SendMailable extends Mailable
     public function build()
     {
 
-        
+
 
         $shipping = $this->lead_data["lead"]["country_shipping"];
         $rfqID = $this->lead_data["lead"]["order_id"];
@@ -41,20 +41,20 @@ class SendMailable extends Mailable
 
         $product_in_Lead='';
 
-        
+
         foreach($this->lead_data["products"] as $product)
         {
             //$Product_in_Lead = $this->lead_data["products"]["name"].$Product_in_Lead.", ";
-            $product_in_Lead .= $product["name"].", "; 
+            $product_in_Lead .= $product["name"].", ";
         }
-            
-        
+
+
 
         return $this->from("enquiry@agisafety.com", "InstrumentFinder Teams")
-        ->subject("Lead : ".$rfqID." ,from : ".$leadfrom." ship to : ".$shipping." product : ".$product_in_Lead)
+        ->subject("InstrumentsFinder.com RFQ-".$rfqID." Ship to : ".$shipping." Product : ".$product_in_Lead)
          ->view('email.emailtemplate');
 
-       
-        
+
+
     }
 }
