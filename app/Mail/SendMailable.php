@@ -39,18 +39,19 @@ class SendMailable extends Mailable
 
         $leadfrom = $this->lead_data["lead"]["country_emoji"]."|".$this->lead_data["lead"]["country"];
 
-        $Product_in_Lead='';
+        $product_in_Lead='';
 
         
-        foreach($this->lead_data["products"] as $Product_in_Lead)
+        foreach($this->lead_data["products"] as $product)
         {
-            $Product_in_Lead = $this->lead_data["name"].$Product_in_Lead.", ";
+            //$Product_in_Lead = $this->lead_data["products"]["name"].$Product_in_Lead.", ";
+            $product_in_Lead .= $product.", "; 
         }
             
         
 
         return $this->from("enquiry@agisafety.com", "InstrumentFinder Teams")
-        ->subject("Lead : ".$rfqID." ,from : ".$leadfrom." ship to : ".$shipping." product : ".$Product_in_Lead)
+        ->subject("Lead : ".$rfqID." ,from : ".$leadfrom." ship to : ".$shipping." product : ".$product_in_Lead)
          ->view('email.emailtemplate');
 
        
