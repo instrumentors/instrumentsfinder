@@ -28,21 +28,21 @@ class AdminController extends Controller
     	$leads_model = new leads;
       
       
-      $countries=$leads_model->select("country_shipping")->where('status','NEW')->distinct()->get();
+      $countries=$leads_model->select("country_shipping")->where('status','NEW')->orwhere('status','LEAD_EMAIL_SENT')->distinct()->get();
 
       $countrysel="default";
 
       if($request->input("country")!=null)
       {
         $country = $request->input("country");
-        $leads=$leads_model->where('country_shipping',$country)->where('status','NEW')->orderBy('created_at', 'desc')->paginate(100);
+        $leads=$leads_model->where('country_shipping',$country)->where('status','NEW')->orwhere('status','LEAD_EMAIL_SENT')->orderBy('created_at', 'desc')->paginate(100);
         $countrysel=$country;
         //$sql=($leads_model->where('country',$country)->where('status','EMAIL_SENT')->orWhere('status','NEW')->orderBy('created_at', 'desc'));
         //return $sql->toSql();
       }
       else
       {
-        $leads=$leads_model->where('status','EMAIL_SENT')->orWhere('status','NEW')->orderBy('created_at', 'desc')->paginate(100);
+        $leads=$leads_model->where('status','LEAD_EMAIL_SENT')->orWhere('status','NEW')->orderBy('created_at', 'desc')->paginate(100);
       }  
       
     
@@ -72,7 +72,7 @@ class AdminController extends Controller
       }
       else
       {
-        $leads=$leads_model->where('status','EMAIL_SENT')->orWhere('status','EMAIL_SENT')->orderBy('created_at', 'desc')->paginate(25);
+        $leads=$leads_model->where('status','EMAIL_SENT')->orderBy('created_at', 'desc')->paginate(100);
       }  
       
     
@@ -109,7 +109,7 @@ class AdminController extends Controller
          }else{
           
           $leadmodel = new leads;
-          $leadmodel->where("order_id",$leadid)->update(['status' => "EMAIL_RESPONSE_SENT"]);
+          $leadmodel->where("order_id",$leadid)->update(['status' => "EMAIL_SENT"]);
            //return response()->json('Your email was sent');
             return '';
          }

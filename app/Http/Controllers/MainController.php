@@ -189,14 +189,10 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 
 		foreach($leads_to_email as $lead_to_email)
 		{
-			//print_r($lead_to_email);
 			$lead_id = $lead_to_email["order_id"];
-			//echo($lead_id);
 			$res = $this->sendmail($lead_id);
 			echo("sending email to ".$lead_id." -- ".$res );
-			$leadmodel->where("order_id",$lead_id)->update(['status' => "EMAIL_SENT"]);
-			
-
+			$leadmodel->where("order_id",$lead_id)->update(['status' => "LEAD_EMAIL_SENT"]);
 		}
 
 		
