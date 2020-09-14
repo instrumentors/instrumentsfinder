@@ -35,14 +35,14 @@ class AdminController extends Controller
       if($request->input("country")!=null)
       {
         $country = $request->input("country");
-        $leads=$leads_model->where('country_shipping',$country)->where('status','NEW')->orderBy('created_at', 'desc')->paginate(25);
+        $leads=$leads_model->where('country_shipping',$country)->where('status','NEW')->orderBy('created_at', 'desc')->paginate(100);
         $countrysel=$country;
         //$sql=($leads_model->where('country',$country)->where('status','EMAIL_SENT')->orWhere('status','NEW')->orderBy('created_at', 'desc'));
         //return $sql->toSql();
       }
       else
       {
-        $leads=$leads_model->where('status','EMAIL_SENT')->orWhere('status','NEW')->orderBy('created_at', 'desc')->paginate(25);
+        $leads=$leads_model->where('status','EMAIL_SENT')->orWhere('status','NEW')->orderBy('created_at', 'desc')->paginate(100);
       }  
       
     

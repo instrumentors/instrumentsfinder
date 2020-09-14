@@ -90,7 +90,7 @@ if(isset($url_array[2]) && $url_array[2]=="sent")
  </div>
 </div>
 </div>
-{{$leads->links()}}
+{{$leads->appends(request()->input())->links()}}
 @endif 
 
 
