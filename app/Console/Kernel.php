@@ -24,8 +24,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-       
-        $schedule->call('App\Http\Controllers\MainController@emailcron')->hourly();
+        $file="cronlog.txt";
+        $schedule->call('App\Http\Controllers\MainController@emailcron')->hourly()->sendOutputTo($file);
 
     }
 

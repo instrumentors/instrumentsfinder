@@ -206,12 +206,9 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 
       
 
-        Mail::to('Enquiry@agisafety.com')->send(new SendMailable($lead_data)); 
+        Mail::to('enquiry@agisafety.com')->send(new SendMailable($lead_data)); 
        // Mail::to('kapadiayusuf@gmail.com')->send(new SendMailable($lead_data)); 
         //Mail::to('noamankazi79@gmail.com')->send(new SendMailable($lead_data)); 
-
-        
- 
 
  
         if (Mail::failures()) {
