@@ -66,7 +66,7 @@
 
 					<div style="border:dotted #fdc900 1px;padding:5px;">
 						<div style="margin-top:10px;display:block;text-align:center;text-transform: uppercase;width:90%;dotted;font-size:13px;color:#4ECDEE;letter-spacing: 0.5px;">Reach out to us for support<hr/></div>
-                        <div style="margin-top:10px;display:block;text-align:center;width:90%;dotted;font-size:13px;color:#4ECDEE;letter-spacing: 0.5px;"><p> <b>If you need help with Product Options Selection, Please send us the input RFQ so we can help identify the right product fit</p></b></div>
+                        <div style="margin-top:10px;display:block;text-align:center;width:90%;dotted;font-size:13px;color:#cb202d;letter-spacing: 0.5px;"><p> <b>If you need help with Product Options Selection, Please send us the input RFQ so we can help identify the right product fit</p></b></div>
                         <button type="button" class="btn_cartload btn btn-brand">REACH OUT FOR SUPPORT</button>
 					</div>
 					<hr>
@@ -77,11 +77,11 @@
 						<div class="configcartdiv"></div>
 
 						<div style="background-color: #f3f3f3;padding:8px;">
-						<div>Configuration availability and price </div>
-						<p style="color:#666;" class="small">Please click the button below to send your request and we will get back with the details of price and availability</p>
+						<div>Check Configuration availability and best Reseller Price Now</div>
+						<p style="color:#666;" class="small"></p>
 						</div>
 						<hr/>
-						<button type="button" class="btn_cartload btn btn-brand">REQUEST FOR PRICE</button>
+						<button type="button" class="btn_cartload btn btn-brand">CHECK PRICE NOW</button>
 
 						</div>
 
