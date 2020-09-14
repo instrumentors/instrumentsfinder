@@ -41,9 +41,10 @@ class SendMailable extends Mailable
 
         $Product_in_Lead='';
 
+        
         foreach($this->lead_data["products"] as $Product_in_Lead)
         {
-            $Product_in_Lead = $this->lead_data["products"]["name"].$Product_in_Lead.", ";
+            $Product_in_Lead = $this->lead_data["name"].$Product_in_Lead.", ";
         }
             
         
