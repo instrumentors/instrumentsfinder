@@ -74,13 +74,12 @@ if(isset($url_array[2]) && $url_array[2]=="sent")
 
     $product_in_Lead='';
 
-    foreach($this->$lead["products"] as $product)
-{
-    //$Product_in_Lead = $this->lead_data["products"]["name"].$Product_in_Lead.", ";
-    $product_in_Lead .= $product["name"].", ";
-}
-
-
+    //foreach($this->$lead["products"] as $product)
+    //{
+        //$Product_in_Lead = $this->lead_data["products"]["name"].$Product_in_Lead.", ";
+    //$product_in_Lead .= $product["name"].", ";
+  //}
+//print_r($lead)
     ?>
 
     <tr>
