@@ -26,8 +26,8 @@ class AdminController extends Controller
     public function index(Request $request)
     {
     	$leads_model = new leads;
-      
-      
+
+
       $countries=$leads_model->select("country_shipping")->where('status','NEW')->orwhere('status','LEAD_EMAIL_SENT')->distinct()->get();
 
       $countrysel="default";
@@ -43,21 +43,21 @@ class AdminController extends Controller
       else
       {
         $leads=$leads_model->where('status','LEAD_EMAIL_SENT')->orWhere('status','NEW')->orderBy('created_at', 'desc')->paginate(100);
-      }  
-      
-    
-   
+      }
+
+
+
 
     return view("admin.index",compact('leads','countries','countrysel'));
-    
 
-     } 	
-     
+
+     }
+
      public function sent(Request $request)
     {
     	$leads_model = new leads;
-      
-      
+
+
       $countries=$leads_model->select("country_shipping")->where('status','EMAIL_SENT')->distinct()->get();
 
       $countrysel="default";
@@ -65,7 +65,7 @@ class AdminController extends Controller
       if($request->input("country")!=null)
       {
         $country = $request->input("country");
-        $leads=$leads_model->where('country_shipping',$country)->where('status','EMAIL_SENT')->orderBy('created_at', 'desc')->paginate(25);
+        $leads=$leads_model->where('country_shipping',$country)->where('status','EMAIL_SENT')->orderBy('created_at', 'desc')->paginate(100);
         $countrysel=$country;
         //$sql=($leads_model->where('country',$country)->where('status','EMAIL_SENT')->orWhere('status','NEW')->orderBy('created_at', 'desc'));
         //return $sql->toSql();
@@ -73,24 +73,24 @@ class AdminController extends Controller
       else
       {
         $leads=$leads_model->where('status','EMAIL_SENT')->orderBy('created_at', 'desc')->paginate(100);
-      }  
-      
-    
-   
+      }
+
+
+
 
     return view("admin.index",compact('leads','countries','countrysel'));
-    
 
-   	} 	
+
+   	}
 
    	public function displayLead($leadid)
    	{
    		$leadmodel = new leads;
    		$lead_data=$leadmodel->getLead($leadid);
-   		
-      
+
+
    		return view("admin.showlead",compact("lead_data"));
-   	}	
+   	}
 
 
     public function sendmailresponse($to,$msg,$leadid,$cc=false)
@@ -100,20 +100,20 @@ class AdminController extends Controller
       $lead_data=$leadmodel->getLead($leadid);
 
       if($cc)
-      Mail::to($to)->cc("enquiry@agisafety.com")->send(new SendMailResponse($to,$msg,$lead_data)); 
+      Mail::to($to)->cc("enquiry@agisafety.com")->send(new SendMailResponse($to,$msg,$lead_data));
       else
-       Mail::to($to)->send(new SendMailResponse($to,$msg,$lead_data)); 
- 
+       Mail::to($to)->send(new SendMailResponse($to,$msg,$lead_data));
+
         if (Mail::failures()) {
            return response()->Fail('sorry, email not sent');
          }else{
-          
+
           $leadmodel = new leads;
           $leadmodel->where("order_id",$leadid)->update(['status' => "EMAIL_SENT"]);
            //return response()->json('Your email was sent');
             return '';
          }
-      
+
     }
 
 
@@ -134,9 +134,9 @@ class AdminController extends Controller
       {
 
         $resp = $this->sendmailresponse($to_email,$textarea_email,$leadid,true);
-       
 
-      }  
+
+      }
         return view("admin.sendEmailResponse",compact("resp"));
     }
 
@@ -144,7 +144,7 @@ class AdminController extends Controller
     {
       $leadmodel = new leads;
       $lead_data=$leadmodel->getLead($leadid);
-      
+
       return view("admin.showEmail",compact("lead_data"));
     }
 

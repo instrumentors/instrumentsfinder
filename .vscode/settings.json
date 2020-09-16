@@ -244,9 +244,6 @@
 	// Configures font ligatures or font features.
 	"editor.fontLigatures": false,
 
-	// Controls the font size in pixels.
-	"editor.fontSize": 12,
-
 	// Controls the font weight.
 	"editor.fontWeight": "normal",
 
@@ -1299,10 +1296,6 @@
 	// Controls whether the search view should read or modify the shared find clipboard on macOS.
 	"search.globalFindClipboard": false,
 
-	// This setting is deprecated. Please use drag and drop instead by dragging the search icon.
-	// Controls whether the search will be shown as a view in the sidebar or as a panel in the panel area for more horizontal space.
-	"search.location": "sidebar",
-
 	// When enabled, the searchService process will be kept alive instead of being shut down after an hour of inactivity. This will keep the file search cache in memory.
 	"search.maintainFileSearchCache": false,
 
@@ -1427,7 +1420,7 @@
 	"debug.console.fontFamily": "default",
 
 	// Controls the font size in pixels in the debug console.
-	"debug.console.fontSize": 12,
+	"debug.console.fontSize": 16,
 
 	// Controls if the debug console should suggest previously typed input.
 	"debug.console.historySuggestions": true,
@@ -2419,7 +2412,7 @@
 	"terminal.integrated.fontFamily": "",
 
 	// Controls the font size in pixels of the terminal.
-	"terminal.integrated.fontSize": 12,
+	"terminal.integrated.fontSize": 16,
 
 	// The font weight to use within the terminal for non-bold text.
 	"terminal.integrated.fontWeight": "normal",
@@ -6300,5 +6293,6 @@
 
 	// This setting will change the color more vivid
 	"oneDarkPro.vivid": false,
+	"editor.fontSize": 20,
 
 }
