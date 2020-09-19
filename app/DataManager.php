@@ -226,11 +226,151 @@ class DataManager
             break;
 
 
-            default:
+
+            default: //global
                 $country = "";
                 $cities = array("USA","Middle East","Asia Pacific");
                 $currency="USD";
+                $ga='';
+                $yandex='';
             break;
+
+            //Adding New African Countries
+            case "za"://South Africa
+                $country = "South Africa";
+                $cities=array("Johannesburg","Cape Town","Durban, Ballito and Umhlanga","Paarl, Franschhoek and Stellenbosch","The Garden Route","Pretoria","The Whale Coast","The Sunshine Coast","Pietermaritzburg and Natal Midlands","Bloemfontein");
+                $currency="USD";
+                $ga='';
+                $yandex='';
+            break;
+
+            case "dz"://Algeria
+                $country = "Algeria";
+                $cities=array("Algiers","Oran","Blida","Constantine","Annaba","Djelfa","Biskra","Batna","Setif","Sidi Bel Abbes");
+                $currency="USD";
+                $ga='';
+                $yandex='';
+            break;
+
+            case "ma"://Morocco
+                $country = "Morocco";
+                $cities=array("Casablanca","Fez","Tangier","Marrakesh","Salé","Meknes","Rabat","Oujda","Kenitra","Agadir");
+                $currency="USD";
+                $ga='';
+                $yandex='';
+            break;
+
+
+            case "ao"://Angola
+                $country = "Angola";
+                $cities=array("Luanda","Huambo","Lobito","Lubango","Kuito","Malanje","Benguela","Lucapa","Namibe","Soyo");
+                $currency="USD";
+                $ga='';
+                $yandex='';
+            break;
+
+
+            case "et"://Ethiopia
+                $country = "Ethiopia";
+                $cities=array("Addis Ababa (Finfinne)","Dire Dawa","Mek'ele","Gondar","Bahir Dar","Awasa","Dessie","Jimma","Jijiga","Shashamane");
+                $currency="USD";
+                $ga='';
+                $yandex='';
+            break;
+
+
+            case "ke"://Kenya
+                $country = "Kenya";
+                $cities=array("Nairobi","Meru","Nyeri","Kirinyaga"," Narok","Kiambu","Machackos","TharakaNithi","Murang’a","Mombasa");
+                $currency="USD";
+                $ga='';
+                $yandex='';
+            break;
+
+
+            case "gh"://Ghana
+                $country = "Ghana";
+                $cities=array("Accra","Kumasi","Sekondi-Takoradi","Sunyani","Tamale","Obuasi","Cape Coast","Koforidua");
+                $currency="USD";
+                $ga='';
+                $yandex='';
+            break;
+
+
+            case "tz"://Tanzania
+                $country = "Tanzania";
+                $cities=array("Dar es Salaam","Mwanza","Arusha","Dodoma","Mbeya","Morogoro","Tanga","Kahama","Tabora","Zanzibar City");
+                $currency="USD";
+                $ga='';
+                $yandex='';
+            break;
+
+
+            case "cd"://Congo
+                $country = "Congo";
+                $cities=array("Kinshasa","Lubumbashi","Mbuji-Mayi","Kananga","Bukavu","Goma","Kisangani","Tshikapa","Kolwezi","Likasi");
+                $currency="USD";
+                $ga='';
+                $yandex='';
+            break;
+
+
+            case "tn"://Tunisia
+                $country = "Tunisia";
+                $cities=array("Tunis","Sfax","Sousse","Ettadhamen","Kairouan","Gabès","Bizerte","Aryanah","Gafsa","El Mourouj");
+                $currency="USD";
+                $ga='';
+                $yandex='';
+            break;
+
+
+            case "cm"://Cameroon
+                $country = "Cameroon";
+                $cities=array("Douala","Yaoundé","Bamenda","Bafoussam","Garoua","Maroua","Kumba","Ngaoundéré","Nkongsamba","Buea");
+                $currency="USD";
+                $ga='';
+                $yandex='';
+            break;
+
+
+            case "zw"://Zimbabwe
+                $country = "Zimbabwe";
+                $cities=array("Harare","Bulawayo","Chitungwiza","Mutare","Epworth","Gweru","Kwekwe","Kadoma","Masvingo","Chinhoyi");
+                $currency="USD";
+                $ga='';
+                $yandex='';
+            break;
+
+
+            case "ug"://Uganda
+                $country = "Uganda";
+                $cities=array("Kampala","Nansana","Kira Town","Mbarara","Mukono Town","Gulu","Masaka","Kasese","Hoima","Lira");
+                $currency="USD";
+                $ga='';
+                $yandex='';
+            break;
+
+
+            case "zm"://Zambia
+                $country = "Zambia";
+                $cities=array("Lusaka","Kitwe","Chipata","Ndola","Kabwe","Chingola","Livingstone","Luanshya","Mufulira","Kasama");
+                $currency="USD";
+                $ga='';
+                $yandex='';
+            break;
+
+
+            case "sn"://Senegal
+                $country = "Senegal";
+                $cities=array("Dakar","Touba","Rufisque","Thiès","Ziguinchor","Kaolack","Saint-Louis","M'Bour","Diourbel","Louga");
+                $currency="USD";
+                $ga='';
+                $yandex='';
+            break;
+
+
+
+
         } //end of switch
 
 
