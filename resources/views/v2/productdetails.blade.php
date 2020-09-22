@@ -20,7 +20,7 @@
 	$currency = $data_values["currency"];
 @endphp
 
-   
+
 
 @extends('layout.v2.mainlayout')
 
@@ -35,16 +35,16 @@
 		<li class="breadcrumb-item"><a href="/">Home</a></li>
 		@if(isset($productData))
 
-		<li class="breadcrumb-item"><a href="/brand/{{$productData->brand}}">{{$productData->brand}}</a></li>	
+		<li class="breadcrumb-item"><a href="/brand/{{$productData->brand}}">{{$productData->brand}}</a></li>
 		@foreach($category_array as $cat)
-		<li class="breadcrumb-item"><a href="/category/{{$cat['slug']}}">{{$cat['name']}}</a></li>	
+		<li class="breadcrumb-item"><a href="/category/{{$cat['slug']}}">{{$cat['name']}}</a></li>
 		@endforeach
 
 		@if(strlen($productData->cat2)>1)
-		<li class="breadcrumb-item"><a href="#">{{$productData->cat2}} </a></li>	
+		<li class="breadcrumb-item"><a href="#">{{$productData->cat2}} </a></li>
 		@endif
 
-		<li class="breadcrumb-item active"> {{$country}} </a></li>		
+		<li class="breadcrumb-item active"> {{$country}} </a></li>
 
 		@endif
 
@@ -57,31 +57,31 @@
 
 
 										$img = $productData->img_new_path;
-									
 
-								?>	
+
+								?>
 
 		<div class="d-none" style="display:none;">
   <span class="baseproductname">{{$productData->name}}</span>
   <span class="baseproductid">{{$productData->prod_id}}</span>
   <span class="baseproductcode">{{$productData->codevalue}}</span>
   <span class="baseproductimg">/assets/{{$productData->thumb_img_new_path}}</span>
-</div> 
+</div>
 
 
 			<div class="row">
 				<div class="col-md-12 col-sm-6">
 					<h1 style="font-size:1.5em;">{{$productData->name}} - {{$country}}</h1>
-					
-				</div>	
-			</div>	
+
+				</div>
+			</div>
 			<div class="row">
 				<div class="col-md-8 col-sm-6">
 					<div class="row" style="border-right:dotted 1px;">
 						<div class="col-md-5 col-sm-6" style="display:block;margin-left:auto;margin-right:auto;margin-top:50px;">
-							
 
-							
+
+
 
 
 							@if(isset($options) && is_array($options) && count($options)>0)
@@ -99,7 +99,7 @@
 
 
 
-						</div>	
+						</div>
 						<div class="col-md-7 col-sm-6" style="padding:40px;">
 							<h2 style="font-size:1.15em;"><p>
 								We are the trusted suppliers for {{$productData->brand}} in {{$country}} across {{implode(", ",$cities)}}
@@ -107,12 +107,12 @@
 								{!!$productData->short_desc!!}</h2>
 							</p>
 							<div>{!!$productData->features!!}</div>
-						</div>	
-					</div>	
-					
-				</div>	
+						</div>
+					</div>
+
+				</div>
 				<div class="col-md-4 col-sm-6">
-					
+
 
 					<ul class="list-group">
 						<li class="list-group-item">Resellers of <div class="brand"><a href="/brand/{{$data->create_slug($productData->brand)}}" style="color:#Adc900;">{{$productData->brand}} in {{$country}}</a></div></li>
@@ -128,15 +128,15 @@
 
 
 					@endif
-					
-					
+
+
 					@if(isset($options) && is_array($options) && count($options)>0)
-					
-					<div style="margin-top:20px;width:100%;border-top:solid #fdc900 1px;padding:10px;padding-top: 2px;padding-bottom: 2px;">
+
+					<div style="margin-top:20px;width:100%;border-top:solid #fdd700 1px;padding:10px;padding-top: 2px;padding-bottom: 2px;">
 					<b >The product has following configurable options</b><br/>
 					<ul class="list-group list-group-flush" style="margin-top:15px;">
-					@foreach($options as $option) 
-                    
+					@foreach($options as $option)
+
                     @if($option['options_desc']!="block")
                     <li class="list-group-item" style="padding-top: 2px;padding-bottom: 2px;font-size:12px;">{{$option['options_desc']}}</li>
                     @endif
@@ -146,10 +146,10 @@
                 	</div>
                 	@endif
 				</div>
-			</div>	
-			
+			</div>
 
-				
+
+
 		@endif
 		</div>
 
@@ -171,18 +171,18 @@
 			    <a class="nav-link tabheader" id="diferentiators-tab" data-toggle="tab" href="#diferentiators" role="tab" aria-controls="diferentiators" aria-selected="false">Our Differentiators</a>
 			  </li>
 
-			  
+
 			</ul>
 			<div class="tab-content" id="myTabContent">
 			  @if($productData->long_desc!="")
 			  <div class="tab-pane fade" id="features" role="tabpanel" aria-labelledby="home-tab" style="padding:30px;background-color:#fafafa;"><!--{!!$productData->long_desc!!}-->
-			  	
+
 			  	<h3>Why buy {{$brand}} {{$category_array[0]["name"]}} in {{$country}} from us? </h3>
 			  	<h4>
 			  		Especially the {{$productData->name}} in {{$country}}- {{implode(", ",$cities)}}
 			  	</h4>
 			  	<ul style="font-size:16px;line-height: 20px;">
-			  	
+
 
 			  	<li class="list-group-item1"> Preferred Vendor &amp; and premium reseller for the world?s best and most reputed brands including {{$brand}} for <strong>{{$category_array[0]["name"]}}</strong> in {{$country}} </li>
 
@@ -199,14 +199,14 @@
 			  @endif
 
 			  @if(isset($docs) && $docs!=null && is_array($docs))
-			  <div class="tab-pane fade show active" id="documents" role="tabpanel" 
+			  <div class="tab-pane fade show active" id="documents" role="tabpanel"
 			  aria-labelledby="profile-tab" style="padding:30px;background-color:#fafafa;">
 					@foreach($docs as $doc)
 
 					<h6>{{$doc['doc_group_title']}}</h6><br/>
 					<ul class="list-group">
 					@foreach($doc["files"] as $file)
-					
+
 					<?php
 					//echo("<pre>");
 					//print_r($docs);
@@ -220,7 +220,7 @@
 					@endforeach
 					</ul>
 					<br/>
-				
+
 					@endforeach
 
 			  </div>
@@ -256,7 +256,7 @@
 </ul>
 
 			   </div>
-			   	
+
 			  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
 			</div>
 				</div>

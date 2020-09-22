@@ -9,9 +9,9 @@
 
 .page-item.p_active .page-link {
     z-index: 1;
-    color: #fdc900;
-    border-bottom:3px solid #fdc900;
-    
+    color: #fdd700;
+    border-bottom:3px solid #fdd700;
+
 }
 
 

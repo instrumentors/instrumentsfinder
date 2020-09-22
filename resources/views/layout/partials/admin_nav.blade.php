@@ -3,39 +3,39 @@
   {
     background-color: #00008b;
     padding:1px;
-    
+
   }
 
   .bg_instru
   {
-    background-color: #fdc900;
+    background-color: #fdd700;
   }
 
 </style>
 
 <!--
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg_instru border-bottom box-shadow">
-		
+
       <h5 class="my-0 mr-md-auto font-weight-normal text-light"><a href="/" style="text-decoration:none;color:#FFFFFF;">InstrumentsFinder</a></h5><br/>
       <nav class="my-2 my-md-0 mr-md-3">
-        
+
         <p>
           <b style="color:#FFFFFF;">LEADS &nbsp;&nbsp;&nbsp;   </b>
-        <a class="p-2 text-light small navbg" href="/admin">New</a> | 
-        <a class="p-2 text-light small navbg" href="#">Email Sent </a> | 
-        <a class="p-2 text-light small navbg" href="#">Ready for Invoice</a> | 
-        <a class="p-2 text-light small navbg" href="#">Ready For procurement</a> | 
-        <a class="p-2 text-light small navbg" href="#">Procured</a> | 
-        <a class="p-2 text-light small navbg" href="#">Delivered</a> | 
-        <a class="p-2 text-light small navbg" href="#">Rejected</a> | 
+        <a class="p-2 text-light small navbg" href="/admin">New</a> |
+        <a class="p-2 text-light small navbg" href="#">Email Sent </a> |
+        <a class="p-2 text-light small navbg" href="#">Ready for Invoice</a> |
+        <a class="p-2 text-light small navbg" href="#">Ready For procurement</a> |
+        <a class="p-2 text-light small navbg" href="#">Procured</a> |
+        <a class="p-2 text-light small navbg" href="#">Delivered</a> |
+        <a class="p-2 text-light small navbg" href="#">Rejected</a> |
       </p>
-        
+
       </nav>
-     
-     <br/> 
+
+     <br/>
 
 
-		
+
     </div>
 
   -->
@@ -72,9 +72,9 @@
        <li class="nav-item">
         <a class="nav-link" href="#">Rejected</a>
       </li>
-      
+
     </ul>
-   
+
   </div>
 </nav>
 

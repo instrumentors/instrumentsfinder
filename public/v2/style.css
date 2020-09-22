@@ -14,7 +14,7 @@ body
 	font-display: auto;
 	color:#000000;
 	background-color: #eee;
-	
+
 
 }
 
@@ -45,7 +45,7 @@ h1
 
 .bgcolor
 {
-	background-color:#fdc900; 
+	background-color:#fdd700;
 }
 
 
@@ -58,7 +58,7 @@ h1
 
 .options_block
 {
-	border-right:dotted #fdc900 1px;
+	border-right:dotted #fdd700 1px;
 	overflow: scroll;
 }
 
@@ -82,7 +82,7 @@ h1
 {
 	font-weight:200;
 	font-size:40px;
-	color:#fdc900;
+	color:#fdd700;
 
 }
 .jumbotron_brand > .overlay {
@@ -112,13 +112,13 @@ h1
 
 .catblockmaster a
 {
-	background-color:#fdc900; 	
+	background-color:#fdd700;
 	text-decoration:none;
 	color:#000000;
 }
 
 .catblockmaster :hover {
-  background-color:#fdc900; 
+  background-color:#fdd700;
 
 }
 
@@ -127,7 +127,7 @@ h1
 	border-left: 1px solid;
 	width:150px;
 	text-align:center;
-	
+
 }
 
 @media only screen and (max-width: 600px) {
@@ -171,14 +171,14 @@ h1
 {
 	vertical-align: middle;
 	text-transform: uppercase;
-	border:dotted #fdc900 1px;
+	border:dotted #fdd700 1px;
 	letter-spacing: 0.6px;
 	margin:5px;
 	padding-left:10px;
 	padding-right:10px;
 	padding-top:10px;
 	padding-bottom:10px;
-	
+
 	font-size:12px;
 	font-weight:600;
 }
@@ -224,10 +224,10 @@ h1
 {
 	padding:5px;
 
-	border-bottom: dotted 1px #fdc900;
+	border-bottom: dotted 1px #fdd700;
 	margin-bottom:8px;
 	width:100%;
-	
+
 }
 
 .productlist_home
@@ -235,23 +235,23 @@ h1
 	padding:5px;
 	margin-bottom:8px;
 	width:100%;
-	
+
 }
 
 
 
-.brand 
+.brand
 {
-	
-	color:#Adc900;	
+
+	color:#Adc900;
 	font-weight: 300;
 	font-size:13px;
 }
 
-.brand a 
+.brand a
 {
-	
-	color:#Adc900;	
+
+	color:#Adc900;
 	font-weight: 300;
 	font-size:13px;
 }
@@ -271,7 +271,7 @@ h1
 	display: block;
 	margin:auto;
 	height: auto;
-	width: auto; 
+	width: auto;
 	max-width: 64px;
 	height: 64;
 
@@ -286,17 +286,17 @@ h1
 
 input::placeholder { color: #777; font-size: 0.9em; letter-spacing:0.5px;  padding-left:10px;margin:4px; height:50px;}
 
-.typeahead, .twitter-typeahead, .tt-menu 
+.typeahead, .twitter-typeahead, .tt-menu
 {
-	margin-right:20px;	
+	margin-right:20px;
 	border:0px;
-  width:100%;  
+  width:100%;
   background-color: #EEEEEE;
   color:#333;
   display: block !important;
 
-  
-    
+
+
 }
 
 
@@ -329,7 +329,7 @@ input::placeholder { color: #777; font-size: 0.9em; letter-spacing:0.5px;  paddi
 @media only screen and (max-width: 800px) {
 
 .input-group .fa-search{
-  
+
   padding-top:20px;
   margin-left:20px;
 }
@@ -338,9 +338,9 @@ input::placeholder { color: #777; font-size: 0.9em; letter-spacing:0.5px;  paddi
 
 @media only screen and (max-width: 600px) {
 
-	
+
 .input-group .fa-search{
-  
+
   padding-top:20px;
   margin-left:2px;
 }
@@ -367,8 +367,8 @@ input::placeholder { color: #777; font-size: 0.9em; letter-spacing:0.5px;  paddi
 
 .btn-brand:hover
 {
-	
-	background-color: #fdc900;
+
+	background-color: #fdd700;
 	border:0px;
 	color:#0569AD;
 	font-weight:700;
@@ -376,8 +376,8 @@ input::placeholder { color: #777; font-size: 0.9em; letter-spacing:0.5px;  paddi
 }
 .btn-brand:click
 {
-	
-	background-color: #fdc900;
+
+	background-color: #fdd700;
 	border:0px;
 	color:#0569AD;
 	font-weight:700;
@@ -399,7 +399,7 @@ input::placeholder { color: #777; font-size: 0.9em; letter-spacing:0.5px;  paddi
 .variant
 {
 	background-color: #333;
-	color:#fdc900;
+	color:#fdd700;
 	letter-spacing: 0.5px;
 	font-weight:800;
 	padding-left:20px;
@@ -461,12 +461,12 @@ input::placeholder { color: #777; font-size: 0.9em; letter-spacing:0.5px;  paddi
 {
 	padding: 3px;
 	border-bottom:1px solid;
-	
+
 	margin:auto;
 	vertical-align: middle;
 }
 .checkout_table th
-{	
+{
 	border-right:1px solid;
 	padding: 5px;
 	background-color: #0569AD;
@@ -487,7 +487,7 @@ input::placeholder { color: #777; font-size: 0.9em; letter-spacing:0.5px;  paddi
 {
 	text-decoration: none;
 	color:#444;
-	
+
 }
 
 .cart_variant
@@ -532,7 +532,7 @@ input::placeholder { color: #777; font-size: 0.9em; letter-spacing:0.5px;  paddi
 
 .tab-content p
 {
-	font-size:0.95em;	
+	font-size:0.95em;
 }
 
 .tabheader
@@ -569,7 +569,7 @@ input::placeholder { color: #777; font-size: 0.9em; letter-spacing:0.5px;  paddi
 	line-height: 1.1em;
 	text-align:justify;
 
-}	
+}
 
 .h1_productheader
 {

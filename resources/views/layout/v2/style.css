@@ -26,7 +26,7 @@ h1
 
 .bgcolor
 {
-	background-color:#fdc900;
+	background-color:#fdd700;
 }
 
 
@@ -39,7 +39,7 @@ h1
 
 .options_block
 {
-	border-right:dotted #fdc900 1px;
+	border-right:dotted #fdd700 1px;
 	overflow: scroll;
 }
 
@@ -63,7 +63,7 @@ h1
 {
 	font-weight:200;
 	font-size:40px;
-	color:#fdc900;
+	color:#fdd700;
 
 }
 .jumbotron_brand > .overlay {
@@ -93,13 +93,13 @@ h1
 
 .catblockmaster a
 {
-	background-color:#fdc900;
+	background-color:#fdd700;
 	text-decoration:none;
 	color:#000000;
 }
 
 .catblockmaster :hover {
-  background-color:#fdc900;
+  background-color:#fdd700;
 
 }
 
@@ -141,7 +141,7 @@ h1
 {
 	vertical-align: middle;
 	text-transform: uppercase;
-	border:dotted #fdc900 1px;
+	border:dotted #fdd700 1px;
 	letter-spacing: 0.6px;
 	margin:5px;
 	padding-left:10px;
@@ -193,7 +193,7 @@ h1
 {
 	padding:5px;
 
-	border-bottom: dotted 1px #fdc900;
+	border-bottom: dotted 1px #fdd700;
 	margin-bottom:8px;
 	width:100%;
 
@@ -322,7 +322,7 @@ input.largecheckbox {
 .btn-brand:hover
 {
 
-	background-color: #fdc900;
+	background-color: #fdd700;
 	border:0px;
 	color:#0569AD;
 	font-weight:700;
@@ -331,7 +331,7 @@ input.largecheckbox {
 .btn-brand:click
 {
 
-	background-color: #fdc900;
+	background-color: #fdd700;
 	border:0px;
 	color:#0569AD;
 	font-weight:700;
@@ -347,13 +347,13 @@ input.largecheckbox {
 .searchresults a:hover
 {
 	text-decoration: none;
-	color:#fdc900;
+	color:#fdd700;
 }
 
 .variant
 {
 	background-color: #333;
-	color:#fdc900;
+	color:#fdd700;
 	letter-spacing: 0.5px;
 	font-weight:800;
 	padding-left:20px;

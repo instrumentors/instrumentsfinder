@@ -456,7 +456,7 @@ class DataManager
 Price are only valid for the mentioned quantities in above offer</span>
 </li>
 </ul>
-<span style="background-color: #fdc900;">Our quotation does not include 5% VAT. The same shall be charged as applicable at the time of <br>billing. Our Tax Registration Number (TRN) is 100038007900003.</span><br><br>
+<span style="background-color: #fdd700;">Our quotation does not include 5% VAT. The same shall be charged as applicable at the time of <br>billing. Our Tax Registration Number (TRN) is 100038007900003.</span><br><br>
 
 <small>
 Best regards,<br>
