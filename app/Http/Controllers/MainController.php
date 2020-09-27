@@ -53,10 +53,10 @@ https://ipstack.com/
 API KEY : 3cf453a7e01668f433270f0f51956f1b
 
 Delete from accessory_masters;
-Delete from applications_masters;   
-Delete from category_masters;       
-Delete from documents_files;        
-Delete from documents_masters;      
+Delete from applications_masters;
+Delete from category_masters;
+Delete from documents_files;
+Delete from documents_masters;
 Delete from migrations;
 Delete from options_variants;
 Delete from password_resets;
@@ -69,10 +69,10 @@ Delete from leads;
 
 
  Drop table accessory_masters;
- Drop table applications_masters;   
- Drop table category_masters;       
- Drop table documents_files;        
- Drop table documents_masters;      
+ Drop table applications_masters;
+ Drop table category_masters;
+ Drop table documents_files;
+ Drop table documents_masters;
  Drop table migrations;
  Drop table options_variants;
  Drop table password_resets;
@@ -84,7 +84,7 @@ Delete from leads;
  Drop table lead_products;
 
 
-//VIANT 
+//VIANT
 
 //ADELSIC. (DSP focussed on people based targetting)
 
@@ -108,12 +108,12 @@ class MainController extends Controller
 		$productmaster = new products_master;
 		//$products_data = $productmaster->whereIn($productmaster->distinct("brands")->get())->get();
 
-		
+
 		//$products_data=$productmaster->select("name","brand")->distinct("brand")->limit(500)->paginate(500,['*'],'page',$index);
 
 		//$data= $products_data-["data"];
 
-		
+
 		$products_data=$productmaster->select("brand","prod_id","name")->get()->unique('brand')->toArray();
 
 		$domain = "https://".$request->getHost();
@@ -125,19 +125,19 @@ class MainController extends Controller
 
 public function siteMapGenerate(Request $request,$id,$index=0)
 {
-	
+
 	$productmaster = new products_master;
-	$categorymaster = new category_master;    	
+	$categorymaster = new category_master;
     $applicationmaster = new applications_master;
 	$domain = "https://".$request->getHost();
 	if($id=="brands")
 		$data_array=$productmaster->getBrandsbyNameCount();
 	elseif($id=="categories"){
 			$data_array=$categorymaster->getCategorybyNameCount();
-		}	
+		}
 	elseif($id=="applications"){
 		$data_array=$applicationmaster->getApplicationsbyNameCount();
-	}	
+	}
 	elseif($id=="products"){
 		$data_array=$productmaster->getProductsForSitemap($index);
 	}
@@ -145,7 +145,7 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 	{
 
 	}
-	
+
 
 	return response()->view("v2.sitemap",compact("data_array","domain","id"))->header('Content-Type', 'text/xml');
 }
@@ -182,7 +182,7 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 
 	public function emailcron()
 	{
-	
+
 		$leadmodel = new leads;
 		$leads_to_email  = $leadmodel->where("status","NEW")->get()->toArray();
 
@@ -195,7 +195,7 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 			$leadmodel->where("order_id",$lead_id)->update(['status' => "LEAD_EMAIL_SENT"]);
 		}
 
-		
+
 	}
 
 	public function sendmail($leadid)
@@ -204,13 +204,13 @@ public function siteMapGenerate(Request $request,$id,$index=0)
         $leadmodel = new leads;
         $lead_data=$leadmodel->getLead($leadid);
 
-      
 
-        Mail::to('enquiry@agisafety.com')->send(new SendMailable($lead_data)); 
-       // Mail::to('kapadiayusuf@gmail.com')->send(new SendMailable($lead_data)); 
-        //Mail::to('noamankazi79@gmail.com')->send(new SendMailable($lead_data)); 
 
- 
+        Mail::to('enquiry@agisafety.com')->send(new SendMailable($lead_data));
+       // Mail::to('kapadiayusuf@gmail.com')->send(new SendMailable($lead_data));
+        //Mail::to('noamankazi79@gmail.com')->send(new SendMailable($lead_data));
+
+
         if (Mail::failures()) {
            return response()->Fail('sorry, email not sent');
          }else{
@@ -218,19 +218,19 @@ public function siteMapGenerate(Request $request,$id,$index=0)
          }
 
 
-        
+
 
 
     }
 
 
-    
+
 
 
 	public function getSearchResults(Request $request)
 	{
-        $query = $request->get('query',''); 
-        $productmaster = new products_master;       
+        $query = $request->get('query','');
+        $productmaster = new products_master;
         $posts=$productmaster->getSearchResults($query);
         return response()->json($posts);
 	}
@@ -238,7 +238,7 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 	public function getProductPriceFromInstrumart($leadId)
 	{
 		$leadmodel = new leads;
-		$productmaster = new products_master;  
+		$productmaster = new products_master;
 
         $lead_data=$leadmodel->getLead($leadId);
         $url="https://www.instrumart.com/products/configuratorjson/";
@@ -246,10 +246,10 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 		echo("<pre>");
 		print_r($lead_data);
 
-		foreach($lead_data["products"] as $lead_product)		
+		foreach($lead_data["products"] as $lead_product)
 		{
 			$prod_data = $productmaster->getProductByID($lead_product["product_id"]);
-			
+
 			$source_prod_id = $prod_data->source_prod_id;
 
 			$finalurl = $url.$source_prod_id;
@@ -257,10 +257,10 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 			$data = json_decode(file_get_contents($finalurl), true);
 
 
-			
+
 			print($source_prod_id);
 			print("<br/>");
-			
+
 			//print_r($lead_product);
 
 			//print_r($data);
@@ -297,7 +297,7 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 					}
 				}
 
-				
+
 				//print_r($lead_product_options);
 			}
 			$total_leadprice+=$total_price;
@@ -307,16 +307,16 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 			print("total _ price ".$total_price);
 			echo("<hr/>");
 
-			
-			
+
+
 			echo("<hr/>");
 		}
 		print("total_leade _ price ".$total_leadprice);
 		echo("</pre>");
-		
+
 	}
 
-	
+
 
 
 
@@ -336,7 +336,7 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 		//$ip_addres="83.110.239.78";
 
 		//$ip_addres = $this->getIp();
-		$productmaster = new products_master;  
+		$productmaster = new products_master;
 
 		//for testing
 
@@ -347,16 +347,16 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 
 		$locapiurl='http://api.ipstack.com/'.$ip_addres.'?access_key=3cf453a7e01668f433270f0f51956f1b';
 
-		
+
 			$context = stream_context_create(array('http' => array('header'=>'Connection: close\r\n')));
 
 
-		
+
 
 		$locdata = json_decode(file_get_contents($locapiurl,false,$context),true);
 
 		//print_r($locdata);
-		
+
 		//$loc = geoip('232.223.11.11');
 		$inquiry_description="";
 		$email="";
@@ -375,13 +375,13 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 
 		if($request->input("inquiryDescription")!=null)
 			$inquiry_description= $request->input("inquiryDescription");
-		
+
 		if($request->input("email")!=null)
 			$email= $request->input("email");
-		
+
 		if($request->input("resellerpricing")!=null)
 			$resellerpricing= 'Y';
-		
+
 		if($request->input("bulkpricing")!=null)
 			$bulkpricing= 'Y';
 
@@ -432,14 +432,14 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 		if($request->input("option_id")!=null)
 			$option_arr = $request->input("option_id");
 
-		
+
 
 		$variant_arr = array();
 		if($request->input("variant")!=null)
 			$variant_arr = $request->input("variant");
 
-		
-		
+
+
         $uniquid = 100786+$lead_model->max('id')+1;
 
 		$order_id  ="INSTRF-".$uniquid;
@@ -452,19 +452,19 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 	*/
 		$name='';
 
-		
+
 		$lead_data_to_add = ["order_id"=>$order_id,"domain"=>$subdomain,"name"=>$name,"email"=>$email,"enquiry_desc"=>$inquiry_description,"reseller_price"=>$resellerpricing,"bulk_price"=>$bulkpricing,"country_shipping"=>$shipping_country,"country"=>$country,"country_code"=>$countrycode,"country_flag"=>$countryflag,"country_emoji"=>$countryemoji,"city"=>$city,"lat"=>$lat,"lon"=>$lon];
 
-		
 
-		
+
+
 
 		$products_data_to_add=array();
 		$data=array();
 
 		$array_index=0;
 		foreach ($product_arr as $key => $value) {
-			//print("key ".$key." v = ".$value);	
+			//print("key ".$key." v = ".$value);
 			if(isset($qty_arr[$key]))
 				$qty=$qty_arr[$key];
 			else
@@ -474,7 +474,7 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 
 
 			$prod_data = $productmaster->getProductByID($key);
-			
+
 			$source_prod_id = $prod_data->source_prod_id;
 
 			$finalurl = $json_url.$source_prod_id;
@@ -498,7 +498,7 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 			$products_data_to_add[$array_index]["product_discount"]=$discount;
 			$array_index++;
 
-			
+
 		}//emd of for loop
 
 
@@ -506,7 +506,7 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 		$options_data_to_add=array();
 
 		foreach ($option_arr as $pid => $opt_arr) {
-			
+
 			foreach($opt_arr as $opt_id)
 			{
 				$varid=0;
@@ -525,26 +525,26 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 							{
 								if($data_prod_options_variants["id"] == $varid)
 								{
-									
+
 									$variant_price=$data_prod_options_variants["listPrice"];
 									$variant_cost=$data_prod_options_variants["cost"];
 									break;
 								}
 							}
-						}	
-						
-
-					}	
+						}
 
 
-						array_push($options_data_to_add, ["order_id"=>$order_id,"product_id"=>$pid,"option_id"=>$opt_id,"variant_id"=>$varid,"variant_price"=>$variant_price,"variant_cost"=>$variant_cost]);	
+					}
 
-			}	
-		}	
 
-		
+						array_push($options_data_to_add, ["order_id"=>$order_id,"product_id"=>$pid,"option_id"=>$opt_id,"variant_id"=>$varid,"variant_price"=>$variant_price,"variant_cost"=>$variant_cost]);
 
-		
+			}
+		}
+
+
+
+
 		$res = $lead_model->create($lead_data_to_add);
 		foreach($products_data_to_add as $prod_data_to_add)
 		$lead_prod_model->create($prod_data_to_add);
@@ -553,7 +553,7 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 		$res1 = $lead_opt_model->create($option_data_to_add);
 		//$this->sendmail($order_id);
 		return view("v2.thankyou");
-		
+
 
 	}
 
@@ -575,7 +575,8 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 		$documentsmasters=new documents_master;
 		$accessorymaster=new accessory_master;
 		$productoptions=new products_options;
-
+		if($productData!=NULL)
+		{
 		$cat_array=array();
 		if($productData->cat1!="")
 			$cat_array[]=$productData->cat1;
@@ -594,20 +595,27 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 
 
 		$docs = $documentsmasters->getDocumentsByProductID($productid);
-		
+
 		$accessories = $accessorymaster->getAccessoriesByProductID($productid);
 
 		$options=$productoptions->getProductOptionsByProductID($productid);
 
-		return view('v2.productdetails',compact('productData','category_array','docs','accessories','options'));
-		
-	}
 
+			return view('v2.productdetails',compact('productData','category_array','docs','accessories','options'));
+		}
+		else
+		{
+			return redirect()->action('MainController@index');
+
+		}
+
+
+    }
 
 	public function getConfigurator($productid)
 	{
 		$productmaster = new products_master;
-		
+
 		$productoptions=new products_options;
 		$productData=$productmaster->getProductByID($productid);
 
@@ -616,7 +624,7 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 		return view('v2.configurator',compact('productData','options'));
 	}
 
-	
+
 
     public function showCategoryListing()
     {
@@ -645,7 +653,7 @@ public function siteMapGenerate(Request $request,$id,$index=0)
     	$type="brands";
     	//$applicationmaster = new applications_master;
     	//$applications = $applicationmaster->getApplicationsbyNameCount();
-    	//return view('brandslist',compact('brands','applications'));	
+    	//return view('brandslist',compact('brands','applications'));
     	return view('v2.toplisting', compact('toplisting','type'));
     }
 
@@ -664,7 +672,7 @@ public function siteMapGenerate(Request $request,$id,$index=0)
     public function showProductsByBrand($brandname,$category_slug=null)
     {
 
-    	
+
 
     	if ( preg_match('/\s/',$brandname) )
     	{
@@ -678,7 +686,7 @@ public function siteMapGenerate(Request $request,$id,$index=0)
     	$categorymaster = new category_master;
     		$applicationsmaster= new applications_master;
 
-    		
+
     		$productmaster = new products_master;
     		$productlistings = $productmaster->getProductsByBrandName($brandname,$category_slug);
 
@@ -687,7 +695,7 @@ public function siteMapGenerate(Request $request,$id,$index=0)
     		{
     			$prod_id_array[]=$productlisting->prod_id;
     		}
-    		
+
     		$applicationsblock=$applicationsmaster->getAllApplicationsByProdIDArray($prod_id_array);
 
     		$type="brands";
@@ -699,7 +707,7 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 
     		return view('v2.productlisting',compact('productlistings','applicationsblock','catlisting','brandname','type','header'));
     }
-    
+
     public function showProductsByApplication($application_slug)
     {
     	$categorymaster = new category_master;
@@ -713,7 +721,7 @@ public function siteMapGenerate(Request $request,$id,$index=0)
     		{
     			$prod_id_array[]=$productlisting->prod_id;
     		}
-			    		
+
     		$applicationsblock=$applicationsmaster->getAllApplicationsByProdIDArray($prod_id_array);
 
 
@@ -725,7 +733,7 @@ public function siteMapGenerate(Request $request,$id,$index=0)
     		$catlisting =$productmaster->getCatIDsByAppSlug($application_slug);
 
     		return view('v2.productlisting',compact('productlistings','catlisting','type','header'));
-    			
+
     }
 
     public function showProductsByCategory($category_slug)
@@ -733,7 +741,7 @@ public function siteMapGenerate(Request $request,$id,$index=0)
     		$categorymaster = new category_master;
     		$applicationsmaster= new applications_master;
 
-    		
+
     		$productmaster = new products_master;
     		$productlistings = $productmaster->getProductsByCatSlug($category_slug);
 
@@ -743,7 +751,7 @@ public function siteMapGenerate(Request $request,$id,$index=0)
     		{
     			$prod_id_array[]=$productlisting->prod_id;
     		}
-			    		
+
 
 
     		$categoriesblock=$categorymaster->getAllCategoriesByCatSlug($category_slug);
@@ -753,10 +761,10 @@ public function siteMapGenerate(Request $request,$id,$index=0)
     		$catnamearray=$categorymaster->getCategoryBySlug($category_slug);
     		$brands_list=$productmaster->getBrandsByCatSlug($category_slug);
 
-    			
+
     		$header=$catnamearray["name"];
-    			
+
     		return view('v2.productlisting',compact('productlistings','brands_list','type','header'));
-    }//enf of funtion	
-    
+    }//enf of funtion
+
 }
