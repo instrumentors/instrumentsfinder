@@ -221,7 +221,7 @@ class DataManager
                 $country = "Iraq";
                 $cities = array("Baghdad","Basra","Mosul","Erbil","Abu Ghraib","Sulaymaniyah","Kirkuk","Najaf","Karbala","Nasiriyah","Amara","Ad Dīwānīyah");
                 $currency="USD";
-                $ga='';
+                $ga='UA-138665419-26';
                 $yandex='';
             break;
 
@@ -231,7 +231,7 @@ class DataManager
                 $country = "";
                 $cities = array("USA","Middle East","Asia Pacific");
                 $currency="USD";
-                $ga='';
+                $ga='UA-138665419-28';
                 $yandex='';
             break;
 
@@ -240,7 +240,7 @@ class DataManager
                 $country = "South Africa";
                 $cities=array("Johannesburg","Cape Town","Durban, Ballito and Umhlanga","Paarl, Franschhoek and Stellenbosch","The Garden Route","Pretoria","The Whale Coast","The Sunshine Coast","Pietermaritzburg and Natal Midlands","Bloemfontein");
                 $currency="USD";
-                $ga='';
+                $ga='UA-138665419-27';
                 $yandex='';
             break;
 
@@ -248,7 +248,7 @@ class DataManager
                 $country = "Algeria";
                 $cities=array("Algiers","Oran","Blida","Constantine","Annaba","Djelfa","Biskra","Batna","Setif","Sidi Bel Abbes");
                 $currency="USD";
-                $ga='';
+                $ga='UA-138665419-29';
                 $yandex='';
             break;
 
@@ -256,7 +256,7 @@ class DataManager
                 $country = "Morocco";
                 $cities=array("Casablanca","Fez","Tangier","Marrakesh","Salé","Meknes","Rabat","Oujda","Kenitra","Agadir");
                 $currency="USD";
-                $ga='';
+                $ga='UA-138665419-30';
                 $yandex='';
             break;
 
@@ -265,25 +265,25 @@ class DataManager
                 $country = "Angola";
                 $cities=array("Luanda","Huambo","Lobito","Lubango","Kuito","Malanje","Benguela","Lucapa","Namibe","Soyo");
                 $currency="USD";
-                $ga='';
+                $ga='UA-138665419-23';
                 $yandex='';
             break;
 
 
             case "et"://Ethiopia
                 $country = "Ethiopia";
-                $cities=array("Addis Ababa (Finfinne)","Dire Dawa","Mek'ele","Gondar","Bahir Dar","Awasa","Dessie","Jimma","Jijiga","Shashamane");
+                $cities=array("Addis Ababa (Finfinne)","Dire Dawa","Mekele","Gondar","Bahir Dar","Awasa","Dessie","Jimma","Jijiga","Shashamane");
                 $currency="USD";
-                $ga='';
+                $ga='UA-138665419-31';
                 $yandex='';
             break;
 
 
             case "ke"://Kenya
                 $country = "Kenya";
-                $cities=array("Nairobi","Meru","Nyeri","Kirinyaga"," Narok","Kiambu","Machackos","TharakaNithi","Murang’a","Mombasa");
+                $cities=array("Nairobi","Meru","Nyeri","Kirinyaga"," Narok","Kiambu","Machackos","TharakaNithi","Muranga","Mombasa");
                 $currency="USD";
-                $ga='';
+                $ga='UA-138665419-32';
                 $yandex='';
             break;
 
@@ -292,7 +292,7 @@ class DataManager
                 $country = "Ghana";
                 $cities=array("Accra","Kumasi","Sekondi-Takoradi","Sunyani","Tamale","Obuasi","Cape Coast","Koforidua");
                 $currency="USD";
-                $ga='';
+                $ga='UA-138665419-33';
                 $yandex='';
             break;
 
@@ -301,7 +301,7 @@ class DataManager
                 $country = "Tanzania";
                 $cities=array("Dar es Salaam","Mwanza","Arusha","Dodoma","Mbeya","Morogoro","Tanga","Kahama","Tabora","Zanzibar City");
                 $currency="USD";
-                $ga='';
+                $ga='UA-138665419-34';
                 $yandex='';
             break;
 
@@ -310,7 +310,7 @@ class DataManager
                 $country = "Congo";
                 $cities=array("Kinshasa","Lubumbashi","Mbuji-Mayi","Kananga","Bukavu","Goma","Kisangani","Tshikapa","Kolwezi","Likasi");
                 $currency="USD";
-                $ga='';
+                $ga='UA-138665419-24';
                 $yandex='';
             break;
 
@@ -319,7 +319,7 @@ class DataManager
                 $country = "Tunisia";
                 $cities=array("Tunis","Sfax","Sousse","Ettadhamen","Kairouan","Gabès","Bizerte","Aryanah","Gafsa","El Mourouj");
                 $currency="USD";
-                $ga='';
+                $ga='UA-138665419-35';
                 $yandex='';
             break;
 
@@ -328,7 +328,7 @@ class DataManager
                 $country = "Cameroon";
                 $cities=array("Douala","Yaoundé","Bamenda","Bafoussam","Garoua","Maroua","Kumba","Ngaoundéré","Nkongsamba","Buea");
                 $currency="USD";
-                $ga='';
+                $ga='UA-138665419-25';
                 $yandex='';
             break;
 
@@ -337,7 +337,7 @@ class DataManager
                 $country = "Zimbabwe";
                 $cities=array("Harare","Bulawayo","Chitungwiza","Mutare","Epworth","Gweru","Kwekwe","Kadoma","Masvingo","Chinhoyi");
                 $currency="USD";
-                $ga='';
+                $ga='UA-138665419-36';
                 $yandex='';
             break;
 
@@ -346,7 +346,7 @@ class DataManager
                 $country = "Uganda";
                 $cities=array("Kampala","Nansana","Kira Town","Mbarara","Mukono Town","Gulu","Masaka","Kasese","Hoima","Lira");
                 $currency="USD";
-                $ga='';
+                $ga='UA-138665419-37';
                 $yandex='';
             break;
 
@@ -355,7 +355,7 @@ class DataManager
                 $country = "Zambia";
                 $cities=array("Lusaka","Kitwe","Chipata","Ndola","Kabwe","Chingola","Livingstone","Luanshya","Mufulira","Kasama");
                 $currency="USD";
-                $ga='';
+                $ga='UA-138665419-38';
                 $yandex='';
             break;
 
@@ -364,7 +364,7 @@ class DataManager
                 $country = "Senegal";
                 $cities=array("Dakar","Touba","Rufisque","Thiès","Ziguinchor","Kaolack","Saint-Louis","M'Bour","Diourbel","Louga");
                 $currency="USD";
-                $ga='';
+                $ga='UA-138665419-39';
                 $yandex='';
             break;
 
