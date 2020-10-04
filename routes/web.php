@@ -17,14 +17,18 @@
 Route::get('/','MainController@index');
 
 Route::get('/applications','MainController@showApplicationsListing');
+Route::get('/applications/{segment}','MainController@showApplicationsListingSegment');
 Route::get('/application/{application_slug}','MainController@showProductsByApplication');
 
 
 Route::get('/categories','MainController@showCategoryListing');
+Route::get('/categories/{segment}','MainController@showCategoryListingSegment');
+
 Route::get('/category/{category_slug}','MainController@showProductsByCategory');
 
 
 Route::get('/brands','MainController@showBrandsListing');
+Route::get('/brands/{segment}','MainController@showBrandsListingSegment');
 Route::get('/brand/{brandname}','MainController@showProductsByBrand')->name("brand");
 
 Route::get('/brand/{brandname}/{category_slug}', 'MainController@redirectBrandURL');

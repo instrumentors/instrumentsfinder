@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class applications_master extends Model
 {
-     protected $fillable =['prod_id','name'];
+     protected $fillable =['prod_id','name','app_segment'];
 
      public function getDistinctApplicationNames()
     {
@@ -20,11 +20,18 @@ class applications_master extends Model
     }
 
 
+    public function getApplicationsbyNameCountSegment($segment)
+    {
+         $array = $this->select("name","slug")->selectraw("count('name') as total")->where('app_segment', $segment)->groupBy("slug")->groupBy("name")->orderBy("name","asc")->orderBy("total","desc")->get();
+         return $array->toArray();
+    }
+
+
     public function getProdIdbyAppSlug($app_slug)
     {
         return $this->select('prod_id')->where('slug',$app_slug)->get()->toArray();
     }
-    
+
 
 
     public function getApplicationBySlug($slug)
@@ -34,7 +41,7 @@ class applications_master extends Model
 
     public function getAllApplicationsByProdIDArray($prodids)
     {
-    	
+
     	$array= ($this->select("name","slug")->wherein('prod_id',$prodids)->distinct()->get()->toarray());
 
     	 return ($array);

@@ -18,7 +18,7 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation" style="padding:10px;">
     <span class="navbar-toggler-icon"></span>
   </button>
-  
+
 
 <div class="row" style="width:90%">
   <div class="col-11">
@@ -29,11 +29,11 @@
 </div>
 </div>
 
-  
-    
-     
-      
-   <div class="collapse navbar-collapse" id="navbarTogglerDemo03" style="height:50px;"> 
+
+
+
+
+   <div class="collapse navbar-collapse" id="navbarTogglerDemo03" style="height:50px;">
 
     <ul class="navbar-nav ml-auto ">
       <li class="nav-item navitem_brand">
@@ -49,9 +49,9 @@
         <i class="fa fa-shopping-cart fa-0.7x" style="color:#333;"></i>
     <span id="itemCount"></span>
 </li>
-      
-      
+
+
     </ul>
-    
+
   </div>
 </nav>

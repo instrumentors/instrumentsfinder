@@ -20,11 +20,11 @@ class AutoCompleteController extends Controller
 
     	$posts=array();
     	$productmaster = new products_master;
-        $query = $request->get('query','');        
+        $query = $request->get('query','');
 
         if(strlen($query)>2)
         {
-        	$posts = $productmaster->select("name","prod_id")->where('name','LIKE','%'.$query.'%')->get()->toArray();        
+        	$posts = $productmaster->select("name","prod_id")->where('name','LIKE','%'.$query.'%')->get()->toArray();
 
         	$i=0;
 	        foreach ($posts as $post) {

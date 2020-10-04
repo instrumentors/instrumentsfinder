@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoryMastersTable extends Migration
+class CreateBrandsMastersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,12 @@ class CreateCategoryMastersTable extends Migration
      */
     public function up()
     {
-        Schema::create('category_masters', function (Blueprint $table) {
+        Schema::create('brands_masters', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->integer("cat_id");
-            $table->bigInteger("prod_id");
             $table->string("name");
-            $table->string("slug");
-            $table->string("cat_parent");
-            $table->string("wiki_link");
-            $table->string("cat_desc");
-            $table->string("cat_segment");
+            $table->string("brand_desc");
+
         });
     }
 

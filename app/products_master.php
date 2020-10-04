@@ -12,7 +12,8 @@ class products_master extends Model
     //
     protected $fillable=[
 	'name',
-	'brand',
+    'brand',
+    'brand_id',
 	'prod_id',
 	'source_prod_id',
 	'seo_title',
@@ -34,7 +35,8 @@ class products_master extends Model
 	'options_count',
 	'showcodes'.
 	'is_code_fixed'.
-	'codevalue'
+    'codevalue',
+    'prod_segment'
 	];
 
 	public function getBrandsbyNameCount()
@@ -44,26 +46,34 @@ class products_master extends Model
 	}
 
 
+	public function getBrandsbyNameCountSegment($segment)
+	{
+        print($segment);
+		$array = $this->select("brand")->selectraw("count('name') as total")->where('prod_segment', $segment)->groupBy("brand")->orderBy("brand")->get();
+         return $array->toArray();
+         print($segment);
+	}
+
 	public function getAllProducts()
 	{
 		$array = $this->get();
 
-		return $array->toArray();	
+		return $array->toArray();
 	}
 
 
 	public function getProductsForSitemap($index)
 	{
 		$array = $this->where('id','>',0)->paginate(500,['*'],'page',$index);
-		
-		return $array->toArray()["data"];	
+
+		return $array->toArray()["data"];
 	}
 
 
 	public function getRandomProducts()
 	{
 		return $this->inRandomOrder()->take(6)->get();
-		
+
 
 	}
 
@@ -113,7 +123,7 @@ class products_master extends Model
 
 			return $this->where("brand",$brandname)->wherein('prod_id',$pids)->paginate(12);
 		}
-		else	
+		else
 			return $this->where("brand",$brandname)->paginate(30);
 	}
 
@@ -136,7 +146,7 @@ class products_master extends Model
 
 	public function getCatIDsByAppSlug($app_slug)
 	{
-		$appmaster = new applications_master;	
+		$appmaster = new applications_master;
 		$pids=$appmaster->getProdIdbyAppSlug($app_slug);
 
 		$cids=$this->select('cat1','cat2','cat3')->wherein('prod_id',$pids)->get()->toArray();
@@ -147,7 +157,16 @@ class products_master extends Model
 
 	public function getProductByID($prodID)
 	{
-		return $this->where('prod_id',$prodID)->first();
+
+       // if($segment != null)
+	    //	 {
+          //   return $this->where('prod_id',$prodID)->where('prod_segment', $segment)->first();
+         //}
+         //else
+         {
+             // for lead products
+            return $this->where('prod_id',$prodID)->first();
+         }
 	}
 
 }

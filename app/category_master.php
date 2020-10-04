@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class category_master extends Model
 {
-    protected $fillable =['cat_id','prod_id','name'];
+    protected $fillable =['cat_id','prod_id','name', 'slug', 'cat_parent' , 'wiki_link' , 'cat_desc', 'cat_segment'];
 
 
     public function getDistinctCategoryNames()
@@ -20,17 +20,28 @@ class category_master extends Model
          return $array->toArray();
     }
 
+    public function getCategorybyNameCountSegment($segment)
+    {
+        //print $segment;
+       // $segment = 'instrumentation';
+         $array = $this->select("name","slug")->selectraw("count('name') as total")->where('cat_segment', $segment)->groupBy("slug")->groupBy("name")->orderBy("name")->get();
+         //print_r($array);
+         return $array->toArray();
+
+    }
+
+
     public function getProdIdbyCat($cat)
     {
     	return $this->select('prod_id')->where('name',$cat)->get()->toArray();
     }
 
-    
+
 
     public function getAllCategoriesByCatName($cat)
     {
     	$prodids = $this->getProdIdbyCat($cat);
-    	
+
     	$array= ($this->wherein('prod_id',$prodids)->pluck("name")->toarray());
 
     	 return array_count_values($array);
@@ -41,13 +52,13 @@ class category_master extends Model
     {
         $prodids = $this->getProdIdbyCatSlug($cat_slug);
 
-        
+
         $array = $this->select("name","slug")->selectraw("count('name') as total")->wherein('prod_id',$prodids)->groupBy("slug")->groupBy("name")->get();
 
         //print_r($array->toArray());
          return $array->toArray();
 
-    }   
+    }
 
     public function getProdIdbyCatSlug($cat_slug)
     {

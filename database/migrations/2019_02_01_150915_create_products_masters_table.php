@@ -7,7 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 class CreateProductsMastersTable extends Migration
 {
 
-    
+
     /**
      * Run the migrations.
      *
@@ -20,6 +20,7 @@ class CreateProductsMastersTable extends Migration
             $table->timestamps();
             $table->string('name')->default('');
             $table->string('brand')->default('');
+            $table->integer('brand_id')->default(0);
             $table->integer('prod_id')->default(0);
             $table->bigInteger('source_prod_id')->default(0);
             $table->string('seo_title')->default('')->nullable();
@@ -44,6 +45,7 @@ class CreateProductsMastersTable extends Migration
             $table->boolean('showcodes')->default(false)->nullable();
             $table->boolean('is_code_fixed')->default(false)->nullable();
             $table->string('codevalue')->default('')->nullable();
+            $table->string('prod_segment')->default('')->nullable();
             $table->unique(['prod_id']);
 
         });

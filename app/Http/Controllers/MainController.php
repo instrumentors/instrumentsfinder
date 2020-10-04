@@ -101,6 +101,7 @@ DSP shoukld talk beyond digital to also outdoor where we can measure and perform
 
 class MainController extends Controller
 {
+    protected $segment = 'instrumentation' ;
 
 	public function generateSEOLinks(Request $request)
 	{
@@ -625,7 +626,6 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 	}
 
 
-
     public function showCategoryListing()
     {
     	//$applicationmaster = new applications_master;
@@ -634,6 +634,18 @@ public function siteMapGenerate(Request $request,$id,$index=0)
     	$toplisting = $categorymaster->getCategorybyNameCount();
     	$type="categories";
     	//return view('v2.categorylist', compact('categories','applications'));
+    	return view('v2.toplisting', compact('toplisting','type'));
+    }
+
+    public function showCategoryListingSegment($segment)
+    {
+    	//$applicationmaster = new applications_master;
+    	//$applications = $applicationmaster->getApplicationsbyNameCount();
+    	$categorymaster = new category_master;
+    	$toplisting = $categorymaster->getCategorybyNameCountSegment($segment);
+        $type="categories";
+        // print $segment;
+        //return view('v2.categorylist', compact('categories','applications'));
     	return view('v2.toplisting', compact('toplisting','type'));
     }
 
@@ -646,11 +658,33 @@ public function siteMapGenerate(Request $request,$id,$index=0)
     	return view('v2.toplisting', compact('toplisting','type'));
     }
 
+    public function showApplicationsListingSegment($segment)
+    {
+    	$applicationmaster = new applications_master;
+    	$toplisting = $applicationmaster->getApplicationsbyNameCountSegment($segment);
+    	$type="applications";
+    	//return view('applicationslist', compact('applications'));
+    	return view('v2.toplisting', compact('toplisting','type'));
+    }
+
+
     public function showBrandsListing()
     {
     	$productmaster = new products_master;
     	$toplisting=$productmaster->getBrandsbyNameCount();
     	$type="brands";
+    	//$applicationmaster = new applications_master;
+    	//$applications = $applicationmaster->getApplicationsbyNameCount();
+    	//return view('brandslist',compact('brands','applications'));
+    	return view('v2.toplisting', compact('toplisting','type'));
+    }
+
+    public function showBrandsListingSegment($segment)
+    {
+    	$productmaster = new products_master;
+    	$toplisting=$productmaster->getBrandsbyNameCountSegment($segment);
+        $type="brands";
+        print($segment);
     	//$applicationmaster = new applications_master;
     	//$applications = $applicationmaster->getApplicationsbyNameCount();
     	//return view('brandslist',compact('brands','applications'));

@@ -19,6 +19,7 @@ class CreateApplicationsMastersTable extends Migration
             $table->bigInteger("prod_id");
             $table->string("name");
             $table->string("slug");
+            $table->string("app_segment");
         });
     }
 

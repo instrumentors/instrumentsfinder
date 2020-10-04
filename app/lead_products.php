@@ -27,7 +27,7 @@ class lead_products extends Model
         //print_r($leadoptions_data);
         //echo("</pre>");
 
-        
+
         $partnumberindex=0;
         $leadoptarray_index=0;
         $partnumber="";
@@ -43,15 +43,15 @@ class lead_products extends Model
                 {
 
 
- 
-                    
+
+
                     if($lead_opt_data[0]["is_code_fixed"]==1)
                         $partnumber.=$lead_opt_data[0]["code_value"];
 
-                      
 
 
-                    
+
+
                     if(isset($lead_opt_data["variant"]))
                        // echo("Got variant".strlen(trim($lead_opt_data["variant"][0]["code"])));
                         if(strlen(trim($lead_opt_data["variant"][0]["code"]))==0)
@@ -59,18 +59,18 @@ class lead_products extends Model
                             if($partnumberindex>0 && $partnumberindex<count($leadoptions_data)-1)
                                 $partnumber.="NA";
                         }
-                        else  
+                        else
                            $partnumber.="".$lead_opt_data["variant"][0]["code"];
 
 
 
-                    
-                         
+
+
 
                     $isOptionInLead=true;
-                }  
+                }
                 $leadoptarray_index++;
-                $partnumberindex++;  
+                $partnumberindex++;
             }
 
             if(!$isOptionInLead )
@@ -79,7 +79,7 @@ class lead_products extends Model
 
         }
 
-        
+
 
         return $partnumber;
     }
@@ -95,7 +95,7 @@ class lead_products extends Model
     	foreach($arr as $prod)
     	{
     		$prodmasterdata=$prodmaster->getProductByID($prod["product_id"]);
-            
+
 
 
     		$options=$leadoptions->getOptionsByOrderAndProduct($prod["order_id"],$prod["product_id"]);
@@ -107,7 +107,8 @@ class lead_products extends Model
     			"product_id"=>$prod["product_id"],
                 "source_prod_id"=>$prodmasterdata["source_prod_id"],
     			"name"=>$prodmasterdata["name"],
-    			"brand"=>$prodmasterdata["brand"],
+                "brand"=>$prodmasterdata["brand"],
+                "brand_id"=>$prodmasterdata["brand_id"],
     			"url"=>$prodmasterdata["url"],
     			"img"=>$prodmasterdata["img_new_path"],
     			"options_count"=>$prodmasterdata["options_count"],
@@ -118,6 +119,7 @@ class lead_products extends Model
                 "product_base_price"=>$prod["product_base_price"],
                 "product_discount"=>$prod["product_discount"],
                 "product_description"=>$prodmasterdata["long_desc"],
+                "prod_segment"=>$prodmasterdata["prod_segment"],
     			"options"=>$options,
                 "partnumber"=>$partnumber,
     		);
