@@ -9,7 +9,17 @@ header ("Content-Type:text/xml");
     
 
     $subdomain = resolve('subdomain');
-
+	$link_prefix="";
+	$homeLink="/";
+	$segment=resolve("segment");
+	$assetlink_suffix="";
+	if($segment=="medical")
+	{
+	  $link_prefix="/".$subdomain;
+	  $homeLink="/".$subdomain;
+	  $assetlink_suffix="medical/";
+	}
+  
    
 ?>
 
@@ -66,19 +76,19 @@ function getSitemapBlock($url,$imxml,$ts=null)
 			$url="";
 			$imxml="";
 			if($id=="brands")
-				$url = $domain."/brand/".htmlentities($data->create_slug($arraydata["brand"]));
+				$url = $domain.$link_prefix."/brand/".htmlentities($data->create_slug($arraydata["brand"]));
 			elseif($id=="categories")
-				$url = $domain."/category/".$arraydata["slug"];	
+				$url = $domain.$link_prefix."/category/".$arraydata["slug"];	
 			elseif($id=="applications")
-				$url = $domain."/application/".$arraydata["slug"];	
+				$url = $domain.$link_prefix."/application/".$arraydata["slug"];	
 			elseif($id=="products")
 			{
 				$prodslug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $arraydata["name"])));
 
-				$url=$domain."/product/".$arraydata["prod_id"]."/".$prodslug;
+				$url=$domain.$link_prefix."/product/".$arraydata["prod_id"]."/".$prodslug;
                 
                 $img_country = $country.", ".implode(",", $cities);
-				$imxml=getImageBlock($domain."/assets/".htmlentities($arraydata["thumb_img_new_path"]),$arraydata["name"]."|
+				$imxml=getImageBlock($domain."/assets/".$assetlink_suffix.htmlentities($arraydata["thumb_img_new_path"]),$arraydata["name"]."|
 					".$country,$arraydata["seo_title"]."|".implode( ", ", $cities ),$img_country);
 				
 

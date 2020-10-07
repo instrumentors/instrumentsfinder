@@ -1,9 +1,22 @@
+<?php
+  $link_prefix="";
+  $homeLink="/";
+  $segment=resolve("segment");
+  $subdomain=resolve("subdomain");
+  if($segment=="medical")
+  {
+    $link_prefix="/".$subdomain;
+    $homeLink="/".$subdomain;
+  }
+    
+?>
+
 
 <div class="masthead">
 
   <div class="row">
     <div class="col-6 col-sm-6">
-      <a href="/"><img class="logo_place" src="/img/logo.png" style="width:250px;"></a>
+      <a href="{{$homeLink}}"><img class="logo_place" src="/img/logo.png" style="width:250px;"></a>
     </div>
     <div class="col-6">
   <div class="cart1 pull-right"><i class="fa fa-shopping-cart fa-0.7x" style="color:#333;"></i><span id="itemCount_mobile"></span></div>
@@ -37,13 +50,13 @@
 
     <ul class="navbar-nav ml-auto ">
       <li class="nav-item navitem_brand">
-        <a href="/categories">Categories <span class="sr-only">(current)</span></a>
+        <a href="{{$link_prefix}}/categories">Categories <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item navitem_brand">
-        <a href="/brands">Brands</a>
+        <a href="{{$link_prefix}}/brands">Brands</a>
       </li>
       <li class="nav-item navitem_brand">
-        <a href="/applications">Applications</a>
+        <a href="{{$link_prefix}}/applications">Applications</a>
       </li>
       <li class="nav-item navitem_brand cart" style="width:60px;display:block;text-align: center;vertical-align: middle;margin: auto;">
         <i class="fa fa-shopping-cart fa-0.7x" style="color:#333;"></i>

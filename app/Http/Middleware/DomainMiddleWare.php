@@ -29,18 +29,22 @@ class DomainMiddleWare
 
         $languages = ['ae', 'sa'];
 
-        
-
-        /*
-        if (in_array($subdomain, $languages)) {
-            App::setLocale($subdomain);
+        if($subdomain=="med")
+        {
+            app()->instance('segment', "medical"); 
+            if(isset($url_array[1]))
+            {
+                $subdomain = $url_array[1];
+            }
+            else
+                $subdomain="en";
         }
         else
-            App::
+        {
+            app()->instance('segment', "instrumentation"); 
+        }
 
-            setLocale("w");   
-        */  
-
+        
         app()->instance('subdomain', $subdomain);
         app()->instance('url_array', $url_array);
 

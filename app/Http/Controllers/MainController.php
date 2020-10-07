@@ -124,9 +124,18 @@ class MainController extends Controller
 
 	}
 
-public function siteMapGenerate(Request $request,$id,$index=0)
+public function siteMapGenerate(Request $request,$param1,$param2,$param3=null)
 {
-
+	if($param3==null)
+	{
+		$id=$param1;
+		$index=$param2;
+	}
+	else
+	{
+		$id=$param2;
+		$index=$param3;
+	}
 	$productmaster = new products_master;
 	$categorymaster = new category_master;
     $applicationmaster = new applications_master;
@@ -613,8 +622,14 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 
     }
 
-	public function getConfigurator($productid)
+	public function getConfigurator($param1,$param2=null)
 	{
+		if($param2==null)
+			$productid=$param1;
+		else
+			$productid=$param2;
+
+
 		$productmaster = new products_master;
 
 		$productoptions=new products_options;
@@ -692,7 +707,7 @@ public function siteMapGenerate(Request $request,$id,$index=0)
     }
 
 
-    public function redirectBrandURL($brandname,$category_slug=null)
+    public function redirectBrandURL($param1,$param2=null,$category_slug=null)
     {
     	return redirect()->route('productsets', ['brandname' => $brandname, 'category_slug' => $category_slug]);
 
@@ -703,10 +718,14 @@ public function siteMapGenerate(Request $request,$id,$index=0)
         return str_replace(" ", "-", trim(htmlentities($var)));
     }
 
-    public function showProductsByBrand($brandname,$category_slug=null)
+    public function showProductsByBrand($param1,$param2=null,$category_slug=null)
     {
 
 
+		if($param2==null)
+			$brandname=$param1;
+		else
+			$brandname=$param2;	
 
     	if ( preg_match('/\s/',$brandname) )
     	{
@@ -742,8 +761,14 @@ public function siteMapGenerate(Request $request,$id,$index=0)
     		return view('v2.productlisting',compact('productlistings','applicationsblock','catlisting','brandname','type','header'));
     }
 
-    public function showProductsByApplication($application_slug)
+    public function showProductsByApplication($param1,$param2=null)
     {
+		if($param2==null)
+			$application_slug=$param1;
+		else
+			$application_slug=$param2;	
+
+
     	$categorymaster = new category_master;
     		$applicationsmaster= new applications_master;
 
@@ -770,8 +795,13 @@ public function siteMapGenerate(Request $request,$id,$index=0)
 
     }
 
-    public function showProductsByCategory($category_slug)
+    public function showProductsByCategory(Request $request,$param1,$param2=null)
     {
+			if($param2==null)
+				$category_slug=$param1;
+			else
+				$category_slug=$param2;		
+		
     		$categorymaster = new category_master;
     		$applicationsmaster= new applications_master;
 

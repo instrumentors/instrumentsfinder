@@ -4,6 +4,8 @@
 		$brand=$productData->brand;
 	}
 
+	
+
 ?>
 
 @inject('data','App\DataManager')
@@ -18,6 +20,17 @@
 	$cities = $data_values["cities"];
 	$ga = $data_values["ga"];
 	$currency = $data_values["currency"];
+
+	$link_prefix="";
+  
+  $segment=resolve("segment");
+  $homeLink="/";
+  if($segment=="medical")
+  {
+    $link_prefix="/".$subdomain;
+	$homeLink="/".$subdomain;
+    
+  }
 @endphp
 
 
@@ -32,12 +45,12 @@
 		<nav aria-label="breadcrumb">
 		<ol class="breadcrumb breadcrumb_brand">
 
-		<li class="breadcrumb-item"><a href="/">Home</a></li>
+		<li class="breadcrumb-item"><a href="{{$homeLink}}">Home</a></li>
 		@if(isset($productData))
 
-		<li class="breadcrumb-item"><a href="/brand/{{$productData->brand}}">{{$productData->brand}}</a></li>
+		<li class="breadcrumb-item"><a href="{{$link_prefix}}/brand/{{$productData->brand}}">{{$productData->brand}}</a></li>
 		@foreach($category_array as $cat)
-		<li class="breadcrumb-item"><a href="/category/{{$cat['slug']}}">{{$cat['name']}}</a></li>
+		<li class="breadcrumb-item"><a href="{{$link_prefix}}/category/{{$cat['slug']}}">{{$cat['name']}}</a></li>
 		@endforeach
 
 		@if(strlen($productData->cat2)>1)
@@ -85,7 +98,7 @@
 
 
 							@if(isset($options) && is_array($options) && count($options)>0)
-						<a href="/configurator/{{$productData->prod_id}}"><img src="/assets/{{$img}}" style="width:80%" alt="{{$productData->name}}|{{$productData->brand}}|{{$country}}" title="{{$productData->name}}" data-caption="{{$productData->name}}|{{$productData->brand}}|{{$country}}"></a>
+						<a href="{{$link_prefix}}/configurator/{{$productData->prod_id}}"><img src="/assets/{{$img}}" style="width:80%" alt="{{$productData->name}}|{{$productData->brand}}|{{$country}}" title="{{$productData->name}}" data-caption="{{$productData->name}}|{{$productData->brand}}|{{$country}}"></a>
 					@else
 
 					<button type="button" class="btn_cartload btn">
@@ -121,7 +134,7 @@
 					</ul>
 					<hr/>
 					@if(isset($options) && is_array($options) && count($options)>0)
-						<a href="/configurator/{{$productData->prod_id}}"><button type="button" class="btn btn-brand"><span class="small">Configure Product Options &<br/></span> CHECK PRICE NOW</button></a>
+						<a href="{{$link_prefix}}/configurator/{{$productData->prod_id}}"><button type="button" class="btn btn-brand"><span class="small">Configure Product Options &<br/></span> CHECK PRICE NOW</button></a>
 					@else
 
 					<button type="button" class="btn_cartload btn btn-brand">CHECK PRICE NOW</button>

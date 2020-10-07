@@ -13,6 +13,15 @@ $cities = $data_values["cities"];
 $ga = $data_values["ga"];
 $currency = $data_values["currency"];
 
+$link_prefix="";
+  $homeLink="/";
+  $segment=resolve("segment");
+  
+  if($segment=="medical")
+  {
+    $link_prefix="/".$subdomain;
+    $homeLink="/".$subdomain;
+  }
 
 ?>
 
@@ -35,7 +44,7 @@ $currency = $data_values["currency"];
 		<div class="col-md-5 col-sm-6">
 			<div style="margin:10px;display:block;padding:30px;border:dotted 1px;">
 			<h5>Submit your details</h5>
-			<form action="/submitlead" method="post" id="leadform" role="form" onsubmit="return submitUserForm();">
+			<form action="{{$link_prefix}}/submitlead" method="post" id="leadform" role="form" onsubmit="return submitUserForm();">
                       @csrf
 
                       <div id="cartdetails_form" style="display:none"></div>
@@ -111,9 +120,9 @@ data-callback="onSubmit"> --}}
 
 <input type="submit" class="g-recaptcha btn btn-brand" > --}}
 
-
+<!-- 
 <div class="g-recaptcha" data-sitekey="6LeYtMwUAAAAAI-r0duEMYKNLZ2XB-jlAV8JFfDD" data-callback="verifyCaptcha"></div>
-    <div id="g-recaptcha-error"></div>
+    <div id="g-recaptcha-error"></div> -->
     <input type="submit" name="submit" value="Submit" />
 
 {{-- Check Price Now
@@ -143,4 +152,3 @@ data-callback="onSubmit"> --}}
          document.getElementById('g-recaptcha-error').innerHTML = '';
      }
      </script>
-∏

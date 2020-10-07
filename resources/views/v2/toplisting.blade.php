@@ -1,8 +1,24 @@
 @extends('layout.v2.mainlayout')
 
+
+
 @section('content')
 
 @inject('data','App\DataManager')
+
+<?php
+  $link_prefix="";
+  
+  $segment=resolve("segment");
+  $subdomain=resolve("subdomain");
+  if($segment=="medical")
+  {
+    $link_prefix="/".$subdomain;
+    
+  }
+    
+?>
+
 
 @php
 
@@ -51,16 +67,16 @@ if(isset($type))
 		</nav>
 	</div>
 
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-md-6 col-sm-12 catblockmaster">
-    <!--<div class="col-md-8 col-sm-12 catblock"> -->
+  
         <a href="/{{$type}}/instrumentation"> <div class="catblock"> Explore Instrumentation & Measurement {{$type}} </div></a>
 
         </div>
         <div class="col-md-6  col-sm-12 catblockmaster">
         <a href="/{{$type}}/medical"><div class="catblock"> Explore Medical Surgical & Emergency Response </div></a>
         </div>
-    </div>
+    </div> -->
 
 
 		<div class="row" >
@@ -134,6 +150,7 @@ if(isset($type))
 									$link="/category/".$value['slug'];
 								}
 
+								$link=$link_prefix.$link;
 
 							@endphp
 

@@ -7,13 +7,15 @@
 <?php
 $url_array = resolve('url_array');
 $subdomain = resolve('subdomain');
+$segment = resolve('segment');
 $data_values = $data->getData($subdomain);
 $country = $data_values["country"];
 $cities = $data_values["cities"];
 $ga = $data_values["ga"];
 $currency = $data_values["currency"];
-
-
+$link_prefix='';
+if($segment=="medical")
+	$link_prefix = $subdomain;
 ?>
 
 
@@ -69,8 +71,8 @@ $currency = $data_values["currency"];
 								<img src="{{$thumbnail}}" alt="{{$produclisting->name}}|{{$produclisting->brand}}" title="{{$produclisting->name}}" data-caption="{{$produclisting->name}}|{{$produclisting->brand}}">
 							</div>
 							<div class="col-md-8 col-sm-4">
-								<h2 style="font-size:1.5em;"><a href="/product/{{$produclisting->prod_id}}/{{$prodslug}}">{{$produclisting->name}} </a></h2>
-								<div class="brand"><a href="/brand/{{$data->create_slug($produclisting->brand)}}" style="color:#Adc900;">
+								<h2 style="font-size:1.5em;"><a href="{{$link_prefix}}/product/{{$produclisting->prod_id}}/{{$prodslug}}">{{$produclisting->name}} </a></h2>
+								<div class="brand"><a href="{{$link_prefix}}/brand/{{$data->create_slug($produclisting->brand)}}" style="color:#Adc900;">
 								{{$produclisting->brand}} in {{$country}} (as resellers) </a></div>
 								<h3 class="h3_desc">{{$produclisting->short_desc}}</h3>
 							</div>
@@ -90,7 +92,7 @@ $currency = $data_values["currency"];
 		</div>	
 			@foreach($brands_array as $brand)
 			<div class="col-md-4 col-sm-12 catblockmaster">
-									<a href="/brand/{{$data->create_slug($brand['brand'])}}">
+									<a href="{{$link_prefix}}/brand/{{$data->create_slug($brand['brand'])}}">
 									<div class="catblock">
 										{{$brand["brand"]}} {{$country}}
 									</div>

@@ -66,6 +66,15 @@ $cities = $data_values["cities"];
 $ga = $data_values["ga"];
 $currency = $data_values["currency"];
 
+$link_prefix="";
+$homeLink="/";
+  $segment=resolve("segment");
+  
+  if($segment=="medical")
+  {
+    $link_prefix="/".$subdomain;
+    $homeLink="/".$subdomain;
+  }
 
 
     if(isset($category_array))
@@ -773,8 +782,8 @@ return new Promise(function (resolve, reject) {
             $("#itemCount_mobile").css("display","none");
             //$('cart_checkout_data').html("<b>No products in cart, redirecting..</a>");
             console.log(window.location.pathname);
-            if(window.location.pathname=="/checkout" || window.location.pathname=="/checkout#")
-                window.location.href="/";
+            if(window.location.pathname=="<?=$link_prefix?>/checkout" || window.location.pathname=="<?=$link_prefix?>/checkout#")
+                window.location.href="<?=$homeLink?>";
 
            }
 
@@ -819,7 +828,7 @@ return new Promise(function (resolve, reject) {
              //configurator/786091554
 
              //$(location).attr('href', '/configurator/'+pid_remove);
-             window.location.href = '/configurator/'+pid_remove;
+             window.location.href = '<?=$link_prefix?>/configurator/'+pid_remove;
 
 
              //loadcheckoutpage();
@@ -958,21 +967,21 @@ return new Promise(function (resolve, reject) {
 
             addtocart();
             loadcart();
-            window.location.href='/checkout';
+            window.location.href='<?=$link_prefix?>/checkout';
 
         });
 
         $(".cart").on("click",function(){
             if(cart.length>0)
             {
-                window.location.href='/checkout';
+                window.location.href='<?=$link_prefix?>/checkout';
             }
         });
 
         $(".cart1").on("click",function(){
             if(cart.length>0)
             {
-                window.location.href='/checkout';
+                window.location.href='<?=$link_prefix?>/checkout';
             }
         });
 

@@ -9,6 +9,15 @@
 	$ga = $data_values["ga"];
 	$currency = $data_values["currency"];
 
+	$link_prefix="";
+  
+  $segment=resolve("segment");
+  
+  if($segment=="medical")
+  {
+    $link_prefix="/".$subdomain;
+    
+  }
 
 
 if(isset($header))
@@ -50,7 +59,7 @@ if($pagetemplate=="applications")
 {
 	$sublink="/applications";
 }
-
+$sublink=$link_prefix.$sublink;
 @endphp
 
 
@@ -90,9 +99,9 @@ if($pagetemplate=="applications")
 
 					<div class="leftblock">
 							@if($pagetemplate=="categories")
-								<a href="/productsets/{{$data->create_slug($brand_data->brand)}}/{{$url_array[2]}}">{{$brand_data->brand}}</a>
+								<a href="{{$link_prefix}}/productsets/{{$data->create_slug($brand_data->brand)}}/{{$url_array[2]}}">{{$brand_data->brand}}</a>
 							@else
-							<a href="/brand/{{$data->create_slug($brand_data->brand)}}">{{$brand_data->brand}}</a>
+							<a href="{{$link_prefix}}/brand/{{$data->create_slug($brand_data->brand)}}">{{$brand_data->brand}}</a>
 							@endif
 					</div>
 					@endforeach
@@ -106,7 +115,7 @@ if($pagetemplate=="applications")
 				@foreach($applicationsblock as $application)
 
 					 <div class="leftblock">
-                          <a href="/application/{{$application["slug"]}}">{{$application["name"]}}</a>
+                          <a href="{{$link_prefix}}/application/{{$application["slug"]}}">{{$application["name"]}}</a>
                      </div>
 
 
@@ -122,9 +131,9 @@ if($pagetemplate=="applications")
 				@foreach($catlisting as $category)
 					<div class="leftblock">
 						@if($pagetemplate=="brands")
-							<a href="/productsets/{{$data->create_slug($header)}}/{{$category->slug}}">{{$category->name}}</a>
+							<a href="{{$link_prefix}}/productsets/{{$data->create_slug($header)}}/{{$category->slug}}">{{$category->name}}</a>
 						@else
-					 	<a href="/category/{{$category->slug}}">{{$category->name}}</a>
+					 	<a href="{{$link_prefix}}/category/{{$category->slug}}">{{$category->name}}</a>
 					 	@endif
 					</div>
 
@@ -146,7 +155,7 @@ if($pagetemplate=="applications")
 						{
 
 							foreach ($catlisting as $catlist){
-								$cat_string.="<a href='/category/".$catlist->slug."'>".$catlist->name."</a>, ";
+								$cat_string.="<a href='{{$link_prefix}}/category/".$catlist->slug."'>".$catlist->name."</a>, ";
 
 							}
 						}
@@ -154,7 +163,7 @@ if($pagetemplate=="applications")
 
 					<div class="prodlistingblock text-justify">
 						<h1 class="h1_productheader">{{$header}} - {{$country}}</h1>
-<a href="/brand/{{$header}}">{{$header}}</a> manufactures {!!$cat_string!!} and many more products. {{$header}} delivers high quality instrumentation products and has a reputation as one of the top manufacturers of test and measurment instruments.<br/>
+<a href="{{$link_prefix}}/brand/{{$header}}">{{$header}}</a> manufactures {!!$cat_string!!} and many more products. {{$header}} delivers high quality instrumentation products and has a reputation as one of the top manufacturers of test and measurment instruments.<br/>
 
 @php
 						 $metadescription="We are the trusted suppliers for {$header} in $country across ".implode(", ",$cities);
@@ -163,7 +172,7 @@ if($pagetemplate=="applications")
 						{{$metadescription}}<br/><br/>
 
 
-						To get the best Reseller priced Offers across {{$country}} for <a href="/brand/{{$header}}">{{$header}}</a>, {!!$cat_string!!} explore the products you want and send us your request. For all ex-stock Items a formal Quotation will be sent typically in the next few minutes.
+						To get the best Reseller priced Offers across {{$country}} for <a href="{{$link_prefix}}/brand/{{$header}}">{{$header}}</a>, {!!$cat_string!!} explore the products you want and send us your request. For all ex-stock Items a formal Quotation will be sent typically in the next few minutes.
 					</div>
 					@endif
 
@@ -196,7 +205,7 @@ if($pagetemplate=="applications")
 
 									//$brand_str.='<a href="/brand/'.create_slug($brand_data->brand).'/'.$url_array[2].'">'.$brand_data->brand.'</a>';
 
-									$brand_str.='<a href="/brand/'.$data->create_slug($brand_data->brand).'/">'.$brand_data->brand.'</a>';
+									$brand_str.='<a href="{{$link_prefix}}/brand/'.$data->create_slug($brand_data->brand).'/">'.$brand_data->brand.'</a>';
 
 									if($x<count($brands_list)-1)
 									{
@@ -286,8 +295,8 @@ if($pagetemplate=="applications")
 								<img src="/assets/{{$thumbnail}}" alt="{{$productlisting->name}}|{{$productlisting->brand}}" title="{{$productlisting->name}}" data-caption="{{$productlisting->name}}|{{$productlisting->brand}}">
 							</div>
 							<div class="col-md-8 col-sm-4">
-								<h2 style="font-size:1.5em;"><a href="/product/{{$productlisting->prod_id}}/{{$prodslug}}">{{$productlisting->name}} </a></h2>
-								<div class="brand"><a href="/brand/{{$data->create_slug($productlisting->brand)}}" style="color:#Adc900;">{{$productlisting->brand}} in {{$country}} (as resellers)</a></div>
+								<h2 style="font-size:1.5em;"><a href="{{$link_prefix}}/product/{{$productlisting->prod_id}}/{{$prodslug}}">{{$productlisting->name}} </a></h2>
+								<div class="brand"><a href="{{$link_prefix}}/brand/{{$data->create_slug($productlisting->brand)}}" style="color:#Adc900;">{{$productlisting->brand}} in {{$country}} (as resellers)</a></div>
 								<h3 class="h3_desc">{{$productlisting->short_desc}}</h3>
 							</div>
 						</div>
