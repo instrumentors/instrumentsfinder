@@ -180,11 +180,11 @@ public function siteMapGenerate(Request $request,$param1,$param2,$param3=null)
 	{
 	//$locale = Config::get('app.locale');
 	//print($locale);
-	//$subdomain = resolve('subdomain');
-
+		$segment = resolve('segment');
+		//echo($segment);
 		$productmaster = new products_master;
-		$productData=$productmaster->getRandomProducts();
-		$brands_array=$productmaster->getRandomBrands();
+		$productData=$productmaster->getRandomProducts($segment);
+		$brands_array=$productmaster->getRandomBrands($segment);
 
 		return view("v2.index",compact("productData","brands_array"));
 	}
@@ -601,7 +601,10 @@ public function siteMapGenerate(Request $request,$param1,$param2,$param3=null)
 
 		$category_array=[];
 		foreach($cat_array as $catidval)
-			$category_array[]=$categorymaster->getCategoryByProuctID($catidval)->toArray();
+			
+			$res=$categorymaster->getCategoryByProuctID($catidval);
+			if($res!=null)
+				$category_array[]=$res->toArray();
 
 
 		$docs = $documentsmasters->getDocumentsByProductID($productid);
@@ -643,50 +646,46 @@ public function siteMapGenerate(Request $request,$param1,$param2,$param3=null)
 
     public function showCategoryListing()
     {
+		$segment=resolve("segment");
     	//$applicationmaster = new applications_master;
     	//$applications = $applicationmaster->getApplicationsbyNameCount();
     	$categorymaster = new category_master;
-    	$toplisting = $categorymaster->getCategorybyNameCount();
+    	$toplisting = $categorymaster->getCategorybyNameCount($segment);
     	$type="categories";
     	//return view('v2.categorylist', compact('categories','applications'));
     	return view('v2.toplisting', compact('toplisting','type'));
     }
 
-    public function showCategoryListingSegment($segment)
-    {
-    	//$applicationmaster = new applications_master;
-    	//$applications = $applicationmaster->getApplicationsbyNameCount();
-    	$categorymaster = new category_master;
-    	$toplisting = $categorymaster->getCategorybyNameCountSegment($segment);
-        $type="categories";
-        // print $segment;
-        //return view('v2.categorylist', compact('categories','applications'));
-    	return view('v2.toplisting', compact('toplisting','type'));
-    }
+    // public function showCategoryListingSegment($segment)
+    // {
+    // 	//$applicationmaster = new applications_master;
+    // 	//$applications = $applicationmaster->getApplicationsbyNameCount();
+    // 	$categorymaster = new category_master;
+    // 	$toplisting = $categorymaster->getCategorybyNameCountSegment($segment);
+    //     $type="categories";
+    //     // print $segment;
+    //     //return view('v2.categorylist', compact('categories','applications'));
+    // 	return view('v2.toplisting', compact('toplisting','type'));
+    // }
 
     public function showApplicationsListing()
     {
+		$segment = resolve("segment");
     	$applicationmaster = new applications_master;
-    	$toplisting = $applicationmaster->getApplicationsbyNameCount();
+    	$toplisting = $applicationmaster->getApplicationsbyNameCount($segment);
     	$type="applications";
     	//return view('applicationslist', compact('applications'));
     	return view('v2.toplisting', compact('toplisting','type'));
     }
 
-    public function showApplicationsListingSegment($segment)
-    {
-    	$applicationmaster = new applications_master;
-    	$toplisting = $applicationmaster->getApplicationsbyNameCountSegment($segment);
-    	$type="applications";
-    	//return view('applicationslist', compact('applications'));
-    	return view('v2.toplisting', compact('toplisting','type'));
-    }
+    
 
 
     public function showBrandsListing()
     {
+		$segment = resolve("segment");
     	$productmaster = new products_master;
-    	$toplisting=$productmaster->getBrandsbyNameCount();
+    	$toplisting=$productmaster->getBrandsbyNameCount($segment);
     	$type="brands";
     	//$applicationmaster = new applications_master;
     	//$applications = $applicationmaster->getApplicationsbyNameCount();
@@ -694,17 +693,6 @@ public function siteMapGenerate(Request $request,$param1,$param2,$param3=null)
     	return view('v2.toplisting', compact('toplisting','type'));
     }
 
-    public function showBrandsListingSegment($segment)
-    {
-    	$productmaster = new products_master;
-    	$toplisting=$productmaster->getBrandsbyNameCountSegment($segment);
-        $type="brands";
-        print($segment);
-    	//$applicationmaster = new applications_master;
-    	//$applications = $applicationmaster->getApplicationsbyNameCount();
-    	//return view('brandslist',compact('brands','applications'));
-    	return view('v2.toplisting', compact('toplisting','type'));
-    }
 
 
     public function redirectBrandURL($param1,$param2=null,$category_slug=null)
@@ -805,6 +793,7 @@ public function siteMapGenerate(Request $request,$param1,$param2,$param3=null)
     		$categorymaster = new category_master;
     		$applicationsmaster= new applications_master;
 
+			
 
     		$productmaster = new products_master;
     		$productlistings = $productmaster->getProductsByCatSlug($category_slug);

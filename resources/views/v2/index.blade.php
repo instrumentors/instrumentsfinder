@@ -14,10 +14,12 @@ $cities = $data_values["cities"];
 $ga = $data_values["ga"];
 $currency = $data_values["currency"];
 $link_prefix='';
-if($segment=="medical")
+$assetslink="/assets/";
+if($segment=="medical"){
 	$link_prefix = $subdomain;
+	$assetslink="assets/medical/";
+}
 ?>
-
 
 <div class="container">
 	<div class="row" style="min-height:450px;">
@@ -62,8 +64,8 @@ if($segment=="medical")
 								<?php
 
 									
-										$thumbnail = "/assets/".$produclisting->thumb_img_new_path;
-									
+										$thumbnail = $assetslink.$produclisting->thumb_img_new_path;
+										//$thumbnail="assets/medical/thumb_886000531.jpg";
 										
 								?>
 
@@ -71,6 +73,7 @@ if($segment=="medical")
 								<img src="{{$thumbnail}}" alt="{{$produclisting->name}}|{{$produclisting->brand}}" title="{{$produclisting->name}}" data-caption="{{$produclisting->name}}|{{$produclisting->brand}}">
 							</div>
 							<div class="col-md-8 col-sm-4">
+							{{$thumbnail}}
 								<h2 style="font-size:1.5em;"><a href="{{$link_prefix}}/product/{{$produclisting->prod_id}}/{{$prodslug}}">{{$produclisting->name}} </a></h2>
 								<div class="brand"><a href="{{$link_prefix}}/brand/{{$data->create_slug($produclisting->brand)}}" style="color:#Adc900;">
 								{{$produclisting->brand}} in {{$country}} (as resellers) </a></div>

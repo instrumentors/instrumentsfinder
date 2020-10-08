@@ -13,18 +13,12 @@ class applications_master extends Model
     	 return $this->select('name')->distinct()->get();
     }
 
-    public function getApplicationsbyNameCount()
+    public function getApplicationsbyNameCount($segment)
     {
-         $array = $this->select("name","slug")->selectraw("count('name') as total")->groupBy("slug")->groupBy("name")->orderBy("name","asc")->orderBy("total","desc")->get();
+         $array = $this->select("name","slug")->selectraw("count('name') as total")->groupBy("slug")->where('app_segment', $segment)->groupBy("name")->orderBy("name","asc")->orderBy("total","desc")->get();
          return $array->toArray();
     }
 
-
-    public function getApplicationsbyNameCountSegment($segment)
-    {
-         $array = $this->select("name","slug")->selectraw("count('name') as total")->where('app_segment', $segment)->groupBy("slug")->groupBy("name")->orderBy("name","asc")->orderBy("total","desc")->get();
-         return $array->toArray();
-    }
 
 
     public function getProdIdbyAppSlug($app_slug)

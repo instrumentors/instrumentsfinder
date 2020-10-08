@@ -25,11 +25,12 @@
   
   $segment=resolve("segment");
   $homeLink="/";
+  $assetslink="/assets/";
   if($segment=="medical")
   {
     $link_prefix="/".$subdomain;
 	$homeLink="/".$subdomain;
-    
+    $assetslink="/assets/medical/";
   }
 @endphp
 
@@ -78,7 +79,7 @@
   <span class="baseproductname">{{$productData->name}}</span>
   <span class="baseproductid">{{$productData->prod_id}}</span>
   <span class="baseproductcode">{{$productData->codevalue}}</span>
-  <span class="baseproductimg">/assets/{{$productData->thumb_img_new_path}}</span>
+  <span class="baseproductimg">{{$assetslink.$productData->thumb_img_new_path}}</span>
 </div>
 
 
@@ -98,11 +99,11 @@
 
 
 							@if(isset($options) && is_array($options) && count($options)>0)
-						<a href="{{$link_prefix}}/configurator/{{$productData->prod_id}}"><img src="/assets/{{$img}}" style="width:80%" alt="{{$productData->name}}|{{$productData->brand}}|{{$country}}" title="{{$productData->name}}" data-caption="{{$productData->name}}|{{$productData->brand}}|{{$country}}"></a>
+						<a href="{{$link_prefix}}/configurator/{{$productData->prod_id}}"><img src="{{$assetslink.$img}}" style="width:80%" alt="{{$productData->name}}|{{$productData->brand}}|{{$country}}" title="{{$productData->name}}" data-caption="{{$productData->name}}|{{$productData->brand}}|{{$country}}"></a>
 					@else
 
 					<button type="button" class="btn_cartload btn">
-						<img src="/assets/{{$img}}" style="width:80%" alt="{{$productData->name}}|{{$productData->brand}}|{{$country}}" title="{{$productData->name}}" data-caption="{{$productData->name}}|{{$productData->brand}}|{{$country}}">
+						<img src="{{$assetslink.$img}}" style="width:80%" alt="{{$productData->name}}|{{$productData->brand}}|{{$country}}" title="{{$productData->name}}" data-caption="{{$productData->name}}|{{$productData->brand}}|{{$country}}">
 
 					</button>
 

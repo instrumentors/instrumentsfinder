@@ -39,20 +39,13 @@ class products_master extends Model
     'prod_segment'
 	];
 
-	public function getBrandsbyNameCount()
+	public function getBrandsbyNameCount($segment)
 	{
-		$array = $this->select("brand")->selectraw("count('name') as total")->groupBy("brand")->orderBy("brand")->get();
-         return $array->toArray();
-	}
-
-
-	public function getBrandsbyNameCountSegment($segment)
-	{
-        print($segment);
 		$array = $this->select("brand")->selectraw("count('name') as total")->where('prod_segment', $segment)->groupBy("brand")->orderBy("brand")->get();
          return $array->toArray();
-         print($segment);
 	}
+
+
 
 	public function getAllProducts()
 	{
@@ -70,17 +63,17 @@ class products_master extends Model
 	}
 
 
-	public function getRandomProducts()
+	public function getRandomProducts($segment="instrumentation")
 	{
-		return $this->inRandomOrder()->take(6)->get();
+		return $this->inRandomOrder()->where("prod_segment",$segment)->take(6)->get();
 
 
 	}
 
 
-	public function getRandomBrands()
+	public function getRandomBrands($segment="instrumentation")
 	{
-		$array = $this->select("brand")->selectraw("count('name') as total")->groupBy("brand")->inRandomOrder()->take(12)->get();
+		$array = $this->select("brand")->selectraw("count('name') as total")->where("prod_segment",$segment)->groupBy("brand")->inRandomOrder()->take(12)->get();
          return $array->toArray();
 	}
 

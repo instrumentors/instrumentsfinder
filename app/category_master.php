@@ -14,21 +14,12 @@ class category_master extends Model
     	 return $this->select('name','slug')->distinct()->get();
     }
 
-    public function getCategorybyNameCount()
+    public function getCategorybyNameCount($segment)
     {
-         $array = $this->select("name","slug")->selectraw("count('name') as total")->groupBy("slug")->groupBy("name")->orderBy("name")->get();
+         $array = $this->select("name","slug")->selectraw("count('name') as total")->where("cat_segment",$segment)->groupBy("slug")->groupBy("name")->orderBy("name")->get();
          return $array->toArray();
     }
 
-    public function getCategorybyNameCountSegment($segment)
-    {
-        //print $segment;
-       // $segment = 'instrumentation';
-         $array = $this->select("name","slug")->selectraw("count('name') as total")->where('cat_segment', $segment)->groupBy("slug")->groupBy("name")->orderBy("name")->get();
-         //print_r($array);
-         return $array->toArray();
-
-    }
 
 
     public function getProdIdbyCat($cat)
