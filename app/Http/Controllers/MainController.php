@@ -226,16 +226,7 @@ public function siteMapGenerate(Request $request,$param1,$param2,$param3=null)
          }else{
            return response()->json('success');
          }
-
-
-
-
-
     }
-
-
-
-
 
 	public function getSearchResults(Request $request)
 	{
@@ -255,7 +246,7 @@ public function siteMapGenerate(Request $request,$param1,$param2,$param3=null)
         $total_leadprice=0;
 		echo("<pre>");
 		print_r($lead_data);
-
+		try{
 		foreach($lead_data["products"] as $lead_product)
 		{
 			$prod_data = $productmaster->getProductByID($lead_product["product_id"]);
@@ -265,22 +256,12 @@ public function siteMapGenerate(Request $request,$param1,$param2,$param3=null)
 			$finalurl = $url.$source_prod_id;
 
 			$data = json_decode(file_get_contents($finalurl), true);
-
-
-
 			print($source_prod_id);
 			print("<br/>");
-
-			//print_r($lead_product);
-
-			//print_r($data);
 			$listing_price = $data["listPrice"];
 			$total_price = $listing_price;
 			$startingPrice = $data["startingPrice"];
 			$discount = $data["discount"];
-
-
-			echo("<hr/>");
 
 			foreach($lead_product["options"] as $lead_product_options)
 			{
@@ -321,9 +302,13 @@ public function siteMapGenerate(Request $request,$param1,$param2,$param3=null)
 
 			echo("<hr/>");
 		}
+		
 		print("total_leade _ price ".$total_leadprice);
 		echo("</pre>");
+		}catch (Exception $e)
+		{
 
+		}
 	}
 
 
@@ -334,9 +319,10 @@ public function siteMapGenerate(Request $request,$param1,$param2,$param3=null)
 	public function submitLead(Request $request)
 	{
 
-		$subdomain = resolve('subdomain');
-	//	return $subdomain;
 
+		$subdomain = resolve('subdomain');
+		$segment = resolve('segment');
+		
 		$lead_model = new leads;
 		$lead_prod_model = new lead_products;
 		$lead_opt_model = new lead_options;
@@ -358,7 +344,7 @@ public function siteMapGenerate(Request $request,$param1,$param2,$param3=null)
 		$locapiurl='http://api.ipstack.com/'.$ip_addres.'?access_key=3cf453a7e01668f433270f0f51956f1b';
 
 
-			$context = stream_context_create(array('http' => array('header'=>'Connection: close\r\n')));
+		$context = stream_context_create(array('http' => array('header'=>'Connection: close\r\n')));
 
 
 
@@ -463,9 +449,9 @@ public function siteMapGenerate(Request $request,$param1,$param2,$param3=null)
 		$name='';
 
 
-		$lead_data_to_add = ["order_id"=>$order_id,"domain"=>$subdomain,"name"=>$name,"email"=>$email,"enquiry_desc"=>$inquiry_description,"reseller_price"=>$resellerpricing,"bulk_price"=>$bulkpricing,"country_shipping"=>$shipping_country,"country"=>$country,"country_code"=>$countrycode,"country_flag"=>$countryflag,"country_emoji"=>$countryemoji,"city"=>$city,"lat"=>$lat,"lon"=>$lon];
+		$lead_data_to_add = ["order_id"=>$order_id,"domain"=>$subdomain,"name"=>$name,"email"=>$email,"enquiry_desc"=>$inquiry_description,"reseller_price"=>$resellerpricing,"bulk_price"=>$bulkpricing,"country_shipping"=>$shipping_country,"country"=>$country,"country_code"=>$countrycode,"country_flag"=>$countryflag,"country_emoji"=>$countryemoji,"city"=>$city,"lat"=>$lat,"lon"=>$lon,"segment"=>$segment];
 
-
+		//return $lead_data_to_add;
 
 
 
@@ -490,10 +476,11 @@ public function siteMapGenerate(Request $request,$param1,$param2,$param3=null)
 			$finalurl = $json_url.$source_prod_id;
 
 
-
+			if($segment=="instrumentation"){
 			$data[$key] = json_decode(file_get_contents($finalurl,false,$context),true);
-
-			//$data[$key] = array();
+			}
+			else	
+				$data[$key] = array();
 
 			$listing_price = 0;
 			if(is_array($data) && isset($data[$key]["listPrice"]))

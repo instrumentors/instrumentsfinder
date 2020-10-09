@@ -52,8 +52,9 @@ if(isset($url_array[2]) && $url_array[2]=="sent")
 <table class="table table-sm small">
   <thead class="thead-dark">
     <tr>
-
+    
       <th scope="col">Order ID </th>
+      <th scope="col">Segment </th> 
       <th scope="col">Date </th>
       <th scope="col">Domain </th>
       <th scope="col">Email</th>
@@ -85,6 +86,7 @@ if(isset($url_array[2]) && $url_array[2]=="sent")
     <tr>
 
       <td><a href="/lead/{{$lead->order_id}}">{{$lead->order_id}} </a></td>
+      <td>{{$lead->segment}}</td>
       <td>{{$lead_date}}</td>
       <td>{{$lead->domain}}</td>
       <td>{{$lead->email}}</td>
