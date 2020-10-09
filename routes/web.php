@@ -12,6 +12,26 @@
 |
 */
 
+Route::get('/prodconfig/{leadId}',"MainController@getProductPriceFromInstrumart");
+
+
+
+
+Auth::routes();
+
+Route::get("/emailauth",function (){
+
+	Auth::loginUsingId("noaman.kazi@gmail.com");
+	return redirect('/admin');
+
+});
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin', 'HomeController@index')->name('home');
+
+Route::get('/mail', 'MainController@emailcron')->name('sendmail');
+
+
 
 
 Route::get('{subdomain}/categories','MainController@showCategoryListing');
@@ -112,22 +132,3 @@ Route::get('/autocomplete-search',array('as'=>'autocomplete.search','uses'=>'Aut
 
 Route::get('/autocomplete-ajax',array('as'=>'autocomplete.ajax','uses'=>'AutoCompleteController@ajaxData'));
 
-
-Route::get('/prodconfig/{leadId}',"MainController@getProductPriceFromInstrumart");
-
-
-
-
-Auth::routes();
-
-Route::get("/emailauth",function (){
-
-	Auth::loginUsingId("noaman.kazi@gmail.com");
-	return redirect('/admin');
-
-});
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-
-Route::get('/mail', 'MainController@emailcron')->name('sendmail');
