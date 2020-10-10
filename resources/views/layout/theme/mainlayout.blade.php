@@ -217,7 +217,7 @@
   "@context": "http://schema.org/",
   "@type": "Product",
   "name": "{{$prodName}} {{$country}} {{implode(", ",$cities)}}",
-  "image": "https://{{$url_array[0]."/".$productData->img}}",
+  "image": "https://{{$url_array[0]."/assets/".$productData->img}}",
   "description": "Authorised supplier {{$country}} - {{$productData->short_desc}}",
   "sku": "{{$productData->prod_id}}",
   "brand": {
