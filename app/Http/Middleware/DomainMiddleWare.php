@@ -48,6 +48,8 @@ class DomainMiddleWare
         app()->instance('subdomain', $subdomain);
         app()->instance('url_array', $url_array);
 
-        return $next($request);
+        return $next($request)->header('Access-Control-Allow-Origin', '*')
+            ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+            ->header('Access-Control-Allow-Headers', 'Content-Type, Accept, Authorization, X-Requested-With, Application');
     }
 }
