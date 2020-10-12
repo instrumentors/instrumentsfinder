@@ -69,7 +69,7 @@ $currency = $data_values["currency"];
 $link_prefix="";
 $homeLink="/";
   $segment=resolve("segment");
-  
+
   if($segment=="medical")
   {
     $link_prefix="/".$subdomain;
@@ -413,7 +413,7 @@ $reviewername=randomName();
   "@context": "http://schema.org/",
   "@type": "Product",
   "name": "{{$prodName}} {{$country}} {{implode(", ",$cities)}}",
-  "image": "https://{{$url_array[0]."/".$productData->img_new_path}}",
+  "image": "https://{{$url_array[0]."/assets/".$productData->img_new_path}}",
   "description": "Trusted Supplier {{$country}} - {{$productData->short_desc}}",
   "sku": "{{$productData->prod_id}}",
   "mpn": "{{$productData->prod_id}}",
