@@ -30,50 +30,50 @@ if($segment=="medical"){
 		</div>
 		<div class="col-md-6 col-sm-6 homeimg">
 			&nbsp;
-		</div>	
-	</div>	
+		</div>
+	</div>
 
 	@if(isset($productData))
 
-	<div class="row"> 
+	<div class="row">
 		<br/><br/>
-	</div>		
-	<div class="row" style="margin:10px;"> 
-		<div class="col-sm-12" style="padding:10px;"> 
+	</div>
+	<div class="row" style="margin:10px;">
+		<div class="col-sm-12" style="padding:10px;">
 			<h1>Featured products - {{$country}}</h1>
 
 			We are a leading suppliers for Oilfield Safety and Fire Protection Equipment, Process Instrumentation, Electrical and Mechanical machinery equipments & spare parts, Laboratory Measurement Tools & Equipments & Surgical / Medical Emergency Products for Oil & Gas Industry in {{$country}} across {{implode(", ",$cities)}}
 
 
 
-		</div>	
-	</div>	
-	<div class="row"> 
+		</div>
+	</div>
+	<div class="row">
 
 		@foreach($productData as $produclisting)
 
 		<?php
 					$prodslug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $produclisting->name)));
 					?>
-		<div class="col-sm-6"> 
+		<div class="col-sm-6">
 			<div class="productlist" style="border-bottom: 0px;">
 			<div class="row">
 							<div class="col-md-2 col-sm-3">
 
-									
+
 								<?php
 
-									
+
 										$thumbnail = $assetslink.$produclisting->thumb_img_new_path;
 										//$thumbnail="assets/medical/thumb_886000531.jpg";
-										
+
 								?>
 
-                                
+
 								<img src="{{$thumbnail}}" alt="{{$produclisting->name}}|{{$produclisting->brand}}" title="{{$produclisting->name}}" data-caption="{{$produclisting->name}}|{{$produclisting->brand}}">
 							</div>
 							<div class="col-md-8 col-sm-4">
-							{{$thumbnail}}
+
 								<h2 style="font-size:1.5em;"><a href="{{$link_prefix}}/product/{{$produclisting->prod_id}}/{{$prodslug}}">{{$produclisting->name}} </a></h2>
 								<div class="brand"><a href="{{$link_prefix}}/brand/{{$data->create_slug($produclisting->brand)}}" style="color:#Adc900;">
 								{{$produclisting->brand}} in {{$country}} (as resellers) </a></div>
@@ -83,16 +83,16 @@ if($segment=="medical"){
 			</div>
 		</div>
 		@endforeach
-		
+
 	</div>
 
 	@endif
 
 	@if(isset($brands_array))
-	<div class="row" style="margin:10px;"> 
-		<div class="col-12" style="padding:10px;"> 
+	<div class="row" style="margin:10px;">
+		<div class="col-12" style="padding:10px;">
 			<h1>Featured brands - {{$country}}</h1>
-		</div>	
+		</div>
 			@foreach($brands_array as $brand)
 			<div class="col-md-4 col-sm-12 catblockmaster">
 									<a href="{{$link_prefix}}/brand/{{$data->create_slug($brand['brand'])}}">
@@ -101,19 +101,19 @@ if($segment=="medical"){
 									</div>
 									</a>
 			</div>
-							
-			@endforeach					
-			<br/>
-			
 
-		
-	</div>	
+			@endforeach
+			<br/>
+
+
+
+	</div>
 
 	<div class="row" style="padding:20px; text-align: center;margin:auto;"><div class="col-12" class="catblockmaster"><div class="catblock"><a href="/brands">View all</a></div> </div></div>
 
 
-	@endif				
+	@endif
 
-</div>	
+</div>
 
 @endsection
