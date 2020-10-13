@@ -77,9 +77,9 @@ class products_master extends Model
          return $array->toArray();
 	}
 
-	public function getSearchResults($query)
+	public function getSearchResults($query,$segment)
 	{
-		return $this->where('name','LIKE','%'.$query.'%')->get();
+		$query= $this->where('name','LIKE','%'.$query.'%')->where("prod_segment",$segment)->get();
 	}
 
 	public function getProductsByCat($cat)

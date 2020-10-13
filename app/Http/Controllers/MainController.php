@@ -230,9 +230,10 @@ public function siteMapGenerate(Request $request,$param1,$param2,$param3=null)
 
 	public function getSearchResults(Request $request)
 	{
+		$segment = resolve('segment');
         $query = $request->get('query','');
         $productmaster = new products_master;
-        $posts=$productmaster->getSearchResults($query);
+        $posts=$productmaster->getSearchResults($query,$segment);
         return response()->json($posts);
 	}
 

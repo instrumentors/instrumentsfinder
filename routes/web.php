@@ -14,6 +14,13 @@
 
 Route::get('/prodconfig/{leadId}',"MainController@getProductPriceFromInstrumart");
 
+Route::get('autocomplete-ajax',array('as'=>'autocomplete.ajax','uses'=>'MainController@getSearchResults'));
+
+Route::get('/autocomplete-search',array('as'=>'autocomplete.search','uses'=>'AutoCompleteController@index'));
+
+Route::get('/autocomplete-ajax',array('as'=>'autocomplete.ajax','uses'=>'AutoCompleteController@ajaxData'));
+
+
 
 
 
@@ -108,12 +115,6 @@ Route::get('/{subdomain?}','MainController@index');
 
 
 
-
-Route::get('autocomplete-ajax',array('as'=>'autocomplete.ajax','uses'=>'MainController@getSearchResults'));
-
-Route::get('/autocomplete-search',array('as'=>'autocomplete.search','uses'=>'AutoCompleteController@index'));
-
-Route::get('/autocomplete-ajax',array('as'=>'autocomplete.ajax','uses'=>'AutoCompleteController@ajaxData'));
 
 
 
