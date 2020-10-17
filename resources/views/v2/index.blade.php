@@ -74,10 +74,10 @@ if($segment=="medical"){
 							</div>
 							<div class="col-md-8 col-sm-4">
 
-								<h2 style="font-size:1.5em;"><a href="{{$link_prefix}}/product/{{$produclisting->prod_id}}/{{$prodslug}}">{{$produclisting->name}} </a></h2>
-								<div class="brand"><a href="{{$link_prefix}}/brand/{{$data->create_slug($produclisting->brand)}}" style="color:#Adc900;">
+								<h3 style="font-size:1.5em;"><a href="{{$link_prefix}}/product/{{$produclisting->prod_id}}/{{$prodslug}}">{{$produclisting->name}} </a></h2>
+								<div class="brand subtext"><a href="{{$link_prefix}}/brand/{{$data->create_slug($produclisting->brand)}}">
 								{{$produclisting->brand}} in {{$country}} (as resellers) </a></div>
-								<h3 class="h3_desc">{{$produclisting->short_desc}}</h3>
+								<h5 class="h3_desc">{{$produclisting->short_desc}}</h3>
 							</div>
 						</div>
 			</div>

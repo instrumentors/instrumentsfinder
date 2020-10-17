@@ -3,10 +3,12 @@
   $homeLink="/";
   $segment=resolve("segment");
   $subdomain=resolve("subdomain");
+  $logo="logo.png";
   if($segment=="medical")
   {
     $link_prefix="/".$subdomain;
     $homeLink="/".$subdomain;
+    $logo="logo_med.png";
   }
     
 ?>
@@ -16,7 +18,7 @@
 
   <div class="row">
     <div class="col-6 col-sm-6">
-      <a href="{{$homeLink}}"><img class="logo_place" src="/img/logo.png" style="width:250px;"></a>
+      <a href="{{$homeLink}}"><img class="logo_place" src="/img/<?=$logo?>" style="width:250px;"></a>
     </div>
     <div class="col-6">
   <div class="cart1 pull-right"><i class="fa fa-shopping-cart fa-0.7x" style="color:#333;"></i><span id="itemCount_mobile"></span></div>
@@ -58,8 +60,8 @@
       <li class="nav-item navitem_brand">
         <a href="{{$link_prefix}}/applications">Applications</a>
       </li>
-      <li class="nav-item navitem_brand cart" style="width:60px;display:block;text-align: center;vertical-align: middle;margin: auto;">
-        <i class="fa fa-shopping-cart fa-0.7x" style="color:#333;"></i>
+      <li class="nav-item navitem_brand cart cartColor" style="width:60px;display:block;text-align: center;vertical-align: middle;margin: auto;">
+        <i class="fa fa-shopping-cart fa-0.7x cartColor"></i>
     <span id="itemCount"></span>
 </li>
 

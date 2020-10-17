@@ -367,10 +367,6 @@ class DataManager
                 $ga='UA-138665419-39';
                 $yandex='';
             break;
-
-
-
-
         } //end of switch
 
 

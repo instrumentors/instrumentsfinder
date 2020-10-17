@@ -11,7 +11,17 @@
 
 
 <link rel="stylesheet" href="/v2/bootstrap.min.css">
-<link rel="stylesheet" href="/v2/style.css">
+<?php
+
+$stylesheetFile="style.css";
+$segment = resolve('segment');
+
+if($segment=="medical")
+    $stylesheetFile ="style_med.css";
+?>
+
+
+<link rel="stylesheet" href="/v2/<?=$stylesheetFile?>">
 
 
 

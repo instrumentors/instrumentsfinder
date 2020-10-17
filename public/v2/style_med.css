@@ -27,11 +27,6 @@ body
 }
 
 
-h1
-{
-	1.5em;
-}
-
 .list-group-item1
 {
 	font-size: 16px;
@@ -45,9 +40,12 @@ h1
 
 .bgcolor
 {
-	background-color:#fdd700;
+	background-color:#e00533;
 }
 
+.brandcolor{
+	color:#e00533;
+}
 
 .listblock
 {
@@ -58,7 +56,7 @@ h1
 
 .options_block
 {
-	border-right:dotted #fdd700 1px;
+	border-right:dotted #e00533 1px;
 	overflow: scroll;
 }
 
@@ -82,7 +80,7 @@ h1
 {
 	font-weight:200;
 	font-size:40px;
-	color:#fdd700;
+	color:#e00533;
 
 }
 .jumbotron_brand > .overlay {
@@ -112,19 +110,20 @@ h1
 
 .catblockmaster a
 {
-	background-color:#fdd700;
+	background-color:#e00533;
 	text-decoration:none;
-	color:#000000;
+	color:#e00533;
 }
 
 .catblockmaster :hover {
-  background-color:#fdd700;
+  background-color:#e00533;
+  color:#FFFFFF;
 
 }
 
 .navitem_brand
 {
-	border-left: 1px solid;
+	border-left: 1px #ffffff solid;
 	width:150px;
 	text-align:center;
 
@@ -147,14 +146,14 @@ h1
 	padding:5px;
 	font-size:15px;
 	font-weight:600;
-	color:#000000;
+	color:#FFFFFF;
 	text-decoration: none;
 	letter-spacing: 1px;
 }
 
 .navitem_brand a:hover
 {
-	color:#ffffff;
+	color:#CCC;
 }
 
 .prodlistingblock a
@@ -171,7 +170,7 @@ h1
 {
 	vertical-align: middle;
 	text-transform: uppercase;
-	border:dotted #fdd700 1px;
+	border:dotted #e00533 1px;
 	letter-spacing: 0.6px;
 	margin:5px;
 	padding-left:10px;
@@ -224,7 +223,7 @@ h1
 {
 	padding:5px;
 
-	border-bottom: dotted 1px #fdd700;
+	border-bottom: dotted 1px #e00533;
 	margin-bottom:8px;
 	width:100%;
 
@@ -243,7 +242,7 @@ h1
 .brand
 {
 
-	color:#Adc900;
+	color:#2f2f2f;
 	font-weight: 300;
 	font-size:13px;
 }
@@ -251,9 +250,15 @@ h1
 .brand a
 {
 
-	color:#Adc900;
+	color:#2f2f2f;
 	font-weight: 300;
 	font-size:13px;
+}
+
+
+
+.subtext{
+	color:#ef5151;
 }
 
 .productlist a
@@ -357,26 +362,18 @@ input::placeholder { color: #777; font-size: 0.9em; letter-spacing:0.5px;  paddi
 
 }
 
-.subtext a{
-	color:#Adc900;
-}
-
-.brandcolor{
-	color:#fdd700;
-}
-
 .homeimg
 {
 	overflow: hidden;
     background-size: cover;
     background-position: center;
-    background-image: url("/img/homebg.jpg");
+    background-image: url("/img/homebg_med.png");
 }
 
 .btn-brand:hover
 {
 
-	background-color: #fdd700;
+	background-color: #e00533;
 	border:0px;
 	color:#0569AD;
 	font-weight:700;
@@ -385,7 +382,7 @@ input::placeholder { color: #777; font-size: 0.9em; letter-spacing:0.5px;  paddi
 .btn-brand:click
 {
 
-	background-color: #fdd700;
+	background-color: #e00533;
 	border:0px;
 	color:#0569AD;
 	font-weight:700;
@@ -404,10 +401,14 @@ input::placeholder { color: #777; font-size: 0.9em; letter-spacing:0.5px;  paddi
 	color:#000;
 }
 
+.input-group-addon
+{
+	color:#ffffff;
+}
 .variant
 {
 	background-color: #333;
-	color:#fdd700;
+	color:#e00533;
 	letter-spacing: 0.5px;
 	font-weight:800;
 	padding-left:20px;
@@ -584,6 +585,12 @@ input::placeholder { color: #777; font-size: 0.9em; letter-spacing:0.5px;  paddi
 	font-weight: 500;
 	font-size: 2em;
 }
+
+.cartColor{
+	color:#ffffff;
+	
+}
+
 @media only screen and (max-width: 600px) {
 	.variant_desc
 	{
@@ -592,8 +599,9 @@ input::placeholder { color: #777; font-size: 0.9em; letter-spacing:0.5px;  paddi
 	.cart
 	{
 		display:none;
+		
 	}
-
+	
 	.cart1
 	{
 		display: block;
