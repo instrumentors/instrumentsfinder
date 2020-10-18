@@ -55,9 +55,9 @@ class products_master extends Model
 	}
 
 
-	public function getProductsForSitemap($index)
+	public function getProductsForSitemap($index,$segment="instrumentation")
 	{
-		$array = $this->where('id','>',0)->paginate(500,['*'],'page',$index);
+		$array = $this->where('id','>',0)->where("prod_segment",$segment)->paginate(500,['*'],'page',$index);
 
 		return $array->toArray()["data"];
 	}

@@ -138,18 +138,19 @@ public function siteMapGenerate(Request $request,$param1,$param2,$param3=null)
 	}
 	$productmaster = new products_master;
 	$categorymaster = new category_master;
-    $applicationmaster = new applications_master;
+	$applicationmaster = new applications_master;
+	$segment=  resolve("segment");
 	$domain = "https://".$request->getHost();
 	if($id=="brands")
-		$data_array=$productmaster->getBrandsbyNameCount();
+		$data_array=$productmaster->getBrandsbyNameCount($segment);
 	elseif($id=="categories"){
-			$data_array=$categorymaster->getCategorybyNameCount();
+			$data_array=$categorymaster->getCategorybyNameCount($segment);
 		}
 	elseif($id=="applications"){
-		$data_array=$applicationmaster->getApplicationsbyNameCount();
+		$data_array=$applicationmaster->getApplicationsbyNameCount($segment);
 	}
 	elseif($id=="products"){
-		$data_array=$productmaster->getProductsForSitemap($index);
+		$data_array=$productmaster->getProductsForSitemap($index,$segment);
 	}
 	elseif($id=="brands_products")
 	{

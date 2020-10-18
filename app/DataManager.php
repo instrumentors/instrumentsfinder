@@ -1,18 +1,15 @@
 <?php
 namespace App;
-
-
-
 class DataManager
 {
-
-
     public function create_slug($var)
     {
         return str_replace(" ", "-", trim(htmlentities($var)));
     }
-
-
+    public function getSubdomainArray()
+    {
+        return array("ae", "sa", "az", "kz", "ng", "ru", "mn", "af", "pk", "kg", "uz", "tm", "tj", "eg", "tr", "jo", "lb", "om", "kw", "qa", "bh", "iq", "za", "dz", "ma", "ao", "et", "ke", "gh", "tz", "cd", "tn", "cm", "zw", "ug", "zm", "sn");
+    }
     public function getHeader_Descrption($pagetemplate)
     {
         if($pagetemplate=="categories")
@@ -38,13 +35,13 @@ class DataManager
     public function getData($subdomain)
     {
 
-                $country = "";
-                $cities="";
-                $currency="";
-                $ga='';
-                $yandex='';
+        $country = "";
+        $cities="";
+        $currency="";
+        $ga='';
+        $yandex='';
 
-    switch($subdomain)
+        switch($subdomain)
         {
             case "ae":
                 $country = "UAE";

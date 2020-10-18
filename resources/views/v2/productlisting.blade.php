@@ -92,7 +92,7 @@ $sublink=$link_prefix.$sublink;
 
 				@if(isset($brands_list))
 				<div class="leftbar" style="margin:5px;padding:5px;border-bottom: 1px solid #eee;background-color:#f8f8f8;">
-					<h5 style="margin-left:10px;font-size:13px;color:#fdd700;font-weight:800;text-transform: uppercase;letter-spacing: 1px;">BRANDS</h5>
+					<h5 class="brandcolor" style="margin-left:10px;font-size:13px;font-weight:800;text-transform: uppercase;letter-spacing: 1px;">BRANDS</h5>
 
 
 					@foreach($brands_list as $brand_data)
@@ -310,7 +310,7 @@ $sublink=$link_prefix.$sublink;
 								{{ $productlistings->links('vendor.pagination.bootstrap-4')}}
 								@endif
 							</div>
-							<div class="col-md-4 col-sm-6 pull_right" style="color:#fdd700;font-size:0.9em;letter-spacing: 0.3px;">
+							<div class="col-md-4 col-sm-6 pull_right brandcolor" style="font-size:0.9em;letter-spacing: 0.3px;">
 								Showing {{1+(30*($productlistings->currentPage()-1))}} to {{$to_products}} of {{$end_recs}} products
 							</div>
 						</div>

@@ -16,17 +16,28 @@ $currency = $data_values["currency"];
 $link_prefix='';
 $assetslink="/assets/";
 if($segment=="medical"){
-	$link_prefix = $subdomain;
+	$link_prefix = "/".$subdomain;
 	$assetslink="assets/medical/";
 }
 ?>
 
 <div class="container">
+
 	<div class="row" style="min-height:450px;">
 		<div class="col-md-6 col-sm-6" style="display:block;margin:auto;padding:50px;">
+			<?php
+			if($segment=="medical")
+			{
+				?>
+				<h2 style="font-size:1.3em">Are you searching for Medical  instruments?</h2><br/>
+				<p>Then InstrumentFinder is the right place. Our experienced technical staff will help you find the right product for your need</p>
+				<?php
+			}
+			else{
+			?>
 			<h2 style="font-size:1.3em">Are you searching for Industrial Laboratory instruments?</h2><br/>
 			<p>Then InstrumentFinder is the right place. Our experienced technical staff will help you find the right product for your need</p>
-
+			<?php }?>
 		</div>
 		<div class="col-md-6 col-sm-6 homeimg">
 			&nbsp;
@@ -41,9 +52,19 @@ if($segment=="medical"){
 	<div class="row" style="margin:10px;">
 		<div class="col-sm-12" style="padding:10px;">
 			<h1>Featured products - {{$country}}</h1>
-
+				<?php
+			if($segment=="medical")
+			{
+				?>
+				We are a leading suppliers for Medical in {{$country}} across {{implode(", ",$cities)}}
+				<?php
+			}
+			else{
+			?>
 			We are a leading suppliers for Oilfield Safety and Fire Protection Equipment, Process Instrumentation, Electrical and Mechanical machinery equipments & spare parts, Laboratory Measurement Tools & Equipments & Surgical / Medical Emergency Products for Oil & Gas Industry in {{$country}} across {{implode(", ",$cities)}}
+<?php }?>
 
+			
 
 
 		</div>

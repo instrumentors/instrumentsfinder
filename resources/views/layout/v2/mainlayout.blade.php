@@ -1,72 +1,41 @@
 <!doctype html>
 <html lang="en-US" prefix="og: http://ogp.me/ns#">
-
   <head>
 <meta name="google-site-verification" content="omHqJAAMCxy8mUBibcZSN7CIfsiVwFi_bB1oKcfEIVo" />
-
-
 <meta name="yandex-verification" content="a0367cdacd50107b" />
-
-
-
-
 <link rel="stylesheet" href="/v2/bootstrap.min.css">
 <?php
-
-$stylesheetFile="style.css";
-$segment = resolve('segment');
-
-if($segment=="medical")
-    $stylesheetFile ="style_med.css";
+    $stylesheetFile="style.css";
+    $segment = resolve('segment');
+    $faviconPath="";
+    if($segment=="medical")
+    {
+        $faviconPath="medical/";
+        $stylesheetFile ="style_med.css";
+    }
 ?>
 
-
 <link rel="stylesheet" href="/v2/<?=$stylesheetFile?>">
-
-
-
-   <script   src="https://code.jquery.com/jquery-latest.min.js"></script>
-
-
-    <script   src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-
-
-   <script  src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
-
-
-
-    <link  rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-
-
-
-     @php
-    $url_array = resolve('url_array');
-
-
-
-    @endphp
-
-
-
-
-  @inject('data','App\DataManager')
-    <?php
-
-
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<link  rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+@php
+$url_array = resolve('url_array');
+@endphp
+@inject('data','App\DataManager')
+<?php
+// href lang
+//<link rel="alternate" href="https://med.instrumentsfinder.test/sa/" hreflang="en-sa" />
 //instrumentsfinder@gmail.com
 //instru@00786
-
-
     $category_string="";
-        $brandstring="";
-        $prodName="";
-        $currency="AED";
-        $ga="";
+    $brandstring="";
+    $prodName="";
+    $currency="AED";
+    $ga="";
 
-
-
-
+    $page="index";
 
 $url_array = resolve('url_array');
 $subdomain = resolve('subdomain');
@@ -75,18 +44,36 @@ $country = $data_values["country"];
 $cities = $data_values["cities"];
 $ga = $data_values["ga"];
 $currency = $data_values["currency"];
-
 $link_prefix="";
 $homeLink="/";
-  $segment=resolve("segment");
 
+$isProductPage=in_array("product",$url_array,TRUE);
+
+  $segment=resolve("segment");
+  $schema_org_url="https://".$subdomain.".instrumentsfinder.com/";
   if($segment=="medical")
   {
     $link_prefix="/".$subdomain;
     $homeLink="/".$subdomain;
+    
+    $schema_org_url="https://med.instrumentsfinder.com/".$subdomain."/";
+
   }
+ 
+  $subdomains_array=$data->getSubdomainArray();
 
+  foreach($subdomains_array as $subdomain_value)
+  {
+    if($segment=="medical")
+    {
+      print('<link rel="alternate" href="https://med.instrumentsfinder.com/'.$subdomain_value.'/" hreflang="en-'.$subdomain_value.'"/>');
+    }
+    else
+    {
+      print('<link rel="alternate" href="https://'.$subdomain_value.'.instrumentsfinder.com/" hreflang="en-'.$subdomain_value.'"/>');
 
+    }
+  }
     if(isset($category_array))
     {
         $cat_seo_array=array();
@@ -101,32 +88,64 @@ $homeLink="/";
     $title="";
     $metadescription="";
 
+    if(in_array("categories",$url_array,TRUE))
+        $page="categories";
+    else
+    if(in_array("brands",$url_array,TRUE))
+        $page="brands";
+    else
+    if(in_array("applications",$url_array,TRUE))
+        $page="applications";
+    else
+    if(in_array("category",$url_array,TRUE))
+    $page="category";
+    else
+    if(in_array("brand",$url_array,TRUE))
+    $page="brand";
+    else
+    if(in_array("application",$url_array,TRUE))
+        $page="application"; 
+    else
+    if(in_array("product",$url_array,TRUE))
+        $page="product";          
 
-    if(count($url_array)==1)//INDEXPAGE
+    //if(count($url_array)==1)//INDEXPAGE
+    if($page=="index")
     {
-
-        $title="Test &amp; measurment Instruments | $country | ".implode(", ",$cities);
-        $metadescription="Shop InstrumentsFinder for the best in test & measurement instruments in $country. InstrumentsFinder carries over 100 brands of industrial instruments and supports customers with free lifetime technical support from its staff of Applications Engineers.";
+        if($segment=="medicla")
+        {
+            $title="Medical Instruments | $country | ".implode(", ",$cities);
+            $metadescription="Shop InstrumentsFinder for the best in test & measurement instruments in $country. InstrumentsFinder carries over 100 brands of industrial instruments and supports customers with free lifetime technical support from its staff of Applications Engineers.";
+        }
+        else
+        {
+            $title="Test & measurment Instruments | $country | ".implode(", ",$cities);
+            $metadescription="Shop InstrumentsFinder for the best in test & measurement instruments in $country. InstrumentsFinder carries over 100 brands of industrial instruments and supports customers with free lifetime technical support from its staff of Applications Engineers.";
+        }
     }
-   elseif(count($url_array)==2 && isset($url_array[1]) && $url_array[1]=="categories")//Catgeories Listing
+    elseif($page=="categories")
+   //elseif(count($url_array)==2 && isset($url_array[1]) && $url_array[1]=="categories")//Catgeories Listing
     {
         $title="Product portfolio | InstrumentsFinder.com | $country | ".implode(", ",$cities);
 
          $metadescription="Shop InstrumentsFinder for the a wide range of categories in test & measurement instruments in $country ".implode(", ",$cities);
     }
-    elseif(count($url_array)==2 && isset($url_array[1]) && $url_array[1]=="brands")//Brands Listing
+    elseif($page=="brands")
+    //elseif(count($url_array)==2 && isset($url_array[1]) && $url_array[1]=="brands")//Brands Listing
     {
         $title="Shop our brands | InstrumentsFinder.com | $country | ".implode(", ",$cities);
 
          $metadescription="Shop InstrumentsFinder for the a wide range of brands in test & measurement instruments in $country ".implode(", ",$cities);
     }
-    elseif(count($url_array)==2 && isset($url_array[1]) && $url_array[1]=="applications")//Applications Listing
+    elseif($page=="applications")
+    //elseif(count($url_array)==2 && isset($url_array[1]) && $url_array[1]=="applications")//Applications Listing
     {
         $title="Shop for a range of Applications | InstrumentsFinder.com | $country | ".implode(", ",$cities);
 
          $metadescription="Shop InstrumentsFinder for the a wide range of applications in test & measurement instruments in $country ".implode(", ",$cities);
     }
-    elseif(count($url_array)==3 && $url_array[1]=="category")//Category Product Listing
+    elseif($page=="category")
+    //elseif(count($url_array)==3 && $url_array[1]=="category")//Category Product Listing
     {
         $cat_name="";
         if(isset($prod_listing_header))
@@ -137,7 +156,8 @@ $homeLink="/";
 
          $metadescription="We are the trusted suppliers for $cat_name across $country ".implode(", ",$cities);
     }
-    elseif(count($url_array)==3 && $url_array[1]=="brand")//Brand product Listing
+    elseif($page=="brand")
+    //elseif(count($url_array)==3 && $url_array[1]=="brand")//Brand product Listing
     {
         $brand_name="";
         if(isset($prod_listing_header))
@@ -148,15 +168,16 @@ $homeLink="/";
 
          $metadescription="We are the trusted suppliers for $brand_name across $country ".implode(", ",$cities);
     }
-
-     elseif(count($url_array)==3 && $url_array[1]=="application")//Application Listing
+    elseif($page=="application")
+     //elseif(count($url_array)==3 && $url_array[1]=="application")//Application Listing
     {
 
         $title=$url_array[2]." supplier $country | ".implode(", ",$cities)." | InstrumentsFinder.com";
 
          $metadescription="We are the trusted suppliers for ".$url_array[2]." across $country ".implode(", ",$cities);
     }
-    elseif(count($url_array)==4 && trim($url_array[1])=="product")// product details page
+    elseif($page=="product")
+   //elseif(count($url_array)==4 && trim($url_array[1])=="product")// product details page
     {
 
 
@@ -229,10 +250,10 @@ $homeLink="/";
 
     <link rel="canonical" href="{{$canonical_url}}"/>
 
-<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/{{$faviconPath}}apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/{{$faviconPath}}favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/{{$faviconPath}}favicon-16x16.png">
+<link rel="manifest" href="/favicon/{{$faviconPath}}site.webmanifest">
 
 
 
@@ -417,7 +438,9 @@ $homeLink="/";
 $reviewername=randomName();
     ?>
 
-@if(count($url_array)==4 && trim($url_array[1])=="product")
+
+
+@if($isProductPage==true)
     <script type="application/ld+json">
 {
   "@context": "http://schema.org/",
@@ -462,6 +485,8 @@ $reviewername=randomName();
     "seller": {
       "@type": "Organization",
       "name": "InstrumentsFinder.com {{$country}}"
+      "url":"{{$schema_org_url}}" 
+      
     }
 
 
@@ -1101,6 +1126,6 @@ return new Promise(function (resolve, reject) {
 
 
     </script>
-
+   
   </body>
 </html>
