@@ -64,7 +64,14 @@ $isProductPage=in_array("product",$url_array,TRUE);
  
   $subdomains_array=$data->getSubdomainArray();
 
-  print('<link rel="alternate" href="https://'.$url_full.'" hreflang="en">');
+  if($segment=="medical")
+  {
+    print('<link rel="alternate" href="https://'.$url_full.'" hreflang="en">');
+  }
+  else
+  {
+    print('<link rel="alternate" href="https://'.$url_full.'" hreflang="en">');
+  } 
   foreach($subdomains_array as $subdomain_value)
   {
     
@@ -481,7 +488,7 @@ $reviewername=randomName();
     "availability": "http://schema.org/InStock",
     "seller": {
       "@type": "Organization",
-      "name": "InstrumentsFinder.com {{$country}}"
+      "name": "InstrumentsFinder.com {{$country}}",
       "url":"{{$schema_org_url}}" 
       
     }
