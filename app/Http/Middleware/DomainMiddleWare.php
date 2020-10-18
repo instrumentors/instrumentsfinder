@@ -44,7 +44,7 @@ class DomainMiddleWare
             app()->instance('segment', "instrumentation"); 
         }
 
-        
+        app()->instance('url_full', $url_full);
         app()->instance('subdomain', $subdomain);
         app()->instance('url_array', $url_array);
 

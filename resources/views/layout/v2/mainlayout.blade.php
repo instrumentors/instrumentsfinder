@@ -39,6 +39,7 @@ $url_array = resolve('url_array');
 
 $url_array = resolve('url_array');
 $subdomain = resolve('subdomain');
+$url_full = resolve('url_full');
 $data_values = $data->getData($subdomain);
 $country = $data_values["country"];
 $cities = $data_values["cities"];
@@ -47,6 +48,7 @@ $currency = $data_values["currency"];
 $link_prefix="";
 $homeLink="/";
 
+//print_r($url_full);
 $isProductPage=in_array("product",$url_array,TRUE);
 
   $segment=resolve("segment");
@@ -64,15 +66,9 @@ $isProductPage=in_array("product",$url_array,TRUE);
 
   foreach($subdomains_array as $subdomain_value)
   {
-    if($segment=="medical")
-    {
-      print('<link rel="alternate" href="https://med.instrumentsfinder.com/'.$subdomain_value.'/" hreflang="en-'.$subdomain_value.'"/>');
-    }
-    else
-    {
-      print('<link rel="alternate" href="https://'.$subdomain_value.'.instrumentsfinder.com/" hreflang="en-'.$subdomain_value.'"/>');
-
-    }
+    
+      print('<link rel="alternate" href="https://'.$url_full.' hreflang="en-'.$subdomain_value.'">');
+    
   }
     if(isset($category_array))
     {
