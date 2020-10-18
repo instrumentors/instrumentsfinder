@@ -67,7 +67,7 @@ $isProductPage=in_array("product",$url_array,TRUE);
   foreach($subdomains_array as $subdomain_value)
   {
     
-      print('<link rel="alternate" href="https://'.$url_full.' hreflang="en-'.$subdomain_value.'">');
+      print('<link rel="alternate" href="https://'.$url_full.'" hreflang="en-'.$subdomain_value.'">');
     
   }
     if(isset($category_array))
