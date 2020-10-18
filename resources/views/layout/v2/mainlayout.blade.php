@@ -1,4 +1,8 @@
-<!doctype html>
+<?php
+    header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
+    ?>
+    <!doctype html>
 <html lang="en-US" prefix="og: http://ogp.me/ns#">
   <head>
 <meta name="google-site-verification" content="omHqJAAMCxy8mUBibcZSN7CIfsiVwFi_bB1oKcfEIVo" />
@@ -512,6 +516,19 @@ $reviewername=randomName();
 </script>
 
 
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5e1068e57e39ea1242a30129/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 
 
 <script src='https://www.google.com/recaptcha/api.js'></script>
@@ -1118,22 +1135,5 @@ return new Promise(function (resolve, reject) {
 
     </script>
    
-
-
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/5e1068e57e39ea1242a30129/default';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
-
-
   </body>
 </html>
