@@ -64,6 +64,7 @@ $isProductPage=in_array("product",$url_array,TRUE);
  
   $subdomains_array=$data->getSubdomainArray();
 
+  print('<link rel="alternate" href="https://'.$url_full.'" hreflang="en">');
   foreach($subdomains_array as $subdomain_value)
   {
     
