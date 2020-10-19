@@ -256,9 +256,11 @@ $isProductPage=in_array("product",$url_array,TRUE);
 
     foreach($subdomains_array as $subdomain_value)
     {
+        if($subdomain_value!==$subdomain){
         $newURLFull=str_replace("/".$subdomain, "/".$subdomain_value, $url_full); 
         //print($newURLFull."<br>");
         echo('<link rel="alternate" href="https://'.$newURLFull.'" hreflang="en-'.$subdomain_value.'">');
+        }
     }
   }
 ?>
