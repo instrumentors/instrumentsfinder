@@ -58,8 +58,8 @@ function getSitemapBlock($url,$imxml,$subdomains_array,$ts=null)
 			$xmlblock='<url><loc>'.($url).'</loc><lastmod>'.$ts.'</lastmod>'.$imxml;
 			foreach($subdomains_array as $subdomain_value)
 			{
-				//$xmlblock.='<xhtml:link rel="alternate" href="https://'.$url.'" hreflang="en-'.$subdomain_value.'"/>';
-				$xmlblock.=' <xhtml:link rel="alternate" hreflang="en" href="https://technicalseo.com"/>';
+				$xmlblock.='<xhtml:link rel="alternate" href="https://'.$url.'" hreflang="en-'.$subdomain_value.'"/>';
+				
 			}
 			$xmlblock.='</url>';
 			
