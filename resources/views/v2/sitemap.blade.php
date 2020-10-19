@@ -62,6 +62,7 @@ function getSitemapBlock($url,$imxml,$subdomains_array,$ts=null)
 				$newURLFull=str_replace("/".$subdomain, "/".$subdomain_value, $url); 
 				$xmlblock.='<xhtml:link rel="alternate" href="https://'.$newURLFull.'" hreflang="en-'.$subdomain_value.'"/>';
 				
+				
 			}
 			$xmlblock.='</url>';
 			
