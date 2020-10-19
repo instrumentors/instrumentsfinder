@@ -52,13 +52,15 @@ function getSitemapBlock($url,$imxml,$subdomains_array,$ts=null)
 			$ts = date('c',time());
 
 		$segment=resolve("segment");
-
+		$subdomain=resolve("subdomain");
+		
 		if($segment=="medical")
 		{
 			$xmlblock='<url><loc>'.($url).'</loc><lastmod>'.$ts.'</lastmod>'.$imxml;
 			foreach($subdomains_array as $subdomain_value)
 			{
-				$xmlblock.='<xhtml:link rel="alternate" href="https://'.$url.'" hreflang="en-'.$subdomain_value.'"/>';
+				$newURLFull=str_replace("/".$subdomain, "/".$subdomain_value, $url); 
+				$xmlblock.='<xhtml:link rel="alternate" href="https://'.$newURLFull.'" hreflang="en-'.$subdomain_value.'"/>';
 				
 			}
 			$xmlblock.='</url>';
