@@ -61,14 +61,14 @@ $isProductPage=in_array("product",$url_array,TRUE);
   {
     $link_prefix="/".$subdomain;
     $homeLink="/".$subdomain;
-    
+
     $schema_org_url="https://med.instrumentsfinder.com/".$subdomain."/";
 
   }
- 
+
   $subdomains_array=$data->getSubdomainArray();
 
-  
+
     if(isset($category_array))
     {
         $cat_seo_array=array();
@@ -99,10 +99,10 @@ $isProductPage=in_array("product",$url_array,TRUE);
     $page="brand";
     else
     if(in_array("application",$url_array,TRUE))
-        $page="application"; 
+        $page="application";
     else
     if(in_array("product",$url_array,TRUE))
-        $page="product";          
+        $page="product";
 
     //if(count($url_array)==1)//INDEXPAGE
     if($page=="index")
@@ -250,14 +250,14 @@ $isProductPage=in_array("product",$url_array,TRUE);
   {
     //   print($url_full);
     //   print($subdomain);
-    
-    print('<link rel="alternate" href="https://'.$url_full.'" hreflang="en">');
-    
+
+    //print('<link rel="alternate" href="https://'.$url_full.'" hreflang="en">');
+
 
     foreach($subdomains_array as $subdomain_value)
     {
         //if($subdomain_value!==$subdomain){
-        $newURLFull=str_replace("/".$subdomain, "/".$subdomain_value, $url_full); 
+        $newURLFull=str_replace("/".$subdomain, "/".$subdomain_value, $url_full);
         //print($newURLFull."<br>");
         echo('<link rel="alternate" href="https://'.$newURLFull.'" hreflang="en-'.$subdomain_value.'">');
        // }
@@ -501,8 +501,8 @@ $reviewername=randomName();
     "seller": {
       "@type": "Organization",
       "name": "InstrumentsFinder.com {{$country}}",
-      "url":"{{$schema_org_url}}" 
-      
+      "url":"{{$schema_org_url}}"
+
     }
 
 
@@ -1145,6 +1145,6 @@ return new Promise(function (resolve, reject) {
 
 
     </script>
-   
+
   </body>
 </html>
