@@ -251,7 +251,7 @@ $isProductPage=in_array("product",$url_array,TRUE);
     //   print($url_full);
     //   print($subdomain);
 
-    //print('<link rel="alternate" href="https://'.$url_full.'" hreflang="en">');
+    echo('<link rel="alternate" href="https://'.str_replace("/".$subdomain, "/en", $url_full);.'" hreflang="en">');
 
 
     foreach($subdomains_array as $subdomain_value)
