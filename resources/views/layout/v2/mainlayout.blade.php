@@ -250,7 +250,7 @@ $isProductPage=in_array("product",$url_array,TRUE);
   {
     //   print($url_full);
     //   print($subdomain);
-    print('<link rel="canonical" href="https://'.$url_full.'">');
+    
     print('<link rel="alternate" href="https://'.$url_full.'" hreflang="en">');
     
 
