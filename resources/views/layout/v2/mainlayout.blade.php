@@ -68,20 +68,7 @@ $isProductPage=in_array("product",$url_array,TRUE);
  
   $subdomains_array=$data->getSubdomainArray();
 
-  if($segment=="medical")
-  {
-    print('<link rel="alternate" href="https://'.$url_full.'" hreflang="en">');
-  }
-  else
-  {
-    print('<link rel="alternate" href="https://'.$url_full.'" hreflang="en">');
-  } 
-  foreach($subdomains_array as $subdomain_value)
-  {
-    
-      print('<link rel="alternate" href="https://'.$url_full.'" hreflang="en-'.$subdomain_value.'">');
-    
-  }
+  
     if(isset($category_array))
     {
         $cat_seo_array=array();
@@ -258,10 +245,26 @@ $isProductPage=in_array("product",$url_array,TRUE);
 
     <link rel="canonical" href="{{$canonical_url}}"/>
 
+<?php
+  if($segment=="medical")
+  {
+    //   print($url_full);
+    //   print($subdomain);
+    print('<link rel="alternate" href="https://'.$url_full.'" hreflang="en">');
+    foreach($subdomains_array as $subdomain_value)
+    {
+        $newURLFull=str_replace("/".$subdomain, "/".$subdomain_value, $url_full); 
+        //print($newURLFull."<br>");
+        echo('<link rel="alternate" href="https://'.$newURLFull.'" hreflang="en-'.$subdomain_value.'">');
+    }
+  }
+?>
+
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon/{{$faviconPath}}apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon/{{$faviconPath}}favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon/{{$faviconPath}}favicon-16x16.png">
 <link rel="manifest" href="/favicon/{{$faviconPath}}site.webmanifest">
+
 
 
 
@@ -529,6 +532,8 @@ s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
+
+
 <!--End of Tawk.to Script-->
 
 
