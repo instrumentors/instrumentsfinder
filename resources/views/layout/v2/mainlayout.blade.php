@@ -250,17 +250,17 @@ $isProductPage=in_array("product",$url_array,TRUE);
   {
     //   print($url_full);
     //   print($subdomain);
-    print('<link rel="canonical" href="https://'.$url_full.'" hreflang="en-'.$subdomain.'">');
+    print('<link rel="canonical" href="https://'.$url_full.'">');
     print('<link rel="alternate" href="https://'.$url_full.'" hreflang="en">');
     
 
     foreach($subdomains_array as $subdomain_value)
     {
-        if($subdomain_value!==$subdomain){
+        //if($subdomain_value!==$subdomain){
         $newURLFull=str_replace("/".$subdomain, "/".$subdomain_value, $url_full); 
         //print($newURLFull."<br>");
         echo('<link rel="alternate" href="https://'.$newURLFull.'" hreflang="en-'.$subdomain_value.'">');
-        }
+       // }
     }
   }
 ?>
