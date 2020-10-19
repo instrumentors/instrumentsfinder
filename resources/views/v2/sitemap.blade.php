@@ -31,10 +31,10 @@ $cities = $data_values["cities"];
 $ga = $data_values["ga"];
 $currency = $data_values["currency"];
 $imagelocation_str = "ff";//$country;//.", ".implode(", ", $cities);
-
+$subdomains_array=$data->getSubdomainArray();
 ?>
 
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
 @if($data_array)
 
@@ -42,14 +42,33 @@ $imagelocation_str = "ff";//$country;//.", ".implode(", ", $cities);
 
 
 
-function getSitemapBlock($url,$imxml,$ts=null)
+function getSitemapBlock($url,$imxml,$subdomains_array,$ts=null)
 	{
-		if($ts==null)
-			$ts = date('c',time());
+		
 
 		
 
-		$xmlblock='<url><loc>'.($url).'</loc><lastmod>'.$ts.'</lastmod>'.$imxml.'</url>';
+		if($ts==null)
+			$ts = date('c',time());
+
+		$segment=resolve("segment");
+
+		if($segment=="medical")
+		{
+			$xmlblock='<url><loc>'.($url).'</loc><lastmod>'.$ts.'</lastmod>'.$imxml;
+			foreach($subdomains_array as $subdomain_value)
+			{
+				//$xmlblock.='<xhtml:link rel="alternate" href="https://'.$url.'" hreflang="en-'.$subdomain_value.'"/>';
+				$xmlblock.=' <xhtml:link rel="alternate" hreflang="en" href="https://technicalseo.com"/>';
+			}
+			$xmlblock.='</url>';
+			
+
+		}
+		else
+		{
+			$xmlblock='<url><loc>'.($url).'</loc><lastmod>'.$ts.'</lastmod>'.$imxml.'</url>';
+		}		
 
    		return $xmlblock;
 	}
@@ -95,7 +114,7 @@ function getSitemapBlock($url,$imxml,$ts=null)
 			}
 
 
-			$sitemap=getSitemapBlock($url,$imxml);
+			$sitemap=getSitemapBlock($url,$imxml,$subdomains_array);
 			echo(trim($sitemap));
 
 			
