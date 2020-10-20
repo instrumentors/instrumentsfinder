@@ -57,6 +57,12 @@ function getSitemapBlock($url,$imxml,$subdomains_array,$ts=null)
 		if($segment=="medical")
 		{
 			$xmlblock='<url><loc>'.($url).'</loc><lastmod>'.$ts.'</lastmod>'.$imxml;
+
+			$globalURLFull=str_replace("/".$subdomain, "/"."en", $url);
+    		
+			$xmlblock.='<xhtml:link rel="alternate" href="https://'.$globalURLFull.'" hreflang="en"/>';
+
+
 			foreach($subdomains_array as $subdomain_value)
 			{
 				$newURLFull=str_replace("/".$subdomain, "/".$subdomain_value, $url); 
