@@ -76,8 +76,8 @@ Route::view('{subdomain}/checkout','v2.checkout');
 Route::post("/submitlead",'MainController@submitLead');
 Route::post("{subdomain}/submitlead",'MainController@submitLead');
 
-Route::get('/sitemap/{id}/{index}','MainController@siteMapGenerate');
-Route::get('{subdomain}/sitemap/{id}/{index}','MainController@siteMapGenerate');
+Route::get('/sitemap/{id}/{index}/{keyword?}','MainController@siteMapGenerate');
+Route::get('{subdomain}/sitemap/{id}/{index}/{keyword?}','MainController@siteMapGenerate');
 
 //Route::get('/sitemap/{id}/','MainController@siteMapGenerate');
 //Route::get('{subdomain}/sitemap/{id}/','MainController@siteMapGenerate');

@@ -642,7 +642,7 @@ return new Promise(function (resolve, reject) {
 
                     ],
                     suggestion: function(data) {
-                    return '<a style="color:#333;text-decoration:none;"href="/product/'+data.prod_id+'/'+data.slug+'"><div style="font-weight:normal; margin-top:-10px ! important;" class="searchresults list-group-item">' + data.name + '</div></a></div>'
+                    return '<a style="color:#333;text-decoration:none;"href="/<?=$subdomain?>/product/'+data.prod_id+'/'+data.slug+'"><div style="font-weight:normal; margin-top:-10px ! important;" class="searchresults list-group-item">' + data.name + '</div></a></div>'
                     }
                 }
             });

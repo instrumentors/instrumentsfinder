@@ -44,10 +44,6 @@ $subdomains_array=$data->getSubdomainArray();
 
 function getSitemapBlock($url,$imxml,$subdomains_array,$ts=null)
 	{
-		
-
-		
-
 		if($ts==null)
 			$ts = date('c',time());
 

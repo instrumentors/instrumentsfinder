@@ -124,7 +124,7 @@ class MainController extends Controller
 
 	}
 
-public function siteMapGenerate(Request $request,$param1,$param2,$param3=null)
+public function siteMapGenerate(Request $request,$param1,$param2,$param3=null,$param4=null)
 {
 	if($param3==null)
 	{
@@ -136,6 +136,13 @@ public function siteMapGenerate(Request $request,$param1,$param2,$param3=null)
 		$id=$param2;
 		$index=$param3;
 	}
+
+	$keyword='';
+	if($param4!=null)
+	{
+		$keyword=$param4;
+	}
+	
 	$productmaster = new products_master;
 	$categorymaster = new category_master;
 	$applicationmaster = new applications_master;
@@ -150,7 +157,7 @@ public function siteMapGenerate(Request $request,$param1,$param2,$param3=null)
 		$data_array=$applicationmaster->getApplicationsbyNameCount($segment);
 	}
 	elseif($id=="products"){
-		$data_array=$productmaster->getProductsForSitemap($index,$segment);
+		$data_array=$productmaster->getProductsForSitemap($index,$segment,$keyword);
 	}
 	elseif($id=="brands_products")
 	{
