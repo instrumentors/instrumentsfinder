@@ -226,7 +226,7 @@ class DataManager
 
             default: //global
                 $country = "";
-                $cities = array("USA","Middle East","Asia Pacific");
+                $cities = array("Dubai, Abu Dhabi, Saudi Arabia, Oman, Qatar, Iraq","Africa(Angola, Nigeria, Congo, Algeria, Egypt)","CIS(Azerbaijan, Kazakhstan, Turkmenistan, Russia)");
                 $currency="USD";
                 $ga='UA-138665419-28';
                 $yandex='';
