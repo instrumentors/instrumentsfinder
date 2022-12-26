@@ -1079,15 +1079,15 @@ return new Promise(function (resolve, reject) {
 
 
                 cart_checkout_html+='<tr>';
-
-                if(options.length>0)
-                {
-                    cart_checkout_html+='<td><img src="'+img+'"></td><td>'+pname+'<br/><a href="#collapse'+pid+'" data-toggle="collapse">view configuration</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#" class="editconf" pid="'+pid+'">edit configuration</a> </td>';
-                }
-                else
-                {
+                //Edied by Yusuf -  removal of configurator
+                //if(options.length>0)
+                //{
+                //    cart_checkout_html+='<td><img src="'+img+'"></td><td>'+pname+'<br/><a href="#collapse'+pid+'" data-toggle="collapse">view configuration</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#" class="editconf" pid="'+pid+'">edit configuration</a> </td>';
+                //}
+                //else
+                //{
                     cart_checkout_html+='<td><img src="'+img+'"></td><td>'+pname+'</td>';
-                }
+                //}
 
 
 

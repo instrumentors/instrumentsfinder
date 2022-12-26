@@ -636,7 +636,8 @@ public function siteMapGenerate(Request $request,$param1,$param2,$param3=null,$p
 
 		$options=$productoptions->getProductOptionsByProductID($productid);
 
-		return view('v2.configurator',compact('productData','options'));
+		//return view('v2.configurator',compact('productData','options'));
+		return view('v2.index',compact('productData','options'));
 	}
 
 
