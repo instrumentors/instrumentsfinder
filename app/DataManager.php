@@ -27,7 +27,7 @@ class DataManager
         if($pagetemplate=="brands")
         {
             $pageHeader ="Brands";
-            $pageDesc = "We are resellers of the most popular brands across a range of Industrial products";
+            $pageDesc = "Looking for the best in Instrumentation products? Look no further! We are resellers of the most popular brands across a wide range of industries. From testing tools and medical / Industrial equipments to spare parts and more, we've got everything you need to get the job done right. Don't settle for second best – choose us for all your Industrial, Laboratory & Medical product needs!";
         }
         return array("pageHeader"=>$pageHeader,"pageDesc"=>$pageDesc);
     }//end of function getHeader_Desc

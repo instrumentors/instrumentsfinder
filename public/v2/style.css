@@ -45,7 +45,7 @@ h1
 
 .bgcolor
 {
-	background-color:#fdd700;
+	background-color:#fed700;
 }
 
 
@@ -58,7 +58,7 @@ h1
 
 .options_block
 {
-	border-right:dotted #fdd700 1px;
+	border-right:dotted #fed700 1px;
 	overflow: scroll;
 }
 
@@ -72,7 +72,7 @@ h1
 
 .jumbotron_brand {
 	padding:20px;
-	color:#ffffff;
+	color:#333E48;
     position: relative;
     background: url(/img/bg.jpg);
     background-size: cover;
@@ -82,7 +82,7 @@ h1
 {
 	font-weight:200;
 	font-size:40px;
-	color:#fdd700;
+	color:#fed700;
 
 }
 .jumbotron_brand > .overlay {
@@ -112,13 +112,13 @@ h1
 
 .catblockmaster a
 {
-	background-color:#fdd700;
+	background-color:#fed700;
 	text-decoration:none;
 	color:#000000;
 }
 
 .catblockmaster :hover {
-  background-color:#fdd700;
+  background-color:#fed700;
 
 }
 
@@ -159,7 +159,7 @@ h1
 
 .prodlistingblock a
 {
-	color:#333333;
+	color:#D9D9D9;
 	text-decoration:none;
 }
 
@@ -171,7 +171,7 @@ h1
 {
 	vertical-align: middle;
 	text-transform: uppercase;
-	border:dotted #fdd700 1px;
+	border:dotted #fed700 1px;
 	letter-spacing: 0.6px;
 	margin:5px;
 	padding-left:10px;
@@ -187,7 +187,7 @@ h1
 {
 	padding:10px;
 	width:98%;
-	background-color: #ffffff;
+	background-color: #1C1E21;
 }
 
 
@@ -224,7 +224,7 @@ h1
 {
 	padding:5px;
 
-	border-bottom: dotted 1px #fdd700;
+	border-bottom: dotted 1px #fed700;
 	margin-bottom:8px;
 	width:100%;
 
@@ -362,7 +362,7 @@ input::placeholder { color: #777; font-size: 0.9em; letter-spacing:0.5px;  paddi
 }
 
 .brandcolor{
-	color:#fdd700;
+	color:#fed700;
 }
 
 .homeimg
@@ -376,7 +376,7 @@ input::placeholder { color: #777; font-size: 0.9em; letter-spacing:0.5px;  paddi
 .btn-brand:hover
 {
 
-	background-color: #fdd700;
+	background-color: #fed700;
 	border:0px;
 	color:#0569AD;
 	font-weight:700;
@@ -385,7 +385,7 @@ input::placeholder { color: #777; font-size: 0.9em; letter-spacing:0.5px;  paddi
 .btn-brand:click
 {
 
-	background-color: #fdd700;
+	background-color: #fed700;
 	border:0px;
 	color:#0569AD;
 	font-weight:700;
@@ -407,7 +407,7 @@ input::placeholder { color: #777; font-size: 0.9em; letter-spacing:0.5px;  paddi
 .variant
 {
 	background-color: #333;
-	color:#fdd700;
+	color:#fed700;
 	letter-spacing: 0.5px;
 	font-weight:800;
 	padding-left:20px;

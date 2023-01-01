@@ -311,9 +311,6 @@
 	// Controls whether the cursor should be hidden in the overview ruler.
 	"editor.hideCursorInOverviewRuler": false,
 
-	// Controls whether the editor should highlight the active indent guide.
-	"editor.highlightActiveIndentGuide": true,
-
 	// Controls the delay in milliseconds after which the hover is shown.
 	"editor.hover.delay": 300,
 
@@ -390,7 +387,7 @@
 	// The modifier to be used to add multiple cursors with the mouse. The Go To Definition and Open Link mouse gestures will adapt such that they do not conflict with the multicursor modifier. [Read more](https://code.visualstudio.com/docs/editor/codebasics#_multicursor-modifier).
 	//  - ctrlCmd: Maps to `Control` on Windows and Linux and to `Command` on macOS.
 	//  - alt: Maps to `Alt` on Windows and Linux and to `Option` on macOS.
-	"editor.multiCursorModifier": "alt",
+	"editor.multiCursorModifier": "ctrlCmd",
 
 	// Controls pasting when the line count of the pasted text matches the cursor count.
 	//  - spread: Each cursor pastes a single line of the text.
@@ -441,9 +438,6 @@
 
 	// Render last line number when the file ends with a newline.
 	"editor.renderFinalNewline": true,
-
-	// Controls whether the editor should render indent guides.
-	"editor.renderIndentGuides": true,
 
 	// Controls how the editor should render the current line highlight.
 	//  - none
@@ -512,10 +506,6 @@
 
 	// Keep peek editors open even when double clicking their content or when hitting `Escape`.
 	"editor.stablePeek": false,
-
-	// This setting is deprecated, please use separate settings like 'editor.suggest.showKeywords' or 'editor.suggest.showSnippets' instead.
-	//
-	"editor.suggest.filteredTypes": {},
 
 	// Controls whether filtering and sorting suggestions accounts for small typos.
 	"editor.suggest.filterGraceful": true,
@@ -2835,7 +2825,11 @@
 	// Configure settings to be overridden for [markdown] language.
 	"[markdown]":  {
 		"editor.wordWrap": "on",
-		"editor.quickSuggestions": false
+		"editor.quickSuggestions": {
+			"comments": "off",
+			"strings": "off",
+			"other": "off"
+		}
 	},
 
 	// Configure settings to be overridden for [scss] language.
@@ -6294,5 +6288,7 @@
 	// This setting will change the color more vivid
 	"oneDarkPro.vivid": false,
 	"editor.fontSize": 20,
+	"editor.guides.indentation": true,
+	"editor.guides.highlightActiveIndentation": true,
 
 }
